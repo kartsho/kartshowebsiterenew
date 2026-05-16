@@ -687,9 +687,9 @@ const Navbar = () => {
             top-0
             right-0
 
-            w-[85%]
+            w-[min(85vw,380px)]
             max-w-[380px]
-            h-screen
+            h-[100dvh]
 
             z-[999]
 
@@ -700,6 +700,7 @@ const Navbar = () => {
             border-black/5
 
             overflow-y-auto
+            overscroll-contain
 
             lg:hidden
           "

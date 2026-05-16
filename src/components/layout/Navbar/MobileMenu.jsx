@@ -23,14 +23,16 @@ const MobileMenu = ({ isOpen }) => {
           fixed
           top-0
           right-0
-          w-[80%]
-          h-screen
+          w-[min(80vw,380px)]
+          h-[100dvh]
           bg-[#0B0F19]
           z-[1100]
           p-10
           flex
           flex-col
           gap-8
+          overflow-y-auto
+          overscroll-contain
         "
         >
           {navLinks.map((item) => (
