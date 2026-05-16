@@ -25,3 +25,4 @@ React + Vite frontend for the Kartsho site.
 - Fixed Hostinger production layout breaking from stale root-relative asset paths.
 - Added `.htaccess` for SPA fallback on Apache hosting.
 # kartshowebsiterenew
+# kartshowebsiterenew
