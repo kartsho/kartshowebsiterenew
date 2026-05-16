@@ -26,3 +26,4 @@ React + Vite frontend for the Kartsho site.
 - Added `.htaccess` for SPA fallback on Apache hosting.
 # kartshowebsiterenew
 # kartshowebsiterenew
+# kartshowebsiterenew
