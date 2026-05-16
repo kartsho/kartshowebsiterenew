@@ -14,7 +14,7 @@ import Career from "../pages/Careers/Careers";
 import WebDevelopment from "../pages/WebDevelopment/WebDevelopment";
 import WebPricingPage from "../pages/WebDevelopment/WebPricingPage";
 
-import GymWebsitePage from "../pages/services/gym/GymWebsitePage";
+import GymWebsitePage from "../pages/Services/GymWebsitePage";
 
 import Schoolwebsite from "../components/services/school/Schoolwebsite";
 
