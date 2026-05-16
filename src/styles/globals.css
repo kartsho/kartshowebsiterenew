@@ -1,0 +1,187 @@
+@import "tailwindcss";
+
+:root {
+  color-scheme: light;
+  --page-bg: #f5f7fb;
+  --surface: rgba(255, 255, 255, 0.78);
+  --surface-strong: #ffffff;
+  --surface-soft: rgba(255, 255, 255, 0.6);
+  --text-primary: #0b0f19;
+  --text-secondary: #4b5563;
+  --text-muted: #6b7280;
+  --border: rgba(15, 23, 42, 0.1);
+}
+
+html[data-theme="dark"] {
+  color-scheme: dark;
+  --page-bg: #070b14;
+  --surface: rgba(15, 23, 42, 0.82);
+  --surface-strong: #0f172a;
+  --surface-soft: rgba(15, 23, 42, 0.62);
+  --text-primary: #f8fafc;
+  --text-secondary: #cbd5e1;
+  --text-muted: #94a3b8;
+  --border: rgba(148, 163, 184, 0.18);
+}
+
+*{
+  margin:10;
+  padding:10;
+  box-sizing:border-box;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  background:var(--page-bg);
+  color:var(--text-primary);
+  font-family:Inter,sans-serif;
+  overflow-x:hidden;
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
+}
+
+a{
+  text-decoration:none;
+  color:inherit;
+}
+
+button{
+  border:none;
+  outline:none;
+  cursor:pointer;
+}
+
+img{
+  width:100%;
+  display:block;
+}
+
+/* Dark mode utility overrides for light-only Tailwind classes. */
+html[data-theme="dark"] .bg-\[\#F5F7FB\],
+html[data-theme="dark"] .bg-\[\#F7FAFF\],
+html[data-theme="dark"] .bg-\[\#FBFDFF\],
+html[data-theme="dark"] .bg-\[\#EEF2F7\],
+html[data-theme="dark"] .bg-\[\#F8FAFC\],
+html[data-theme="dark"] .bg-white {
+  background-color: var(--surface-strong) !important;
+}
+
+html[data-theme="dark"] .bg-white\/95,
+html[data-theme="dark"] .bg-white\/90,
+html[data-theme="dark"] .bg-white\/85,
+html[data-theme="dark"] .bg-white\/80,
+html[data-theme="dark"] .bg-white\/65,
+html[data-theme="dark"] .bg-white\/75,
+html[data-theme="dark"] .bg-white\/70,
+html[data-theme="dark"] .bg-white\/60,
+html[data-theme="dark"] .bg-white\/50,
+html[data-theme="dark"] .bg-white\/40,
+html[data-theme="dark"] .bg-white\/20,
+html[data-theme="dark"] .bg-white\/10,
+html[data-theme="dark"] .bg-white\/5 {
+  background-color: var(--surface) !important;
+}
+
+html[data-theme="dark"] .bg-black\/5 {
+  background-color: rgba(148, 163, 184, 0.12) !important;
+}
+
+html[data-theme="dark"] .bg-black\/\[0\.03\],
+html[data-theme="dark"] .bg-black\/\[0\.04\],
+html[data-theme="dark"] .hover\:bg-black\/\[0\.03\]:hover,
+html[data-theme="dark"] .hover\:bg-black\/\[0\.04\]:hover {
+  background-color: rgba(15, 23, 42, 0.28) !important;
+}
+
+html[data-theme="dark"] .text-\[\#0B0F19\],
+html[data-theme="dark"] .text-black {
+  color: var(--text-primary) !important;
+}
+
+html[data-theme="dark"] .text-gray-900,
+html[data-theme="dark"] .text-slate-900,
+html[data-theme="dark"] .text-zinc-900,
+html[data-theme="dark"] .text-neutral-900,
+html[data-theme="dark"] .text-gray-800,
+html[data-theme="dark"] .text-slate-800,
+html[data-theme="dark"] .text-zinc-800,
+html[data-theme="dark"] .text-neutral-800 {
+  color: var(--text-primary) !important;
+}
+
+html[data-theme="dark"] .text-gray-700,
+html[data-theme="dark"] .text-slate-700,
+html[data-theme="dark"] .text-zinc-700,
+html[data-theme="dark"] .text-neutral-700,
+html[data-theme="dark"] .text-gray-600,
+html[data-theme="dark"] .text-slate-600,
+html[data-theme="dark"] .text-zinc-600,
+html[data-theme="dark"] .text-neutral-600 {
+  color: var(--text-primary) !important;
+}
+
+html[data-theme="dark"] .text-gray-500 {
+  color: var(--text-secondary) !important;
+}
+
+html[data-theme="dark"] .text-gray-400,
+html[data-theme="dark"] .text-gray-300 {
+  color: var(--text-muted) !important;
+}
+
+html[data-theme="dark"] .border-black\/10,
+html[data-theme="dark"] .border-black\/5,
+html[data-theme="dark"] .border-white\/40,
+html[data-theme="dark"] .border-white\/30,
+html[data-theme="dark"] .border-white\/20,
+html[data-theme="dark"] .border-white\/10,
+html[data-theme="dark"] .border-white\/50,
+html[data-theme="dark"] .border-white\/60,
+html[data-theme="dark"] .border-white\/70,
+html[data-theme="dark"] .border-white\/80,
+html[data-theme="dark"] .border-white\/90,
+html[data-theme="dark"] .border-white\/95 {
+  border-color: var(--border) !important;
+}
+
+html[data-theme="dark"] .service-hero {
+  background: linear-gradient(135deg, #050816 0%, #070b14 55%, #0f172a 100%) !important;
+}
+
+html[data-theme="dark"] .service-hero .text-\[\#0B0F19\],
+html[data-theme="dark"] .service-hero .text-\[\#0B1220\],
+html[data-theme="dark"] .service-hero .text-black {
+  color: #ffffff !important;
+}
+
+html[data-theme="dark"] .service-hero .text-gray-700,
+html[data-theme="dark"] .service-hero .text-gray-600,
+html[data-theme="dark"] .service-hero .text-slate-700,
+html[data-theme="dark"] .service-hero .text-slate-600,
+html[data-theme="dark"] .service-hero .text-zinc-700,
+html[data-theme="dark"] .service-hero .text-zinc-600,
+html[data-theme="dark"] .service-hero .text-neutral-700,
+html[data-theme="dark"] .service-hero .text-neutral-600 {
+  color: rgba(255, 255, 255, 0.86) !important;
+}
+
+html[data-theme="dark"] .service-hero .text-gray-500,
+html[data-theme="dark"] .service-hero .text-slate-500,
+html[data-theme="dark"] .service-hero .text-zinc-500,
+html[data-theme="dark"] .service-hero .text-neutral-500 {
+  color: rgba(255, 255, 255, 0.72) !important;
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0%);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
+}

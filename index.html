@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/Kartsho K.jpeg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>kartsho.pvt.ltd</title>
+    <meta name="color-scheme" content="dark light" />
+    <script>
+      (function () {
+        try {
+          const storageKey = "kartsho-theme";
+          const storedTheme = window.localStorage.getItem(storageKey);
+          const prefersDark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+          const theme = storedTheme === "dark" || storedTheme === "light" ? storedTheme : (prefersDark ? "dark" : "light");
+          const root = document.documentElement;
+
+          root.dataset.theme = theme;
+          root.style.colorScheme = theme;
+          root.style.backgroundColor = theme === "dark" ? "#070b14" : "#f5f7fb";
+          root.style.setProperty("--page-bg", theme === "dark" ? "#070b14" : "#f5f7fb");
+          root.style.setProperty("--text-primary", theme === "dark" ? "#f8fafc" : "#0b0f19");
+          root.style.setProperty("--text-secondary", theme === "dark" ? "#cbd5e1" : "#4b5563");
+          root.style.setProperty("--text-muted", theme === "dark" ? "#94a3b8" : "#6b7280");
+          root.style.setProperty("--surface-strong", theme === "dark" ? "#0f172a" : "#ffffff");
+          root.style.setProperty("--surface", theme === "dark" ? "rgba(15, 23, 42, 0.82)" : "rgba(255, 255, 255, 0.78)");
+          root.style.setProperty("--border", theme === "dark" ? "rgba(148, 163, 184, 0.18)" : "rgba(15, 23, 42, 0.1)");
+        } catch (error) {
+          // Ignore storage or media query access failures and fall back to CSS defaults.
+        }
+      })();
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
