@@ -28,6 +28,8 @@ import ProgressBar from "./ProgressBar";
 import { navLinks } from "../../../data/navLinks.js";
 
 const Navbar = () => {
+  const noiseUrl = `${import.meta.env.BASE_URL}noise.svg`;
+
   /* ================= STATES ================= */
 
   const [isOpen, setIsOpen] =
@@ -271,9 +273,10 @@ const Navbar = () => {
             inset-0
 
             opacity-[0.03]
-
-            bg-[url('/noise.svg')]
           "
+            style={{
+              backgroundImage: `url("${noiseUrl}")`,
+            }}
           />
 
           {/* ================= GLOW ================= */}

@@ -1,4 +1,6 @@
 const NoiseBackground = () => {
+  const noiseUrl = `${import.meta.env.BASE_URL}noise.svg`;
+
   return (
     <div
       className="
@@ -9,7 +11,7 @@ const NoiseBackground = () => {
       z-[1]
     "
       style={{
-        backgroundImage: "url('/noise.svg')",
+        backgroundImage: `url("${noiseUrl}")`,
       }}
     />
   );

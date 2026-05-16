@@ -54,6 +54,8 @@ const floatingMembers = [
 ];
 
 const TeamHero = () => {
+  const noiseUrl = `${import.meta.env.BASE_URL}noise.svg`;
+
   return (
     <section
       className="
@@ -119,9 +121,10 @@ const TeamHero = () => {
         inset-0
 
         opacity-[0.03]
-
-        bg-[url('/noise.svg')]
       "
+        style={{
+          backgroundImage: `url("${noiseUrl}")`,
+        }}
       />
 
       {/* ================= CONTAINER ================= */}

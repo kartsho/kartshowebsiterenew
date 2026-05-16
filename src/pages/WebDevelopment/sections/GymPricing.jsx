@@ -10,6 +10,8 @@ import {
 import { gymPricingPlans } from "../../../data/gymPricingPlans";
 
 const GymPricing = () => {
+  const pressKitUrl = `${import.meta.env.BASE_URL}presskit/GMS%20Proposal%20Simple.pdf`;
+
   const [currency, setCurrency] =
     useState("INR");
 
@@ -583,7 +585,7 @@ const GymPricing = () => {
                 {/* PRESS KIT */}
 
                 <a
-                  href="/presskit/GMS Proposal Simple.pdf"
+                  href={pressKitUrl}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="

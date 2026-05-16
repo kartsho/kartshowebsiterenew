@@ -1,10 +1,12 @@
-const ProgresBar=({scrollProgress})=>{
-  return(
-    <div className="fixed top-0 left-0 h-[2px] bg-cyan-400 z-[100]transition-all duration-200 "
-    style={{
-      width:`${scrollProgress}%`,
-    }}
+const ProgressBar = ({ scrollProgress }) => {
+  return (
+    <div
+      className="fixed left-0 top-0 z-[100] h-[2px] bg-cyan-400 transition-all duration-200"
+      style={{
+        width: `${scrollProgress}%`,
+      }}
     />
-  )
+  );
 };
-export default ProgresBar;
+
+export default ProgressBar;
