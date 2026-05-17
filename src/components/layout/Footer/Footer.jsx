@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 
 import {
   FaInstagram,
@@ -15,15 +16,17 @@ import {
   Mail,
 } from "lucide-react";
 
+import LegalStrip from "../../legal/LegalStrip";
+
 const footerLinks = [
   {
     title: "Company",
 
     links: [
-      "About",
-      "Careers",
-      "Case Studies",
-      "Contact",
+      { label: "About", to: "/about" },
+      { label: "About Company", to: "/about-company" },
+      { label: "Careers", to: "/career" },
+      { label: "Contact", to: "/contact" },
     ],
   },
 
@@ -31,10 +34,10 @@ const footerLinks = [
     title: "Services",
 
     links: [
-      "AI Development",
-      "Cloud Solutions",
-      "SaaS Platforms",
-      "UI/UX Design",
+      { label: "AI Development", to: "/services#services-grid" },
+      { label: "Cloud Solutions", to: "/services#detailed-services" },
+      { label: "SaaS Platforms", to: "/services#services-grid" },
+      { label: "UI/UX Design", to: "/services#services-grid" },
     ],
   },
 
@@ -42,12 +45,18 @@ const footerLinks = [
     title: "Resources",
 
     links: [
-      "Blog",
-      "FAQs",
-      "Privacy Policy",
-      "Terms & Conditions",
+      { label: "Blog" },
+      { label: "FAQs" },
+      { label: "Privacy Policy", to: "/privacy-policy" },
+      { label: "Terms & Conditions", to: "/terms-and-conditions" },
     ],
   },
+];
+
+const legalQuickLinks = [
+  { label: "About Company", to: "/about-company" },
+  { label: "Privacy Policy", to: "/privacy-policy" },
+  { label: "Terms & Conditions", to: "/terms-and-conditions" },
 ];
 
 const Footer = () => {
@@ -110,6 +119,8 @@ const Footer = () => {
         px-6
       "
       >
+        <LegalStrip />
+
         {/* ================= TOP AREA ================= */}
 
         <div
@@ -448,41 +459,78 @@ const Footer = () => {
                 {/* LINKS */}
 
                 <div className="space-y-4">
-                  {section.links.map((link, i) => (
-                    <button
-                      key={i}
-                      className="
-                      group
-
-                      flex
-                      items-center
-                      gap-2
-
-                      text-gray-600
-
-                      transition-all
-                      duration-300
-
-                      hover:text-cyan-500
-                    "
-                    >
-                      {link}
-
-                      <ArrowUpRight
-                        size={16}
+                  {section.links.map((link, i) =>
+                    link.to ? (
+                      <Link
+                        key={link.label}
+                        to={link.to}
                         className="
-                        opacity-0
+                          group
 
-                        transition-all
-                        duration-300
+                          flex
+                          items-center
+                          gap-2
 
-                        group-hover:opacity-100
-                        group-hover:-translate-y-1
-                        group-hover:translate-x-1
-                      "
-                      />
-                    </button>
-                  ))}
+                          text-gray-600
+
+                          transition-all
+                          duration-300
+
+                          hover:text-cyan-500
+                        "
+                      >
+                        {link.label}
+
+                        <ArrowUpRight
+                          size={16}
+                          className="
+                            opacity-0
+
+                            transition-all
+                            duration-300
+
+                            group-hover:opacity-100
+                            group-hover:-translate-y-1
+                            group-hover:translate-x-1
+                          "
+                        />
+                      </Link>
+                    ) : (
+                      <button
+                        key={link.label}
+                        className="
+                          group
+
+                          flex
+                          items-center
+                          gap-2
+
+                          text-gray-600
+
+                          transition-all
+                          duration-300
+
+                          hover:text-cyan-500
+                        "
+                      >
+                        {link.label}
+
+                        <ArrowUpRight
+                          size={16}
+                          className="
+                            opacity-0
+
+                            transition-all
+                            duration-300
+
+                            group-hover:opacity-100
+                            group-hover:-translate-y-1
+                            group-hover:translate-x-1
+                          "
+                        />
+                      </button>
+                    )
+                  )}
                 </div>
               </motion.div>
             ))}
@@ -661,6 +709,106 @@ const Footer = () => {
             </button>
           </div>
         </motion.div>
+
+        {/* ================= LEGAL FOOTER ================= */}
+
+        <div
+          className="
+          rounded-[36px]
+          border
+          border-black/10
+          bg-white/70
+          backdrop-blur-2xl
+          p-8
+          shadow-[0_16px_60px_rgba(15,23,42,0.06)]
+        "
+        >
+          <div className="flex flex-col gap-8 lg:flex-row lg:items-start lg:justify-between">
+            <div className="max-w-2xl">
+              <p className="text-xs font-semibold uppercase tracking-[0.3em] text-cyan-500">
+                Company Details
+              </p>
+
+              <h3 className="mt-3 text-3xl font-black text-[#0B0F19]">
+                Kartsho Solutions Private Limited
+              </h3>
+
+              <p className="mt-4 text-gray-600 leading-relaxed">
+                Keep these legal details updated with the final registered entity information
+                before using the site in production, ad platforms, or payment flows.
+              </p>
+
+              <div className="mt-6 grid gap-4 sm:grid-cols-2">
+                <div className="rounded-3xl border border-black/5 bg-white/80 p-5">
+                  <p className="text-xs uppercase tracking-[0.22em] text-gray-500">
+                    CIN
+                  </p>
+                  <p className="mt-2 font-semibold text-[#0B0F19]">
+                    Add your CIN here
+                  </p>
+                </div>
+
+                <div className="rounded-3xl border border-black/5 bg-white/80 p-5">
+                  <p className="text-xs uppercase tracking-[0.22em] text-gray-500">
+                    GSTIN
+                  </p>
+                  <p className="mt-2 font-semibold text-[#0B0F19]">
+                    Add your GSTIN here
+                  </p>
+                </div>
+
+                <div className="rounded-3xl border border-black/5 bg-white/80 p-5">
+                  <p className="text-xs uppercase tracking-[0.22em] text-gray-500">
+                    Grievance Officer
+                  </p>
+                  <p className="mt-2 font-semibold text-[#0B0F19]">
+                    grievance@kartsho.com
+                  </p>
+                </div>
+
+                <div className="rounded-3xl border border-black/5 bg-white/80 p-5">
+                  <p className="text-xs uppercase tracking-[0.22em] text-gray-500">
+                    Response Time
+                  </p>
+                  <p className="mt-2 font-semibold text-[#0B0F19]">
+                    Within 30 days
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div className="min-w-[260px]">
+              <p className="text-xs font-semibold uppercase tracking-[0.3em] text-cyan-500">
+                Legal Links
+              </p>
+
+              <div className="mt-4 flex flex-col gap-3">
+                {legalQuickLinks.map((item) => (
+                  <Link
+                    key={item.label}
+                    to={item.to}
+                    className="
+                      rounded-2xl
+                      border
+                      border-black/5
+                      bg-white/80
+                      px-5
+                      py-4
+                      font-semibold
+                      text-[#0B0F19]
+                      transition-all
+                      duration-300
+                      hover:border-cyan-300
+                      hover:text-cyan-600
+                    "
+                  >
+                    {item.label}
+                  </Link>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
 
         {/* ================= BOTTOM ================= */}
 

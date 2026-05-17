@@ -10,6 +10,9 @@ import Services from "../pages/Services/Services";
 import Contact from "../pages/Contact/Contact";
 import Team from "../pages/Team/Team";
 import Career from "../pages/Careers/Careers";
+import AboutCompany from "../pages/Legal/AboutCompany";
+import PrivacyPolicy from "../pages/Legal/PrivacyPolicy";
+import TermsConditions from "../pages/Legal/TermsConditions";
 
 import WebDevelopment from "../pages/WebDevelopment/WebDevelopment";
 import WebPricingPage from "../pages/WebDevelopment/WebPricingPage";
@@ -62,6 +65,53 @@ const AppRoutes = () => {
         <Route
           path="/career"
           element={<Career />}
+        />
+
+        {/* ================= LEGAL ================= */}
+
+        <Route
+          path="/about-company"
+          element={<AboutCompany />}
+        />
+
+        <Route
+          path="/privacy-policy"
+          element={<PrivacyPolicy />}
+        />
+
+        <Route
+          path="/terms-and-conditions"
+          element={<TermsConditions />}
+        />
+
+        <Route
+          path="/legal/about-company"
+          element={
+            <Navigate
+              to="/about-company"
+              replace
+            />
+          }
+        />
+
+        <Route
+          path="/legal/privacy-policy"
+          element={
+            <Navigate
+              to="/privacy-policy"
+              replace
+            />
+          }
+        />
+
+        <Route
+          path="/legal/terms-and-conditions"
+          element={
+            <Navigate
+              to="/terms-and-conditions"
+              replace
+            />
+          }
         />
 
         {/* ================= WEB DEVELOPMENT ================= */}

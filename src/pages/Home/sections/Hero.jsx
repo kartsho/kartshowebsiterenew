@@ -239,25 +239,27 @@ const Hero = () => {
             relative
             w-full
             max-w-[600px]
-            h-[700px]
+            h-[420px]
+            sm:h-[520px]
+            lg:h-[700px]
             overflow-hidden
             rounded-[60px]
-         
-           
+            bg-slate-950/20
           "
-            style={{
-              clipPath:
-                "polygon(18% 0%, 100% 0%, 100% 100%, 0% 100%, 0% 20%)",
-            }}
           >
             <img
               src={heroImage}
               alt="Hero"
               className="
+              absolute
+              inset-0
               w-full
               h-full
-              scale-[4.10]
               object-cover
+              object-[55%_22%]
+              sm:object-center
+              scale-[4.11]
+              lg:scale-360
               pt-10
             "
             />
@@ -269,10 +271,10 @@ const Hero = () => {
               absolute
               inset-0
               bg-gradient-to-t
-              from-black/20
+              from-black/30
               to-transparent
             "
-            />
+          />
           </div>
 
           {/* ================= FLOATING CARD 1 ================= */}
