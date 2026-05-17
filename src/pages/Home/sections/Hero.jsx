@@ -1,8 +1,17 @@
 import { motion } from "framer-motion";
 
 import heroImage from "../../../assets/images/hero.jpg";
-
+//yaha pe jab hum click kareng explor pe tp data scroll hokar direct service preview pe jayega 
 const Hero = () => {
+  const scrollToServicesPreview = () => {
+    document
+      .getElementById("services-preview")
+      ?.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+  };
+
   return (
     <section
       className="
@@ -136,6 +145,8 @@ const Hero = () => {
 
           <div className="flex flex-wrap gap-5">
             <button
+              type="button"
+              onClick={scrollToServicesPreview}
               className="
               px-8
               py-4

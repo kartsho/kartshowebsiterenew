@@ -5,6 +5,7 @@ import {
   PenTool,
   Layers3,
   Bot,
+  ArrowUpRight,
 } from "lucide-react";
 
 import { motion } from "framer-motion";
@@ -16,6 +17,7 @@ const services = [
     description:
       "A legal access ecosystem designed to connect clients with expert legal guidance.",
     icon: Cpu,
+    href: "https://advocate.kartsho.com/",
   },
 
   {
@@ -24,6 +26,7 @@ const services = [
     description:
       "Career-focused learning pathways for people entering the digital workforce.",
     icon: Cloud,
+    href: "https://academy.kartsho.com/",
   },
 
   {
@@ -32,14 +35,17 @@ const services = [
     description:
       "Strategic academic consulting and mentorship for ambitious learners.",
     icon: Bot,
+    href: "https://counselling.kartsho.com/",
   },
 ];
 
 const ServicesPreview = () => {
   return (
     <section
+      id="services-preview"
       className="
        relative
+      scroll-mt-28
       py-24
       overflow-hidden
       bg-[#F8FAFC]
@@ -288,6 +294,42 @@ const ServicesPreview = () => {
                 >
                   {service.description}
                 </p>
+                <a
+                  href={service.href}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="
+                    relative
+                    z-10
+
+                    mt-8
+                    inline-flex
+                    items-center
+                    gap-3
+
+                    rounded-full
+                    border
+                    border-cyan-400/20
+                    bg-cyan-500/10
+                    px-5
+                    py-3
+
+                    text-cyan-300
+                    font-semibold
+
+                    transition-all
+                    duration-300
+
+                    hover:-translate-y-0.5
+                    hover:border-cyan-300/40
+                    hover:bg-cyan-500/15
+                    hover:text-cyan-200
+                  "
+                >
+                  Explore
+
+                  <ArrowUpRight size={18} />
+                </a>
 
                 {/* HOVER LINE */}
 

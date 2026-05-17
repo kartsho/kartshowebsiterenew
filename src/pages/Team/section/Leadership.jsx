@@ -13,21 +13,20 @@ import {
   FaInstagram,
   FaXTwitter,
 } from "react-icons/fa6";
+
+import directorImage from "../../../assets/images/founderimg/director.jpg";
+import codirectorImg from "../../../assets/images/founderimg/codirector.jpeg"
 /* ================================================= */
 /* TEAM DATA */
 /* ================================================= */
 
 const leaders = [
   {
-    name: "Ranjan kumar",
-    role: "Founder & CEO",
-    image:
-      "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=1200&auto=format&fit=crop",
-
+    name: "Aayush Mishara",
+    role: "Director",
+    image: directorImage,
     experience: "7+ Years",
-
     bio: "Leading AI-first digital products, enterprise systems, and scalable SaaS ecosystems globally.",
-
     expertise: [
       "Product Strategy",
       "AI Systems",
@@ -36,12 +35,11 @@ const leaders = [
   },
 
   {
-    name: "Aayush kumari",
-    role: "Chief Technology Officer",
-    image:
-      "https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=1200&auto=format&fit=crop",
+    name: "Ranjan kumar",
+    role: "Co-Director",
+    image:codirectorImg,
 
-    experience: "10+ Years",
+    experience: "5+ Years",
 
     bio: "Architecting high-performance cloud infrastructure and scalable engineering systems.",
 
@@ -53,8 +51,8 @@ const leaders = [
   },
 
   {
-    name: "Daniel Lee",
-    role: "AI Engineer",
+    name: "Salu singh",
+    role: "CEO",
     image:
       "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=1200&auto=format&fit=crop",
 
