@@ -12,7 +12,7 @@ const Hero = () => {
       bg-[#F5F7FB]
       flex
       items-center
-      pt-32
+      pt-20
     "
     >
       {/* ================= BACKGROUND GLOW ================= */}
@@ -242,6 +242,7 @@ const Hero = () => {
             h-[700px]
             overflow-hidden
             rounded-[60px]
+         
            
           "
             style={{
@@ -255,7 +256,9 @@ const Hero = () => {
               className="
               w-full
               h-full
+              scale-[4.10]
               object-cover
+              pt-10
             "
             />
 

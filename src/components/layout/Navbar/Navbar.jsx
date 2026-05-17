@@ -498,6 +498,9 @@ const Navbar = () => {
     <Link
       key={index}
       to={service.path}
+      onClick={() =>
+        setActive(service.path.split("#")[0])
+      }
       className="
       w-full
       flex
@@ -756,7 +759,10 @@ const Navbar = () => {
             "
             >
               {navLinks.map((item) => (
-                <div key={item.id}>
+                <div
+                  key={item.id}
+                  className="space-y-3"
+                >
                   <a
                     href={item.path}
                     onClick={() => {
@@ -800,6 +806,59 @@ const Navbar = () => {
                   >
                     {item.title}
                   </a>
+
+                  {item.megaMenu && (
+                    <div
+                      className="
+                      ml-3
+                      border-l
+                      border-black/10
+
+                      pl-4
+                      grid
+                      gap-3
+                    "
+                    >
+                      {item.megaMenu.map(
+                        (service) => (
+                          <Link
+                            key={service.path}
+                            to={service.path}
+                            onClick={() => {
+                              setActive(
+                                service.path.split(
+                                  "#"
+                                )[0]
+                              );
+                              setIsOpen(false);
+                            }}
+                            className="
+                            block
+
+                            px-4
+                            py-3
+
+                            rounded-2xl
+
+                            text-sm
+                            font-semibold
+
+                            bg-black/[0.03]
+                            text-[#0B0F19]
+
+                            hover:bg-cyan-500/10
+                            hover:text-cyan-700
+
+                            transition-all
+                            duration-300
+                          "
+                          >
+                            {service.title}
+                          </Link>
+                        )
+                      )}
+                    </div>
+                  )}
                 </div>
               ))}
             </div>

@@ -12,7 +12,7 @@ import heroImage from "../../../assets/images/servicehero.jpg";
 
 const stats = [
   {
-    number: "6+",
+    number: "3+",
     label: "Active Ventures",
   },
 
@@ -333,7 +333,7 @@ const ServicesHero = () => {
             overflow-hidden
 
             rounded-[40px]
-
+             -left-7
             bg-white
 
             border
@@ -384,7 +384,7 @@ const ServicesHero = () => {
             className="
             absolute
             top-10
-            -left-10
+            -left-50
 
             backdrop-blur-xl
 
@@ -460,16 +460,12 @@ const ServicesHero = () => {
             }}
             className="
             absolute
-            bottom-12
-            right-[-20px]
-
+            bottom-2
+            right-[-40px]
             backdrop-blur-xl
-
             bg-white/80
-
             border
             border-white/40
-
             rounded-3xl
 
             p-5
@@ -488,11 +484,8 @@ const ServicesHero = () => {
                 className="
                 w-12
                 h-12
-
                 rounded-2xl
-
                 bg-cyan-100
-
                 flex
                 items-center
                 justify-center
@@ -537,9 +530,8 @@ const ServicesHero = () => {
             }}
             className="
             absolute
-            bottom-40
-            left-[-20px]
-
+            bottom-2
+            -left-30
             px-6
             py-4
 
@@ -569,8 +561,8 @@ const ServicesHero = () => {
             }}
             className="
             absolute
-            top-1/2
-            right-[-30px]
+            top-5
+            right-[-50px]
 
             backdrop-blur-xl
 

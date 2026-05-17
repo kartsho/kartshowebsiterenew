@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 
 import {
   Bot,
@@ -34,6 +35,7 @@ const services = [
     icon: <Code2 size={34} />,
     title: "Web Development",
     desc: "Premium web applications with enterprise performance, animations, and scalable backend systems.",
+    path: "/services/web-development",
   },
 
   {
@@ -64,6 +66,7 @@ const services = [
 const ServicesGrid = () => {
   return (
     <section
+      id="services-grid"
       className="
       relative
       py-32
@@ -369,7 +372,8 @@ const ServicesGrid = () => {
 
               {/* BUTTON */}
 
-              <button
+              <Link
+                to={service.path || "/services"}
                 className="
                 relative
                 z-10
@@ -395,7 +399,7 @@ const ServicesGrid = () => {
                   group-hover/btn:translate-x-1
                 "
                 />
-              </button>
+              </Link>
 
               {/* HOVER GLOW */}
 

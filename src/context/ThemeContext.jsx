@@ -7,7 +7,7 @@ const THEME_STORAGE_KEY = "kartsho-theme";
 export const ThemeProvider = ({ children }) => {
   const [theme, setTheme] = useState(() => {
     if (typeof window === "undefined") {
-      return "light";
+      return "dark";
     }
 
     const storedTheme =
@@ -17,11 +17,7 @@ export const ThemeProvider = ({ children }) => {
       return storedTheme;
     }
 
-    const prefersDark =
-      window.matchMedia &&
-      window.matchMedia("(prefers-color-scheme: dark)").matches;
-
-    return prefersDark ? "dark" : "light";
+    return "dark";
   });
 
   useEffect(() => {

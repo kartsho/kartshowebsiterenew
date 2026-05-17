@@ -17,17 +17,17 @@ export const navLinks = [
 
       {
         title: "AI Solutions",
-        path: "/services/ai-solutions",
+        path: "/services#services-grid",
       },
 
       {
         title: "Cloud Services",
-        path: "/services/cloud-services",
+        path: "/services#detailed-services",
       },
 
       {
         title: "UI/UX Design",
-        path: "/services/ui-ux-design",
+        path: "/services#services-grid",
       },
     ],
   },

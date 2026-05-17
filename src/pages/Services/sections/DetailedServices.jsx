@@ -89,6 +89,7 @@ const services = [
 const DetailedServices = () => {
   return (
     <section
+      id="detailed-services"
       className="
       relative
       py-32
