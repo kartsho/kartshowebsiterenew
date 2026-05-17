@@ -10,18 +10,19 @@ import {
 
 import {
   ArrowUpRight,
-  Send,
+  Mail,
   MapPin,
   Phone,
-  Mail,
+  BadgeCheck,
+  Building2,
+  ShieldCheck,
 } from "lucide-react";
 
 import LegalStrip from "../../legal/LegalStrip";
 
-const footerLinks = [
+const footerSections = [
   {
     title: "Company",
-
     links: [
       { label: "About", to: "/about" },
       { label: "About Company", to: "/about-company" },
@@ -29,869 +30,385 @@ const footerLinks = [
       { label: "Contact", to: "/contact" },
     ],
   },
-
   {
     title: "Services",
-
     links: [
+      { label: "Web Development", to: "/services/web-development" },
       { label: "AI Development", to: "/services#services-grid" },
-      { label: "Cloud Solutions", to: "/services#detailed-services" },
       { label: "SaaS Platforms", to: "/services#services-grid" },
-      { label: "UI/UX Design", to: "/services#services-grid" },
+      { label: "Cloud Infrastructure", to: "/services#detailed-services" },
     ],
   },
-
   {
-    title: "Resources",
-
+    title: "Legal",
     links: [
-      { label: "Blog" },
-      { label: "FAQs" },
       { label: "Privacy Policy", to: "/privacy-policy" },
       { label: "Terms & Conditions", to: "/terms-and-conditions" },
+      { label: "About Company", to: "/about-company" },
     ],
   },
 ];
 
-const legalQuickLinks = [
-  { label: "About Company", to: "/about-company" },
-  { label: "Privacy Policy", to: "/privacy-policy" },
-  { label: "Terms & Conditions", to: "/terms-and-conditions" },
+const contactCards = [
+  {
+    icon: Mail,
+    label: "Email",
+    value: "info@kartsho.com",
+  },
+  {
+    icon: Mail,
+    label: "Careers",
+    value: "hr@kartsho.com",
+  },
+  {
+    icon: Phone,
+    label: "Phone",
+    value: "+91 9453134901 / +91 9528660578",
+  },
+  {
+    icon: MapPin,
+    label: "Office",
+    value: "Godhoopatti Patti, Pratapgarh, Uttar Pradesh - 230134",
+  },
+];
+
+const complianceCards = [
+  {
+    icon: Building2,
+    label: "Registered Name",
+    value: "Kartsho Solutions Private Limited",
+  },
+  {
+    icon: BadgeCheck,
+    label: "CIN",
+    value: "Add your CIN here",
+  },
+  {
+    icon: ShieldCheck,
+    label: "GSTIN",
+    value: "Add your GSTIN here",
+  },
+  {
+    icon: Mail,
+    label: "Grievance Officer",
+    value: "grievance@kartsho.com",
+  },
+];
+
+const socials = [
+  {
+    icon: FaLinkedin,
+    label: "LinkedIn",
+  },
+  {
+    icon: FaInstagram,
+    label: "Instagram",
+  },
+  {
+    icon: FaXTwitter,
+    label: "X",
+  },
+  {
+    icon: FaGithub,
+    label: "GitHub",
+  },
 ];
 
 const Footer = () => {
   return (
-    <footer
-      className="
-      relative
-      overflow-hidden
-      bg-white
-      pt-28
-      pb-10
-    "
-    >
-      {/* ================= GLOW EFFECTS ================= */}
+    <footer className="relative overflow-hidden bg-[#050816] text-white">
+      <div className="absolute left-[-180px] top-[-120px] h-[420px] w-[420px] rounded-full bg-cyan-400/12 blur-[150px]" />
+      <div className="absolute right-[-160px] bottom-[60px] h-[360px] w-[360px] rounded-full bg-blue-500/10 blur-[150px]" />
 
-      <div
-        className="
-        absolute
-        top-[-200px]
-        left-[-200px]
-
-        w-[500px]
-        h-[500px]
-
-        rounded-full
-
-        bg-cyan-400/20
-
-        blur-[140px]
-      "
-      />
-
-      <div
-        className="
-        absolute
-        bottom-[-250px]
-        right-[-250px]
-
-        w-[550px]
-        h-[550px]
-
-        rounded-full
-
-        bg-blue-400/20
-
-        blur-[160px]
-      "
-      />
-
-      {/* ================= CONTAINER ================= */}
-
-      <div
-        className="
-        relative
-        z-10
-
-        max-w-7xl
-        mx-auto
-
-        px-6
-      "
-      >
+      <div className="relative z-10 mx-auto max-w-7xl px-6 py-16 lg:py-20">
         <LegalStrip />
 
-        {/* ================= TOP AREA ================= */}
-
-        <div
-          className="
-          grid
-          lg:grid-cols-[1.2fr_1fr]
-
-          gap-20
-
-          pb-20
-
-          border-b
-          border-black/10
-        "
-        >
-          {/* ================= LEFT ================= */}
-
-          <div>
-            {/* LOGO */}
-
-            <motion.div
-              initial={{
-                opacity: 0,
-                y: 20,
-              }}
-              whileInView={{
-                opacity: 1,
-                y: 0,
-              }}
-              transition={{
-                duration: 0.7,
-              }}
-              viewport={{ once: true }}
-              className="
-              mb-8
-            "
-            >
-              <h2
-                className="
-                text-5xl
-                font-black
-
-                tracking-tight
-
-                bg-gradient-to-r
-                from-cyan-500
-                via-blue-500
-                to-cyan-400
-
-                bg-clip-text
-                text-transparent
-              "
-              >
-                Kartsho
-              </h2>
-            </motion.div>
-
-            {/* DESCRIPTION */}
-
-            <motion.p
-              initial={{
-                opacity: 0,
-                y: 30,
-              }}
-              whileInView={{
-                opacity: 1,
-                y: 0,
-              }}
-              transition={{
-                duration: 0.8,
-              }}
-              viewport={{ once: true }}
-              className="
-              text-gray-600
-              text-lg
-
-              leading-relaxed
-
-              max-w-xl
-
-              mb-10
-            "
-            >
-              Kartsho Enterprises is a multi-venture
-              digital ecosystem spanning marketing,
-              legal tech, education, commerce, media,
-              and counseling.
-            </motion.p>
-
-            {/* CONTACT INFO */}
-
-            <div className="space-y-5">
-              {/* EMAIL */}
-
-              <div
-                className="
-                flex
-                items-center
-                gap-4
-              "
-              >
-                <div
-                  className="
-                  w-14
-                  h-14
-
-                  rounded-2xl
-
-                  bg-white/70
-                  backdrop-blur-2xl
-
-                  border
-                  border-black/5
-
-                  flex
-                  items-center
-                  justify-center
-
-                  text-cyan-500
-
-                  shadow-[0_10px_30px_rgba(6,182,212,0.12)]
-                "
-                >
-                  <Mail size={22} />
-                </div>
-
-                <div>
-                  <p
-                    className="
-                    text-sm
-                    text-gray-500
-                  "
-                  >
-                    Email
-                  </p>
-
-                <p className="text-[#0B0F19] font-medium">
-                    info@kartsho.com
-                  </p>
-                </div>
-              </div>
-
-              {/* HR EMAIL */}
-
-              <div
-                className="
-                flex
-                items-center
-                gap-4
-              "
-              >
-                <div
-                  className="
-                  w-14
-                  h-14
-
-                  rounded-2xl
-
-                  bg-white/70
-                  backdrop-blur-2xl
-
-                  border
-                  border-black/5
-
-                  flex
-                  items-center
-                  justify-center
-
-                  text-cyan-500
-
-                  shadow-[0_10px_30px_rgba(6,182,212,0.12)]
-                "
-                >
-                  <Mail size={22} />
-                </div>
-
-                <div>
-                  <p
-                    className="
-                    text-sm
-                    text-gray-500
-                  "
-                  >
-                    Careers
-                  </p>
-
-                  <p className="text-[#0B0F19] font-medium">
-                    hr@kartsho.com
-                  </p>
-                </div>
-              </div>
-
-              {/* PHONE */}
-
-              <div
-                className="
-                flex
-                items-center
-                gap-4
-              "
-              >
-                <div
-                  className="
-                  w-14
-                  h-14
-
-                  rounded-2xl
-
-                  bg-white/70
-                  backdrop-blur-2xl
-
-                  border
-                  border-black/5
-
-                  flex
-                  items-center
-                  justify-center
-
-                  text-cyan-500
-
-                  shadow-[0_10px_30px_rgba(6,182,212,0.12)]
-                "
-                >
-                  <Phone size={22} />
-                </div>
-
-                <div>
-                  <p
-                    className="
-                    text-sm
-                    text-gray-500
-                  "
-                  >
-                    Phone
-                  </p>
-
-                  <p className="text-[#0B0F19] font-medium">
-                    +91 9453134901 / +91 9528660578
-                  </p>
-                </div>
-              </div>
-
-              {/* LOCATION */}
-
-              <div
-                className="
-                flex
-                items-center
-                gap-4
-              "
-              >
-                <div
-                  className="
-                  w-14
-                  h-14
-
-                  rounded-2xl
-
-                  bg-white/70
-                  backdrop-blur-2xl
-
-                  border
-                  border-black/5
-
-                  flex
-                  items-center
-                  justify-center
-
-                  text-cyan-500
-
-                  shadow-[0_10px_30px_rgba(6,182,212,0.12)]
-                "
-                >
-                  <MapPin size={22} />
-                </div>
-
-                <div>
-                  <p
-                    className="
-                    text-sm
-                    text-gray-500
-                  "
-                  >
-                    Office
-                  </p>
-
-                  <p className="text-[#0B0F19] font-medium">
-                    Godhoopatti Patti, Pratapgarh, Uttar Pradesh - 230134
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* ================= RIGHT ================= */}
-
-          <div
+        <div className="mt-10 grid gap-8 lg:grid-cols-[1.1fr_0.9fr]">
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7 }}
+            viewport={{ once: true }}
             className="
-            grid
-            sm:grid-cols-3
-
-            gap-10
-          "
+              rounded-[36px]
+              border
+              border-white/10
+              bg-white/5
+              p-8
+              shadow-[0_20px_80px_rgba(0,0,0,0.22)]
+              backdrop-blur-2xl
+            "
           >
-            {footerLinks.map((section, index) => (
-              <motion.div
-                key={index}
-                initial={{
-                  opacity: 0,
-                  y: 30,
-                }}
-                whileInView={{
-                  opacity: 1,
-                  y: 0,
-                }}
-                transition={{
-                  duration: 0.7,
-                  delay: index * 0.1,
-                }}
-                viewport={{ once: true }}
-              >
-                {/* TITLE */}
+            <p className="text-xs font-semibold uppercase tracking-[0.34em] text-cyan-300">
+              Production Ready Digital Partner
+            </p>
 
-                <h3
-                  className="
-                  text-[#0B0F19]
-                  text-lg
-                  font-bold
+            <h2 className="mt-4 text-4xl font-black tracking-tight text-white md:text-5xl">
+              Kartsho builds ventures that look premium and scale cleanly.
+            </h2>
 
-                  mb-6
+            <p className="mt-5 max-w-2xl text-base leading-relaxed text-slate-300">
+              We design and ship digital products across web development, AI systems, SaaS
+              platforms, cloud infrastructure, and enterprise-grade brand experiences.
+            </p>
+
+            <div className="mt-8 flex flex-wrap gap-4">
+              <Link
+                to="/contact"
+                className="
+                  rounded-full
+                  bg-gradient-to-r
+                  from-cyan-500
+                  to-blue-500
+                  px-6
+                  py-3.5
+                  font-semibold
+                  text-white
+                  shadow-[0_18px_45px_rgba(6,182,212,0.25)]
+                  transition-transform
+                  duration-300
+                  hover:scale-105
                 "
-                >
+              >
+                Start a project
+              </Link>
+
+              <Link
+                to="/services"
+                className="
+                  rounded-full
+                  border
+                  border-white/15
+                  bg-white/5
+                  px-6
+                  py-3.5
+                  font-semibold
+                  text-white
+                  transition-all
+                  duration-300
+                  hover:border-cyan-300/40
+                  hover:bg-white/10
+                "
+              >
+                Explore services
+              </Link>
+            </div>
+
+            <div className="mt-8 grid gap-4 sm:grid-cols-2">
+              {contactCards.map((item) => {
+                const Icon = item.icon;
+
+                return (
+                  <div
+                    key={item.label}
+                    className="
+                      rounded-[24px]
+                      border
+                      border-white/10
+                      bg-black/20
+                      p-4
+                    "
+                  >
+                    <div className="flex items-start gap-3">
+                      <div className="mt-0.5 flex h-10 w-10 items-center justify-center rounded-2xl bg-cyan-500/10 text-cyan-300">
+                        <Icon size={18} />
+                      </div>
+
+                      <div>
+                        <p className="text-xs uppercase tracking-[0.22em] text-slate-400">
+                          {item.label}
+                        </p>
+                        <p className="mt-1 text-sm font-medium leading-relaxed text-white">
+                          {item.value}
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </motion.div>
+
+          <div className="grid gap-8 lg:grid-cols-3">
+            {footerSections.map((section, index) => (
+              <motion.div
+                key={section.title}
+                initial={{ opacity: 0, y: 24 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.7, delay: index * 0.08 }}
+                viewport={{ once: true }}
+                className="
+                  rounded-[30px]
+                  border
+                  border-white/10
+                  bg-white/5
+                  p-6
+                  backdrop-blur-2xl
+                "
+              >
+                <h3 className="text-lg font-bold text-white">
                   {section.title}
                 </h3>
 
-                {/* LINKS */}
-
-                <div className="space-y-4">
-                  {section.links.map((link, i) =>
-                    link.to ? (
-                      <Link
-                        key={link.label}
-                        to={link.to}
+                <div className="mt-5 space-y-3">
+                  {section.links.map((link) => (
+                    <Link
+                      key={link.label}
+                      to={link.to}
+                      className="
+                        group
+                        flex
+                        items-center
+                        justify-between
+                        gap-3
+                        rounded-2xl
+                        px-4
+                        py-3
+                        text-sm
+                        font-medium
+                        text-slate-300
+                        transition-all
+                        duration-300
+                        hover:bg-white/10
+                        hover:text-white
+                      "
+                    >
+                      <span>{link.label}</span>
+                      <ArrowUpRight
+                        size={16}
                         className="
-                          group
-
-                          flex
-                          items-center
-                          gap-2
-
-                          text-gray-600
-
-                          transition-all
+                          shrink-0
+                          text-cyan-300
+                          transition-transform
                           duration-300
-
-                          hover:text-cyan-500
+                          group-hover:-translate-y-0.5
+                          group-hover:translate-x-0.5
                         "
-                      >
-                        {link.label}
-
-                        <ArrowUpRight
-                          size={16}
-                          className="
-                            opacity-0
-
-                            transition-all
-                            duration-300
-
-                            group-hover:opacity-100
-                            group-hover:-translate-y-1
-                            group-hover:translate-x-1
-                          "
-                        />
-                      </Link>
-                    ) : (
-                      <button
-                        key={link.label}
-                        className="
-                          group
-
-                          flex
-                          items-center
-                          gap-2
-
-                          text-gray-600
-
-                          transition-all
-                          duration-300
-
-                          hover:text-cyan-500
-                        "
-                      >
-                        {link.label}
-
-                        <ArrowUpRight
-                          size={16}
-                          className="
-                            opacity-0
-
-                            transition-all
-                            duration-300
-
-                            group-hover:opacity-100
-                            group-hover:-translate-y-1
-                            group-hover:translate-x-1
-                          "
-                        />
-                      </button>
-                    )
-                  )}
+                      />
+                    </Link>
+                  ))}
                 </div>
               </motion.div>
             ))}
           </div>
         </div>
 
-        {/* ================= NEWSLETTER ================= */}
-
         <motion.div
-          initial={{
-            opacity: 0,
-            y: 40,
-          }}
-          whileInView={{
-            opacity: 1,
-            y: 0,
-          }}
-          transition={{
-            duration: 0.8,
-          }}
+          initial={{ opacity: 0, y: 28 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7 }}
           viewport={{ once: true }}
           className="
-          py-16
-
-          flex
-          flex-col
-          lg:flex-row
-
-          items-center
-          justify-between
-
-          gap-10
-        "
-        >
-          {/* LEFT */}
-
-          <div>
-            <h3
-              className="
-              text-3xl
-              font-bold
-
-              text-[#0B0F19]
-
-              mb-4
-            "
-            >
-              Join Our Newsletter
-            </h3>
-
-            <p
-              className="
-              text-gray-600
-            "
-            >
-              Insights on AI, SaaS, cloud systems,
-              and enterprise innovation.
-            </p>
-          </div>
-
-          {/* RIGHT */}
-
-          <div
-            className="
-            relative
-
-            flex
-            items-center
-
-            w-full
-            max-w-2xl
-
-            rounded-full
-
+            mt-8
+            rounded-[36px]
             border
-            border-black/10
-
-            bg-white/80
+            border-white/10
+            bg-white/5
+            p-6
+            shadow-[0_20px_70px_rgba(0,0,0,0.16)]
             backdrop-blur-2xl
-
-            overflow-hidden
-
-            shadow-[0_10px_40px_rgba(6,182,212,0.08)]
           "
-          >
-            {/* INPUT */}
+        >
+          <div className="flex flex-col gap-5">
+            <div className="flex flex-col gap-2">
+              <p className="text-xs font-semibold uppercase tracking-[0.34em] text-cyan-300">
+                Compliance Essentials
+              </p>
+              <h3 className="text-2xl font-black text-white">
+                Legal identity and grievance details
+              </h3>
+            </div>
 
-            <input
-              type="email"
-              placeholder="Enter your email"
+            <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+              {complianceCards.map((item) => {
+                const Icon = item.icon;
 
-              className="
-              flex-1
+                return (
+                  <div
+                    key={item.label}
+                    className="
+                      rounded-[24px]
+                      border
+                      border-white/10
+                      bg-black/20
+                      p-4
+                    "
+                  >
+                    <div className="flex items-start gap-3">
+                      <div className="mt-0.5 flex h-10 w-10 items-center justify-center rounded-2xl bg-white/10 text-cyan-300">
+                        <Icon size={18} />
+                      </div>
 
-              bg-transparent
-
-              px-7
-              py-5
-
-              outline-none
-
-              text-[#0B0F19]
-
-              placeholder:text-gray-400
-            "
-            />
-
-            {/* BUTTON */}
-
-            <button
-              className="
-              group
-
-              relative
-
-              m-2
-
-              px-8
-              py-4
-
-              rounded-full
-
-              bg-gradient-to-r
-              from-cyan-500
-              to-blue-500
-
-              text-white
-
-              font-semibold
-
-              flex
-              items-center
-              gap-3
-
-              overflow-hidden
-
-              transition-all
-              duration-500
-
-              hover:scale-105
-              hover:shadow-[0_0_40px_rgba(6,182,212,0.35)]
-            "
-            >
-              <span className="relative z-10">
-                Subscribe
-              </span>
-
-              <Send
-                size={18}
-                className="
-                relative
-                z-10
-
-                transition-transform
-                duration-300
-
-                group-hover:translate-x-1
-              "
-              />
-
-              <div
-                className="
-                absolute
-                inset-0
-
-                opacity-0
-
-                bg-white/20
-
-                transition-opacity
-                duration-500
-
-                group-hover:opacity-100
-              "
-              />
-            </button>
+                      <div>
+                        <p className="text-xs uppercase tracking-[0.22em] text-slate-400">
+                          {item.label}
+                        </p>
+                        <p className="mt-1 text-sm font-medium leading-relaxed text-white">
+                          {item.value}
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
           </div>
         </motion.div>
 
-        {/* ================= LEGAL FOOTER ================= */}
-
         <div
           className="
-          rounded-[36px]
-          border
-          border-black/10
-          bg-white/70
-          backdrop-blur-2xl
-          p-8
-          shadow-[0_16px_60px_rgba(15,23,42,0.06)]
-        "
-        >
-          <div className="flex flex-col gap-8 lg:flex-row lg:items-start lg:justify-between">
-            <div className="max-w-2xl">
-              <p className="text-xs font-semibold uppercase tracking-[0.3em] text-cyan-500">
-                Company Details
-              </p>
-
-              <h3 className="mt-3 text-3xl font-black text-[#0B0F19]">
-                Kartsho Solutions Private Limited
-              </h3>
-
-              <p className="mt-4 text-gray-600 leading-relaxed">
-                Keep these legal details updated with the final registered entity information
-                before using the site in production, ad platforms, or payment flows.
-              </p>
-
-              <div className="mt-6 grid gap-4 sm:grid-cols-2">
-                <div className="rounded-3xl border border-black/5 bg-white/80 p-5">
-                  <p className="text-xs uppercase tracking-[0.22em] text-gray-500">
-                    CIN
-                  </p>
-                  <p className="mt-2 font-semibold text-[#0B0F19]">
-                    Add your CIN here
-                  </p>
-                </div>
-
-                <div className="rounded-3xl border border-black/5 bg-white/80 p-5">
-                  <p className="text-xs uppercase tracking-[0.22em] text-gray-500">
-                    GSTIN
-                  </p>
-                  <p className="mt-2 font-semibold text-[#0B0F19]">
-                    Add your GSTIN here
-                  </p>
-                </div>
-
-                <div className="rounded-3xl border border-black/5 bg-white/80 p-5">
-                  <p className="text-xs uppercase tracking-[0.22em] text-gray-500">
-                    Grievance Officer
-                  </p>
-                  <p className="mt-2 font-semibold text-[#0B0F19]">
-                    grievance@kartsho.com
-                  </p>
-                </div>
-
-                <div className="rounded-3xl border border-black/5 bg-white/80 p-5">
-                  <p className="text-xs uppercase tracking-[0.22em] text-gray-500">
-                    Response Time
-                  </p>
-                  <p className="mt-2 font-semibold text-[#0B0F19]">
-                    Within 30 days
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            <div className="min-w-[260px]">
-              <p className="text-xs font-semibold uppercase tracking-[0.3em] text-cyan-500">
-                Legal Links
-              </p>
-
-              <div className="mt-4 flex flex-col gap-3">
-                {legalQuickLinks.map((item) => (
-                  <Link
-                    key={item.label}
-                    to={item.to}
-                    className="
-                      rounded-2xl
-                      border
-                      border-black/5
-                      bg-white/80
-                      px-5
-                      py-4
-                      font-semibold
-                      text-[#0B0F19]
-                      transition-all
-                      duration-300
-                      hover:border-cyan-300
-                      hover:text-cyan-600
-                    "
-                  >
-                    {item.label}
-                  </Link>
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* ================= BOTTOM ================= */}
-
-        <div
-          className="
-          pt-10
-
-          border-t
-          border-black/10
-
-          flex
-          flex-col
-          lg:flex-row
-
-          items-center
-          justify-between
-
-          gap-8
-        "
-        >
-          {/* COPYRIGHT */}
-
-          <p
-            className="
-            text-gray-500
-            text-sm
+            mt-8
+            flex
+            flex-col
+            gap-6
+            rounded-[28px]
+            border
+            border-white/10
+            bg-black/20
+            px-6
+            py-5
+            backdrop-blur-2xl
+            lg:flex-row
+            lg:items-center
+            lg:justify-between
           "
-          >
-            © 2026 KartSho Technologies Pvt.
-            Ltd. All rights reserved.
+        >
+          <p className="text-sm text-slate-300">
+            © 2026 KartSho Technologies Pvt. Ltd. All rights reserved.
           </p>
 
-          {/* SOCIALS */}
+          <div className="flex items-center gap-3">
+            {socials.map((item) => {
+              const Icon = item.icon;
 
-          <div
-            className="
-            flex
-            items-center
-            gap-4
-          "
-          >
-            {[
-              FaLinkedin,
-              FaInstagram,
-              FaXTwitter,
-              FaGithub,
-            ].map((Icon, index) => (
-              <motion.button
-                key={index}
-                whileHover={{
-                  y: -5,
-                  scale: 1.05,
-                }}
-                className="
-                w-14
-                h-14
-
-                rounded-2xl
-
-                bg-white/80
-                backdrop-blur-2xl
-
-                border
-                border-black/5
-
-                flex
-                items-center
-                justify-center
-
-                text-gray-600
-
-                transition-all
-                duration-300
-
-                hover:text-cyan-500
-                hover:border-cyan-300
-                hover:bg-cyan-50
-                hover:shadow-[0_0_40px_rgba(6,182,212,0.18)]
-              "
-              >
-                <Icon size={20} />
-              </motion.button>
-            ))}
+              return (
+                <button
+                  key={item.label}
+                  type="button"
+                  aria-label={item.label}
+                  className="
+                    flex
+                    h-11
+                    w-11
+                    items-center
+                    justify-center
+                    rounded-2xl
+                    border
+                    border-white/10
+                    bg-white/5
+                    text-slate-200
+                    transition-all
+                    duration-300
+                    hover:-translate-y-0.5
+                    hover:border-cyan-300/40
+                    hover:bg-cyan-500/10
+                    hover:text-cyan-300
+                  "
+                >
+                  <Icon size={18} />
+                </button>
+              );
+            })}
           </div>
         </div>
       </div>
