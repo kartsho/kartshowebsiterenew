@@ -1,4 +1,14 @@
-import { motion } from "framer-motion";
+import { useState, useEffect } from "react";
+
+import {
+  motion,
+  AnimatePresence,
+} from "framer-motion";
+
+import pranav from "../../../assets/images/founderimg/pranav.jpg.jpeg";
+import codirector from "../../../assets/images/founderimg/codirector.jpeg";
+
+
 
 import {
   ArrowRight,
@@ -6,7 +16,12 @@ import {
   Globe,
   BrainCircuit,
   ShieldCheck,
+  X,
 } from "lucide-react";
+
+/* ================================================= */
+/* TRUST PILLS */
+/* ================================================= */
 
 const trustPills = [
   "20+ Engineers",
@@ -15,46 +30,171 @@ const trustPills = [
   "Enterprise Ready",
 ];
 
+/* ================================================= */
+/* TEAM MEMBERS */
+/* ================================================= */
+
 const floatingMembers = [
   {
-    name: "Alex",
-    role: "AI Engineer",
-    image:
-      "https://i.pravatar.cc/300?img=12",
-    className:
-      "top-0 left-10 lg:left-20",
+    id: 1,
+
+    name: "Mr. Pranav Singh",
+
+    shortRole: "Technology",
+
+    fullRole:
+      "Chief Technology Officer",
+
+    image: pranav,
+
+    orbitClass:
+      "top-[4%] left-1/2 -translate-x-1/2",
+
+    description:
+      "Architects the technology infrastructure that powers every Kartsho venture, driving AI integrations that deliver a decisive competitive edge. His engineering leadership ensures the conglomerate remains perpetually ahead of the innovation curve.",
   },
 
   {
-    name: "Sophia",
-    role: "UI/UX Designer",
+    id: 2,
+
+    name: "Mr. Vikram Sharma",
+
+    shortRole: "Technology",
+
+    fullRole:
+      "Chief Technology Officer",
+
+  
+
+    orbitClass:
+      "top-[4%] right-1/2 -translate-x-1/2",
+
+    description:
+      "Architects the technology infrastructure that powers every Kartsho venture, driving AI integrations that deliver a decisive competitive edge. His engineering leadership ensures the conglomerate remains perpetually ahead of the innovation curve.",
+  },
+
+  {
+    id: 3,
+
+    name: "Ms. Neha Kapoor",
+
+    shortRole: "CMO",
+
+    fullRole: "Marketing",
+
     image:
       "https://i.pravatar.cc/300?img=32",
-    className:
-      "top-32 right-0 lg:right-10",
+
+    orbitClass:
+      "top-1/2 right-[-40px] -translate-y-1/2",
+
+    description:
+      "Commands global brand dominance for Kartsho Enterprises, orchestrating high-impact campaigns through Kartsho Digital's full-service capabilities. Her data-driven strategies have consistently elevated venture visibility across key international markets.",
   },
 
   {
-    name: "Daniel",
-    role: "Cloud Architect",
-    image:
-      "bottom-10 left-0",
+    id: 4,
+
+    name:
+      "Adv. Ravi Shankar Mishra",
+
+    shortRole:
+      "Chief Legal Advisor",
+
+    fullRole:
+      "CEO, Lawdalat | Chief Legal Advisor",
+
     image:
       "https://i.pravatar.cc/300?img=15",
+
+    orbitClass:
+      "bottom-[2%] left-1/2 -translate-x-1/2",
+
+    description:
+      "Orchestrating the legal framework of Kartsho Enterprises, Ravi ensures ironclad compliance and corporate integrity across all global operations. In his dual capacity as CEO of Lawdalat, he leads our disruptive legal-tech vertical, architecting scalable platforms designed to revolutionize how the world accesses premium legal counsel.",
   },
 
   {
-    name: "Emma",
-    role: "Product Strategist",
+    id: 5,
+
+    name: "Mrs. Ananya Desai",
+
+    shortRole: "VP, EdTech",
+
+    fullRole:
+      "Educational Technology",
+
     image:
       "https://i.pravatar.cc/300?img=45",
-    className:
-      "bottom-0 right-16",
+
+    orbitClass:
+      "top-1/2 left-[-40px] -translate-y-1/2",
+
+    description:
+      "Leads the pedagogical vision and curriculum architecture for Kartsho Academy, transforming industry-leading expertise into accessible learning pathways. Her research-driven approach fuses technology with proven learning science to develop world-class talent.",
+  },
+
+  {
+    id: 6,
+
+    name: "Mr. Rohan Gupta",
+
+    shortRole: "CFO",
+
+    fullRole: "Finance",
+
+    image:
+      "https://i.pravatar.cc/300?img=67",
+
+    orbitClass:
+      "top-[18%] right-[8%]",
+
+    description:
+      "Masters the capital allocation and financial engineering that underpins Kartsho's multi-venture scaling strategy. His disciplined investment frameworks and sharp fiscal governance have consistently unlocked exponential returns across the conglomerate portfolio.",
   },
 ];
 
 const TeamHero = () => {
   const noiseUrl = `${import.meta.env.BASE_URL}noise.svg`;
+
+  const [selectedMember, setSelectedMember] =
+    useState(null);
+
+  const [visibleCards, setVisibleCards] =
+    useState([]);
+
+  /* ================================================= */
+  /* AUTO POPUP ANIMATION */
+  /* ================================================= */
+
+  useEffect(() => {
+    let current = 0;
+
+    const interval = setInterval(() => {
+      const member =
+        floatingMembers[current];
+
+      setVisibleCards((prev) => [
+        ...prev,
+        member.id,
+      ]);
+
+      setTimeout(() => {
+        setVisibleCards((prev) =>
+          prev.filter(
+            (id) => id !== member.id
+          )
+        );
+      }, 3500);
+
+      current =
+        (current + 1) %
+        floatingMembers.length;
+    }, 1800);
+
+    return () =>
+      clearInterval(interval);
+  }, []);
 
   return (
     <section
@@ -72,10 +212,21 @@ const TeamHero = () => {
       pb-24
     "
     >
-      {/* ================= GRID ================= */}
+      {/* ================================================= */}
+      {/* BACKGROUND */}
+      {/* ================================================= */}
 
+      <div
+        className="
+        absolute
+        inset-0
+        opacity-[0.04]
 
-      {/* ================= TOP GLOW ================= */}
+        [background-image:linear-gradient(to_right,#0f172a_1px,transparent_1px),linear-gradient(to_bottom,#0f172a_1px,transparent_1px)]
+
+        [background-size:70px_70px]
+      "
+      />
 
       <div
         className="
@@ -94,8 +245,6 @@ const TeamHero = () => {
       "
       />
 
-      {/* ================= RIGHT GLOW ================= */}
-
       <div
         className="
         absolute
@@ -113,13 +262,10 @@ const TeamHero = () => {
       "
       />
 
-      {/* ================= NOISE ================= */}
-
       <div
         className="
         absolute
         inset-0
-
         opacity-[0.03]
       "
         style={{
@@ -127,7 +273,9 @@ const TeamHero = () => {
         }}
       />
 
-      {/* ================= CONTAINER ================= */}
+      {/* ================================================= */}
+      {/* MAIN CONTAINER */}
+      {/* ================================================= */}
 
       <div
         className="
@@ -151,7 +299,7 @@ const TeamHero = () => {
         {/* ================================================= */}
 
         <div>
-          {/* SMALL TAG */}
+          {/* TAG */}
 
           <motion.div
             initial={{
@@ -165,7 +313,6 @@ const TeamHero = () => {
             transition={{
               duration: 0.6,
             }}
-            viewport={{ once: true }}
             className="
             inline-flex
             items-center
@@ -193,7 +340,7 @@ const TeamHero = () => {
           >
             <Sparkles size={16} />
 
-            Elite Product Engineering Team
+            Elite Product Engineering
           </motion.div>
 
           {/* HEADING */}
@@ -210,7 +357,6 @@ const TeamHero = () => {
             transition={{
               duration: 0.8,
             }}
-            viewport={{ once: true }}
             className="
             text-5xl
             sm:text-6xl
@@ -223,8 +369,6 @@ const TeamHero = () => {
             tracking-tight
 
             text-[color:var(--text-primary)]
-
-            max-w-2xl
           "
           >
             Meet The Minds
@@ -245,7 +389,7 @@ const TeamHero = () => {
             </span>
           </motion.h1>
 
-          {/* DESCRIPTION */}
+          {/* DESC */}
 
           <motion.p
             initial={{
@@ -259,7 +403,6 @@ const TeamHero = () => {
             transition={{
               duration: 0.9,
             }}
-            viewport={{ once: true }}
             className="
             mt-8
 
@@ -271,52 +414,33 @@ const TeamHero = () => {
             max-w-2xl
           "
           >
-            A team of engineers,
-            designers, AI specialists,
-            and product strategists
-            creating scalable digital
-            systems worldwide.
+            A world-class team of
+            strategists, engineers,
+            marketers, financial experts,
+            and legal innovators shaping
+            the future of the Kartsho
+            ecosystem globally.
           </motion.p>
 
           {/* BUTTONS */}
 
-          <motion.div
-            initial={{
-              opacity: 0,
-              y: 30,
-            }}
-            whileInView={{
-              opacity: 1,
-              y: 0,
-            }}
-            transition={{
-              duration: 1,
-            }}
-            viewport={{ once: true }}
+          <div
             className="
             flex
             flex-wrap
-
-            items-center
             gap-5
 
             mt-12
           "
           >
-            {/* BUTTON 1 */}
-
             <button
               className="
               group
-
-              relative
 
               px-8
               py-5
 
               rounded-2xl
-
-              overflow-hidden
 
               bg-gradient-to-r
               from-cyan-500
@@ -327,17 +451,14 @@ const TeamHero = () => {
 
               shadow-[0_15px_50px_rgba(6,182,212,0.25)]
 
+              hover:scale-105
+
               transition-all
               duration-500
-
-              hover:scale-105
             "
             >
               <span
                 className="
-                relative
-                z-10
-
                 flex
                 items-center
                 gap-3
@@ -348,32 +469,12 @@ const TeamHero = () => {
                 <ArrowRight
                   size={18}
                   className="
-                  transition-transform
-                  duration-300
-
                   group-hover:translate-x-1
+                  transition-transform
                 "
                 />
               </span>
-
-              <div
-                className="
-                absolute
-                inset-0
-
-                opacity-0
-
-                bg-white/20
-
-                transition-opacity
-                duration-500
-
-                group-hover:opacity-100
-              "
-              />
             </button>
-
-            {/* BUTTON 2 */}
 
             <button
               className="
@@ -391,8 +492,6 @@ const TeamHero = () => {
               text-[color:var(--text-primary)]
               font-semibold
 
-              shadow-[0_10px_40px_rgba(0,0,0,0.04)]
-
               hover:border-cyan-400/40
               hover:bg-cyan-500/5
 
@@ -402,27 +501,14 @@ const TeamHero = () => {
             >
               Book a Strategy Call
             </button>
-          </motion.div>
+          </div>
 
           {/* TRUST PILLS */}
 
-          <motion.div
-            initial={{
-              opacity: 0,
-              y: 30,
-            }}
-            whileInView={{
-              opacity: 1,
-              y: 0,
-            }}
-            transition={{
-              duration: 1.1,
-            }}
-            viewport={{ once: true }}
+          <div
             className="
             flex
             flex-wrap
-
             gap-4
 
             mt-14
@@ -449,11 +535,8 @@ const TeamHero = () => {
 
                   text-[color:var(--text-secondary)]
 
-                  shadow-[0_8px_30px_rgba(0,0,0,0.03)]
-
                   hover:border-cyan-400/30
                   hover:text-cyan-600
-                  hover:-translate-y-1
 
                   transition-all
                   duration-300
@@ -463,36 +546,63 @@ const TeamHero = () => {
                 </div>
               )
             )}
-          </motion.div>
+          </div>
         </div>
 
         {/* ================================================= */}
-        {/* RIGHT SIDE */}
+        {/* RIGHT SECTION */}
         {/* ================================================= */}
 
         <div
           className="
           relative
 
-          h-[650px]
+          h-[720px]
 
           flex
           items-center
           justify-center
         "
         >
-          {/* ================= CENTER GLASS ================= */}
+          {/* ORBIT */}
 
           <motion.div
             animate={{
-              y: [0, -12, 0],
+              rotate: 360,
             }}
             transition={{
-              duration: 6,
+              duration: 40,
+              repeat: Infinity,
+              ease: "linear",
+            }}
+            className="
+            absolute
+
+            w-[540px]
+            h-[540px]
+
+            rounded-full
+
+            border
+            border-dashed
+            border-cyan-500/10
+          "
+          />
+
+          {/* CENTER CARD */}
+
+          <motion.div
+            animate={{
+              y: [0, -10, 0],
+            }}
+            transition={{
+              duration: 5,
               repeat: Infinity,
             }}
             className="
             relative
+
+            z-20
 
             w-[320px]
             h-[320px]
@@ -510,8 +620,6 @@ const TeamHero = () => {
             shadow-[0_20px_80px_rgba(6,182,212,0.08)]
           "
           >
-            {/* GLOW */}
-
             <div
               className="
               absolute
@@ -522,8 +630,6 @@ const TeamHero = () => {
               to-blue-500/10
             "
             />
-
-            {/* CENTER CONTENT */}
 
             <div
               className="
@@ -539,12 +645,8 @@ const TeamHero = () => {
               justify-center
             "
             >
-              {/* MAIN IMAGE */}
-
               <div
                 className="
-                relative
-
                 w-36
                 h-36
 
@@ -554,13 +656,11 @@ const TeamHero = () => {
 
                 border-4
                 border-cyan-400/30
-
-                shadow-[0_0_60px_rgba(6,182,212,0.25)]
               "
               >
                 <img
-                  src="https://i.pravatar.cc/400?img=68"
-                  alt="Founder"
+                  src={codirector}
+                  alt="heroimage"
                   className="
                   w-full
                   h-full
@@ -587,258 +687,408 @@ const TeamHero = () => {
                 className="
                 mt-3
 
-                text-[color:var(--text-secondary)]
-
                 text-center
+
+                text-[color:var(--text-secondary)]
 
                 max-w-[240px]
               "
               >
-                Elite engineers &
-                strategists building
-                next-gen digital products.
+                Tap floating popups to
+                explore leadership details.
               </p>
             </div>
           </motion.div>
 
-          {/* ================= FLOATING MEMBERS ================= */}
+          {/* FLOATING POPUP MEMBERS */}
 
           {floatingMembers.map(
             (member, index) => (
-              <motion.div
-                key={index}
-                initial={{
-                  opacity: 0,
-                  scale: 0.8,
-                }}
-                whileInView={{
-                  opacity: 1,
-                  scale: 1,
-                }}
-                transition={{
-                  duration: 0.7,
-                  delay: index * 0.2,
-                }}
-                animate={{
-                  y: [0, -12, 0],
-                }}
-                viewport={{ once: true }}
-                className={`
-                  absolute
-                  ${member.className}
-                `}
-                style={{
-                  animationDuration: `${
-                    4 + index
-                  }s`,
-                }}
+              <AnimatePresence
+                key={member.id}
               >
-                <div
-                  className="
-                  group
+                {visibleCards.includes(
+                  member.id
+                ) && (
+                  <motion.button
+                    onClick={() =>
+                      setSelectedMember(
+                        member
+                      )
+                    }
+                    initial={{
+                      opacity: 0,
+                      scale: 0.5,
+                      y: 30,
+                    }}
+                    animate={{
+                      opacity: 1,
+                      scale: 1,
+                      y: 0,
+                    }}
+                    exit={{
+                      opacity: 0,
+                      scale: 0.5,
+                      y: -20,
+                    }}
+                    transition={{
+                      duration: 0.5,
+                    }}
+                    className={`
+                      absolute
+                      z-30
 
-                  flex
-                  items-center
-                  gap-4
-
-                  px-4
-                  py-4
-
-                  rounded-3xl
-
-                  border
-                  border-white/60
-
-                  bg-white/70
-                  backdrop-blur-2xl
-
-                  shadow-[0_15px_50px_rgba(0,0,0,0.08)]
-
-                  hover:border-cyan-400/30
-                  hover:bg-cyan-500/5
-                  hover:-translate-y-2
-
-                  transition-all
-                  duration-500
-                "
-                >
-                  {/* AVATAR */}
-
-                  <div
-                    className="
-                    relative
-
-                    w-16
-                    h-16
-
-                    rounded-full
-
-                    overflow-hidden
-
-                    border
-                    border-cyan-400/30
-                  "
+                      ${member.orbitClass}
+                    `}
                   >
-                    <img
-                      src={member.image}
-                      alt={member.name}
+                    <div
                       className="
-                      w-full
-                      h-full
+                      group
 
-                      object-cover
-                    "
-                    />
-                  </div>
+                      flex
+                      items-center
+                      gap-4
 
-                  {/* INFO */}
+                      px-5
+                      py-4
 
-                  <div>
-                    <h4
-                      className="
-                      text-[color:var(--text-primary)]
-                      font-semibold
-                    "
-                    >
-                      {member.name}
-                    </h4>
+                      rounded-full
 
-                    <p
-                      className="
-                      text-sm
-                      text-[color:var(--text-muted)]
+                      border
+                      border-white/50
+
+                      bg-white/80
+                      backdrop-blur-2xl
+
+                      shadow-[0_15px_50px_rgba(0,0,0,0.12)]
+
+                      hover:scale-105
+                      hover:border-cyan-400/40
+
+                      transition-all
+                      duration-500
                     "
                     >
-                      {member.role}
-                    </p>
-                  </div>
-                </div>
-              </motion.div>
+                      {/* IMAGE */}
+
+                      <div
+                        className="
+                        w-14
+                        h-14
+
+                        rounded-full
+
+                        overflow-hidden
+
+                        border-2
+                        border-cyan-400/30
+                      "
+                      >
+                        <img
+                          src={
+                            member.image
+                          }
+                          alt={
+                            member.name
+                          }
+                          className="
+                          w-full
+                          h-full
+
+                          object-cover
+                        "
+                        />
+                      </div>
+
+                      {/* TEXT */}
+
+                      <div className="text-left">
+                        <h4
+                          className="
+                          text-sm
+                          font-bold
+
+                          text-slate-900
+                        "
+                        >
+                          {member.name}
+                        </h4>
+
+                        <p
+                          className="
+                          text-xs
+
+                          text-cyan-600
+                        "
+                        >
+                          {
+                            member.shortRole
+                          }
+                        </p>
+                      </div>
+                    </div>
+                  </motion.button>
+                )}
+              </AnimatePresence>
             )
           )}
 
-          {/* ================= ORBIT ================= */}
+          {/* ICONS */}
 
-          <motion.div
-            animate={{
-              rotate: 360,
-            }}
-            transition={{
-              duration: 20,
-              repeat: Infinity,
-              ease: "linear",
-            }}
+          <div
             className="
             absolute
+            top-0
+            left-1/2
 
-            w-[520px]
-            h-[520px]
+            -translate-x-1/2
+            -translate-y-1/2
+
+            w-14
+            h-14
 
             rounded-full
 
-            border
-            border-dashed
-            border-cyan-500/10
+            bg-white/80
+
+            flex
+            items-center
+            justify-center
+
+            text-cyan-500
           "
           >
-            {/* ICON 1 */}
+            <BrainCircuit size={24} />
+          </div>
 
-            <div
-              className="
-              absolute
-              top-0
-              left-1/2
-              -translate-x-1/2
-              -translate-y-1/2
+          <div
+            className="
+            absolute
+            bottom-0
+            left-1/2
 
-              w-14
-              h-14
+            -translate-x-1/2
+            translate-y-1/2
 
-              rounded-full
+            w-14
+            h-14
 
-              bg-white/80
+            rounded-full
 
-              border
-              border-cyan-400/20
+            bg-white/80
 
-              flex
-              items-center
-              justify-center
+            flex
+            items-center
+            justify-center
 
-              text-cyan-500
+            text-blue-500
+          "
+          >
+            <Globe size={24} />
+          </div>
 
-              shadow-lg
-            "
-            >
-              <BrainCircuit size={24} />
-            </div>
+          <div
+            className="
+            absolute
+            top-1/2
+            left-0
 
-            {/* ICON 2 */}
+            -translate-x-1/2
+            -translate-y-1/2
 
-            <div
-              className="
-              absolute
-              bottom-0
-              left-1/2
-              -translate-x-1/2
-              translate-y-1/2
+            w-14
+            h-14
 
-              w-14
-              h-14
+            rounded-full
 
-              rounded-full
+            bg-white/80
 
-              bg-white/80
+            flex
+            items-center
+            justify-center
 
-              border
-              border-blue-400/20
-
-              flex
-              items-center
-              justify-center
-
-              text-blue-500
-
-              shadow-lg
-            "
-            >
-              <Globe size={24} />
-            </div>
-
-            {/* ICON 3 */}
-
-            <div
-              className="
-              absolute
-              top-1/2
-              left-0
-              -translate-x-1/2
-              -translate-y-1/2
-
-              w-14
-              h-14
-
-              rounded-full
-
-              bg-white/80
-
-              border
-              border-cyan-400/20
-
-              flex
-              items-center
-              justify-center
-
-              text-cyan-500
-
-              shadow-lg
-            "
-            >
-              <ShieldCheck size={24} />
-            </div>
-          </motion.div>
+            text-cyan-500
+          "
+          >
+            <ShieldCheck size={24} />
+          </div>
         </div>
       </div>
+
+      {/* ================================================= */}
+      {/* MODAL */}
+      {/* ================================================= */}
+
+      <AnimatePresence>
+        {selectedMember && (
+          <motion.div
+            initial={{
+              opacity: 0,
+            }}
+            animate={{
+              opacity: 1,
+            }}
+            exit={{
+              opacity: 0,
+            }}
+            className="
+            fixed
+            inset-0
+            z-50
+
+            flex
+            items-center
+            justify-center
+
+            bg-black/60
+            backdrop-blur-md
+
+            p-6
+          "
+          >
+            <motion.div
+              initial={{
+                scale: 0.8,
+                opacity: 0,
+              }}
+              animate={{
+                scale: 1,
+                opacity: 1,
+              }}
+              exit={{
+                scale: 0.8,
+                opacity: 0,
+              }}
+              className="
+              relative
+
+              w-full
+              max-w-2xl
+
+              rounded-[40px]
+
+              border
+              border-white/20
+
+              bg-white/10
+              backdrop-blur-3xl
+
+              p-10
+
+              overflow-hidden
+            "
+            >
+              {/* CLOSE */}
+
+              <button
+                onClick={() =>
+                  setSelectedMember(
+                    null
+                  )
+                }
+                className="
+                absolute
+                top-5
+                right-5
+
+                w-12
+                h-12
+
+                rounded-full
+
+                bg-white/10
+
+                flex
+                items-center
+                justify-center
+
+                text-white
+              "
+              >
+                <X size={22} />
+              </button>
+
+              {/* IMAGE */}
+
+              <div
+                className="
+                w-32
+                h-32
+
+                rounded-full
+
+                overflow-hidden
+
+                border-4
+                border-cyan-400/30
+
+                mx-auto
+              "
+              >
+                <img
+                  src={
+                    selectedMember.image
+                  }
+                  alt={
+                    selectedMember.name
+                  }
+                  className="
+                  w-full
+                  h-full
+
+                  object-cover
+                "
+                />
+              </div>
+
+              {/* INFO */}
+
+              <div className="text-center mt-8">
+                <h2
+                  className="
+                  text-4xl
+                  font-black
+
+                  text-white
+                "
+                >
+                  {
+                    selectedMember.name
+                  }
+                </h2>
+
+                <p
+                  className="
+                  mt-3
+
+                  text-cyan-300
+                  text-lg
+                  font-semibold
+                "
+                >
+                  {
+                    selectedMember.fullRole
+                  }
+                </p>
+
+                <p
+                  className="
+                  mt-8
+
+                  text-white/80
+                  leading-relaxed
+                  text-lg
+                "
+                >
+                  {
+                    selectedMember.description
+                  }
+                </p>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </section>
   );
 };

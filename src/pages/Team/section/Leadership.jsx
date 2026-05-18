@@ -1,5 +1,4 @@
 import { motion } from "framer-motion";
-
 import Tilt from "react-parallax-tilt";
 
 import {
@@ -15,8 +14,9 @@ import {
 } from "react-icons/fa6";
 
 import directorImage from "../../../assets/images/founderimg/director.jpg";
-import codirectorImg from "../../../assets/images/founderimg/codirector.jpeg"
-import salusingh from "../../../assets/images/founderimg/Salu.jpeg"
+import codirectorImg from "../../../assets/images/founderimg/codirector.jpeg";
+import salusingh from "../../../assets/images/founderimg/Salu.jpeg";
+import sateesh from "../../../assets/images/founderimg/sateesh.jpg"
 
 /* ================================================= */
 /* TEAM DATA */
@@ -24,11 +24,38 @@ import salusingh from "../../../assets/images/founderimg/Salu.jpeg"
 
 const leaders = [
   {
-    name: "Aayush Mishara",
-    role: "Director",
+    name: "Ayush Misra",
+    role: "Founder",
     image: directorImage,
+
+     portfolio:
+           "https://portfolio.kartsho.com/",
+
+    socials: {
+     
+      linkedin:
+        "https://www.linkedin.com/in/misraayush",
+
+      github:
+        "https://github.com/ayushrajmisra",
+
+      instagram:
+        "https://www.instagram.com/ayushatkartsho?igsh=MXM4dzBlODN2d291Zw==",
+
+      facebook:
+        "https://www.facebook.com/share/18H9fondJH/",
+    },
+
+    imageStyle: `
+      object-cover
+      object-top
+      scale-[1.0]
+    `,
+
     experience: "7+ Years",
+
     bio: "Leading AI-first digital products, enterprise systems, and scalable SaaS ecosystems globally.",
+
     expertise: [
       "Product Strategy",
       "AI Systems",
@@ -37,9 +64,33 @@ const leaders = [
   },
 
   {
-    name: "Ranjan kumar",
-    role: "Co-Director",
-    image:codirectorImg,
+    name: "Ranjan Kumar",
+    role: "Co-Founder",
+    image: codirectorImg,
+     portfolio:
+           "",
+
+    socials: {
+     
+      linkedin:
+        "https://linkedin.com/in/ranjan",
+
+      github:
+        "https://github.com/ranjan",
+
+      instagram:
+        "https://instagram.com/ranjan",
+
+      twitter:
+        "https://x.com/ranjan",
+    },
+
+    imageStyle: `
+      object-cover
+      object-top
+      scale-[1.17]
+      translate-y-[30px]
+    `,
 
     experience: "5+ Years",
 
@@ -53,13 +104,38 @@ const leaders = [
   },
 
   {
-    name: "Salu singh",
+    name: "Salu Singh",
     role: "CEO",
-    image:salusingh,
+    image: salusingh,
+portfolio:
+           "",
+    socials: {
+       
 
-    experience: "6+ Years",
+      linkedin:
+        "https://www.linkedin.com/in/salusingh-7869142b8?utm_source=share_via&utm_content=profile&utm_medium=member_android",
 
-    bio: "Building intelligent AI workflows, LLM systems, and automation pipelines for enterprises.",
+      github:
+        "https://github.com/salu",
+
+      instagram:
+        "https://www.instagram.com/salu_singh18?igsh=MWF3eDB5bzhxcXhsNQ==",
+
+      twitter:
+        "https://x.com/salu",
+    },
+
+    imageStyle: `
+      object-cover
+      object-top
+      scale-[1.20]
+      pb-500
+      translate-y-[80px]
+    `,
+
+    experience: "2+ Years",
+
+    bio: "Building intelligent AI workflows and automation systems.",
 
     expertise: [
       "LLMs",
@@ -69,10 +145,33 @@ const leaders = [
   },
 
   {
-    name: "Emma Watson",
-    role: "UI/UX Designer",
-    image:
-      "https://images.unsplash.com/photo-1488426862026-3ee34a7d66df?q=80&w=1200&auto=format&fit=crop",
+    name: "Sateesh Yadav",
+    role: "Teachnical Head",
+    image:sateesh,
+portfolio:"https://sateeshkumaryadav.netlify.app/",
+    socials:
+     {
+      
+
+      linkedin:
+        "https://www.linkedin.com/in/sateesh-yadav-5a69a6308/",
+
+      github:
+        "https://github.com",
+
+      instagram:
+        "https://www.instagram.com/sateesh_____yadav?igsh=MWtlaHRsOWVpb3JocA==",
+
+      twitter:
+        "https://x.com",
+    },
+
+    imageStyle: `
+      object-cover
+      object-center
+      pt-15
+      scale-[1.30]
+    `,
 
     experience: "5+ Years",
 
@@ -92,21 +191,16 @@ const LeadershipTeam = () => {
       className="
       relative
       overflow-hidden
-
       bg-[#F5F7FB]
-
       py-32
     "
     >
-      {/* ================================================= */}
       {/* GRID */}
-      {/* ================================================= */}
 
       <div
         className="
         absolute
         inset-0
-
         opacity-[0.04]
 
         [background-image:linear-gradient(to_right,#0f172a_1px,transparent_1px),linear-gradient(to_bottom,#0f172a_1px,transparent_1px)]
@@ -115,9 +209,7 @@ const LeadershipTeam = () => {
       "
       />
 
-      {/* ================================================= */}
       {/* GLOWS */}
-      {/* ================================================= */}
 
       <div
         className="
@@ -153,9 +245,7 @@ const LeadershipTeam = () => {
       "
       />
 
-      {/* ================================================= */}
       {/* CONTAINER */}
-      {/* ================================================= */}
 
       <div
         className="
@@ -168,9 +258,7 @@ const LeadershipTeam = () => {
         px-6
       "
       >
-        {/* ================================================= */}
         {/* TOP CONTENT */}
-        {/* ================================================= */}
 
         <div
           className="
@@ -306,22 +394,22 @@ const LeadershipTeam = () => {
           </motion.p>
         </div>
 
-        {/* ================================================= */}
         {/* TEAM GRID */}
-        {/* ================================================= */}
 
         <div
           className="
           mt-24
 
           grid
-          md:grid-cols-3
-
+          md:grid-cols-2
           gap-10
         "
         >
           {leaders.map(
-            (leader, index) => (
+            (
+              leader,
+              index
+            ) => (
               <Tilt
                 key={index}
                 glareEnable={true}
@@ -368,9 +456,7 @@ const LeadershipTeam = () => {
                   hover:shadow-[0_30px_100px_rgba(6,182,212,0.18)]
                 "
                 >
-                  {/* ================================================= */}
-                  {/* GRADIENT BORDER */}
-                  {/* ================================================= */}
+                  {/* BORDER */}
 
                   <div
                     className="
@@ -388,9 +474,7 @@ const LeadershipTeam = () => {
                   "
                   />
 
-                  {/* ================================================= */}
                   {/* SPOTLIGHT */}
-                  {/* ================================================= */}
 
                   <div
                     className="
@@ -416,9 +500,7 @@ const LeadershipTeam = () => {
                   "
                   />
 
-                  {/* ================================================= */}
                   {/* CONTENT */}
-                  {/* ================================================= */}
 
                   <div
                     className="
@@ -426,15 +508,14 @@ const LeadershipTeam = () => {
                     z-10
                   "
                   >
-                    {/* ================================================= */}
                     {/* IMAGE */}
-                    {/* ================================================= */}
 
                     <div
                       className="
                       relative
 
-                      h-[310px]
+                      h-[500px]
+                      sm:h-[550px]
 
                       overflow-hidden
                     "
@@ -442,16 +523,20 @@ const LeadershipTeam = () => {
                       <img
                         src={leader.image}
                         alt={leader.name}
+                        loading="lazy"
+                        className={`
+                          w-full
+                          h-full
 
-                        className="
-                        w-full
-                        h-full
-                        object-cover
-                        transition-transform
-                        duration-700
-                        group-hover:scale-112
-                        scale-[1.1]
-                      "
+                          transition-all
+                          duration-700
+
+                          grayscale
+                          group-hover:grayscale-0
+                         
+
+                          ${leader.imageStyle}
+                        `}
                       />
 
                       {/* OVERLAY */}
@@ -462,7 +547,7 @@ const LeadershipTeam = () => {
                         inset-0
 
                         bg-gradient-to-t
-                        from-black/80
+                        from-black/85
                         via-black/20
                         to-transparent
                       "
@@ -496,12 +581,12 @@ const LeadershipTeam = () => {
                         {leader.experience}
                       </div>
 
-                      {/* SOCIALS */}
+                      {/* SOCIAL ICONS */}
 
                       <div
                         className="
                         absolute
-                        bottom-6
+                        bottom-2
                         right-6
 
                         flex
@@ -510,97 +595,152 @@ const LeadershipTeam = () => {
                       "
                       >
                         {[
-  FaLinkedin,
-  FaGithub,
-  FaInstagram,
-  FaXTwitter,
-].map(
-                          (Icon, i) => (
-                            <motion.button
-                              key={i}
-                              whileHover={{
-                                y: -4,
-                                scale: 1.08,
-                              }}
-                              className="
-                              w-12
-                              h-12
+                          {
+                            icon:
+                              FaLinkedin,
+                            link:
+                              leader
+                                .socials
+                                .linkedin,
+                          },
 
-                              rounded-2xl
+                          {
+                            icon:
+                              FaGithub,
+                            link:
+                              leader
+                                .socials
+                                .github,
+                          },
 
-                              border
-                              border-white/10
+                          {
+                            icon:
+                              FaInstagram,
+                            link:
+                              leader
+                                .socials
+                                .instagram,
+                          },
 
-                              bg-white/10
-                              backdrop-blur-xl
+                          {
+                            icon:
+                              FaXTwitter,
+                            link:
+                              leader
+                                .socials
+                                .twitter,
+                          },
+                        ].map(
+                          (
+                            item,
+                            i
+                          ) => {
+                            const Icon =
+                              item.icon;
 
-                              text-white
+                            return (
+                              <motion.a
+                                key={i}
+                                href={
+                                  item.link
+                                }
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                whileHover={{
+                                  y: -4,
+                                  scale: 1.08,
+                                }}
+                                whileTap={{
+                                  scale: 0.95,
+                                }}
+                                className="
+                                w-12
+                                h-12
 
-                              flex
-                              items-center
-                              justify-center
+                                rounded-2xl
 
-                              transition-all
-                              duration-300
+                                border
+                                border-white/10
 
-                              hover:bg-cyan-500
-                              hover:border-cyan-400
-                            "
-                            >
-                              <Icon
-                                size={18}
-                              />
-                            </motion.button>
-                          )
+                                bg-white/10
+                                backdrop-blur-xl
+
+                                text-white
+
+                                flex
+                                items-center
+                                justify-center
+
+                                transition-all
+                                duration-300
+
+                                hover:bg-cyan-500
+                                hover:border-cyan-400
+                                hover:shadow-[0_0_25px_rgba(6,182,212,0.5)]
+                              "
+                              >
+                                <Icon
+                                  size={
+                                    18
+                                  }
+                                />
+                              </motion.a>
+                            );
+                          }
                         )}
                       </div>
-                    </div>
-
-                    {/* ================================================= */}
-                    {/* BOTTOM CONTENT */}
-                    {/* ================================================= */}
-
-                    <div className="p-8">
-                      {/* ROLE */}
-
-                      <p
-                        className="
-                        text-cyan-600
-                        font-semibold
-                      "
-                      >
-                        {leader.role}
-                      </p>
 
                       {/* NAME */}
 
-                      <h3
+                      <div
                         className="
-                        mt-2
-
-                        text-3xl
-                        font-black
-
-                        text-[color:var(--text-primary)]
+                        absolute
+                        bottom-6
+                        left-6
                       "
                       >
-                        {leader.name}
-                      </h3>
+                        <h3
+                          className="
+                          text-3xl
+                          sm:text-4xl
 
-                      {/* BIO */}
+                          font-black
+                          text-white
 
+                          drop-shadow-lg
+                        "
+                        >
+                          {leader.name}
+                        </h3>
+
+                        <p
+                          className="
+                          mt-1
+
+                          text-cyan-300
+                          font-semibold
+                          text-lg
+                        "
+                        >
+                          {leader.role}
+                        </p>
+                      </div>
+                    </div>
+
+                    {/* BOTTOM */}
+
+                    <div className="p-8">
                       <p
                         className="
-                        mt-5
-
                         text-[color:var(--text-primary)]
                         leading-relaxed
+                        text-[15px]
                       "
                       >
                         {leader.bio}
                       </p>
 
-                      {/* EXPERTISE */}
+                      {/* SKILLS */}
 
                       <div
                         className="
@@ -618,7 +758,9 @@ const LeadershipTeam = () => {
                             skillIndex
                           ) => (
                             <div
-                              key={skillIndex}
+                              key={
+                                skillIndex
+                              }
                               className="
                               px-4
                               py-2
@@ -648,37 +790,59 @@ const LeadershipTeam = () => {
                       </div>
 
                       {/* BUTTON */}
+<motion.a
+href={leader.portfolio}
+target="_blank"
+rel="noopener noreferrer"
+  whileHover={{
+    x: 5,
+  }}
+  whileTap={{
+    scale:0.96
+  }}
 
-                      <motion.button
-                        whileHover={{
-                          x: 5,
-                        }}
-                        className="
-                        mt-8
+  className="
+    flex
+    items-center
+    gap-3
 
-                        flex
-                        items-center
-                        gap-3
+    mt-8
+    px-6
+    py-4
+    inline-45
 
-                        text-[color:var(--text-primary)]
-                        font-semibold
+    rounded-2xl
 
-                        group/button
-                      "
-                      >
-                        View Profile
+    border
+    border-cyan-400/40
 
-                        <ArrowUpRight
-                          size={18}
-                          className="
-                          transition-transform
-                          duration-300
+    bg-white/10
+    backdrop-blur-xl
 
-                          group-hover/button:translate-x-1
-                          group-hover/button:-translate-y-1
-                        "
-                        />
-                      </motion.button>
+    text-white
+    font-semibold
+
+    shadow-[0_0_20px_rgba(34,211,238,0.25)]
+
+    hover:border-cyan-300
+    hover:shadow-[0_0_35px_rgba(34,211,238,0.55)]
+    transition-all
+    duration-300
+  "
+>
+  View Profile
+  <ArrowUpRight
+   size={18}
+    className="transition-transform
+  duration-300
+  text-green-600
+    group-hover/button:translate-x-1
+    group-hover/button:-translate-y-1"
+  
+  />
+</motion.a>
+                      
+                    
                     </div>
                   </div>
                 </motion.div>
