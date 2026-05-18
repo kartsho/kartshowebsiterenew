@@ -16,6 +16,8 @@ import {
 
 import directorImage from "../../../assets/images/founderimg/director.jpg";
 import codirectorImg from "../../../assets/images/founderimg/codirector.jpeg"
+import salusingh from "../../../assets/images/founderimg/Salu.jpeg"
+
 /* ================================================= */
 /* TEAM DATA */
 /* ================================================= */
@@ -53,8 +55,7 @@ const leaders = [
   {
     name: "Salu singh",
     role: "CEO",
-    image:
-      "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=1200&auto=format&fit=crop",
+    image:salusingh,
 
     experience: "6+ Years",
 
@@ -314,7 +315,7 @@ const LeadershipTeam = () => {
           mt-24
 
           grid
-          md:grid-cols-2
+          md:grid-cols-3
 
           gap-10
         "
@@ -433,7 +434,7 @@ const LeadershipTeam = () => {
                       className="
                       relative
 
-                      h-[420px]
+                      h-[310px]
 
                       overflow-hidden
                     "
@@ -445,13 +446,11 @@ const LeadershipTeam = () => {
                         className="
                         w-full
                         h-full
-
                         object-cover
-
                         transition-transform
                         duration-700
-
-                        group-hover:scale-110
+                        group-hover:scale-112
+                        scale-[1.1]
                       "
                       />
 
