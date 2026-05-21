@@ -1,415 +1,910 @@
 import { motion } from "framer-motion";
+
 import { Link } from "react-router-dom";
 
 import {
+  ArrowUpRight,
+  Send,
+  BadgeCheck,
+  ShieldCheck,
+  Building2,
+} from "lucide-react";
+
+import {
+  FaFacebookF,
   FaInstagram,
-  FaLinkedin,
-  FaGithub,
+  FaLinkedinIn,
   FaXTwitter,
 } from "react-icons/fa6";
 
-import {
-  ArrowUpRight,
-  Mail,
-  MapPin,
-  Phone,
-  BadgeCheck,
-  Building2,
-  ShieldCheck,
-} from "lucide-react";
-
-import LegalStrip from "../../legal/LegalStrip";
-
-const footerSections = [
+const socialLinks = [
   {
-    title: "Company",
-    links: [
-      { label: "About", to: "/about" },
-      { label: "About Company", to: "/about-company" },
-      { label: "Careers", to: "/career" },
-      { label: "Contact", to: "/contact" },
-    ],
-  },
-  {
-    title: "Services",
-    links: [
-      { label: "Web Development", to: "/services/web-development" },
-      { label: "AI Development", to: "/services#services-grid" },
-      { label: "SaaS Platforms", to: "/services#services-grid" },
-      { label: "Cloud Infrastructure", to: "/services#detailed-services" },
-    ],
-  },
-  {
-    title: "Legal",
-    links: [
-      { label: "Privacy Policy", to: "/privacy-policy" },
-      { label: "Terms & Conditions", to: "/terms-and-conditions" },
-      { label: "About Company", to: "/about-company" },
-    ],
-  },
-];
-
-const contactCards = [
-  {
-    icon: Mail,
-    label: "Email",
-    value: "info@kartsho.com",
-  },
-  {
-    icon: Mail,
-    label: "Careers",
-    value: "hr@kartsho.com",
-  },
-  {
-    icon: Phone,
-    label: "Phone",
-    value: "+91 9453134901 / +91 9528660578",
-  },
-  {
-    icon: MapPin,
-    label: "Office",
-    value: "Godhoopatti Patti, Pratapgarh, Uttar Pradesh - 230134",
-  },
-];
-
-const complianceCards = [
-  {
-    icon: Building2,
-    label: "Registered Name",
-    value: "Kartsho Solutions Private Limited",
-  },
-  {
-    icon: BadgeCheck,
-    label: "CIN",
-    value: "Add your CIN here",
-  },
-  {
-    icon: ShieldCheck,
-    label: "GSTIN",
-    value: "Add your GSTIN here",
-  },
-  {
-    icon: Mail,
-    label: "Grievance Officer",
-    value: "grievance@kartsho.com",
-  },
-];
-
-const socials = [
-  {
-    icon: FaLinkedin,
-    label: "LinkedIn",
-  },
-  {
-    icon: FaInstagram,
-    label: "Instagram",
+    icon: FaFacebookF,
+    link: "https://facebook.com",
   },
   {
     icon: FaXTwitter,
-    label: "X",
+    link: "https://x.com",
   },
   {
-    icon: FaGithub,
-    label: "GitHub",
+    icon: FaInstagram,
+    link: "https://instagram.com",
+  },
+  {
+    icon: FaLinkedinIn,
+    link: "https://linkedin.com",
   },
 ];
 
 const Footer = () => {
   return (
-    <footer className="relative overflow-hidden bg-[#050816] text-white">
-      <div className="absolute left-[-180px] top-[-120px] h-[420px] w-[420px] rounded-full bg-cyan-400/12 blur-[150px]" />
-      <div className="absolute right-[-160px] bottom-[60px] h-[360px] w-[360px] rounded-full bg-blue-500/10 blur-[150px]" />
+    <footer
+      className="
+      relative
+      overflow-hidden
+      bg-[#071120]
+      text-white
+    "
+    >
+      {/* ================= BACKGROUND GLOW ================= */}
 
-      <div className="relative z-10 mx-auto max-w-7xl px-6 py-16 lg:py-20">
-        <LegalStrip />
+      <div
+        className="
+        absolute
+        top-[-250px]
+        left-[-250px]
 
-        <div className="mt-10 grid gap-8 lg:grid-cols-[1.1fr_0.9fr]">
-          <motion.div
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7 }}
-            viewport={{ once: true }}
-            className="
-              rounded-[36px]
-              border
-              border-white/10
-              bg-white/5
-              p-8
-              shadow-[0_20px_80px_rgba(0,0,0,0.22)]
-              backdrop-blur-2xl
-            "
-          >
-            <p className="text-xs font-semibold uppercase tracking-[0.34em] text-cyan-300">
-              Production Ready Digital Partner
-            </p>
+        w-[500px]
+        h-[500px]
 
-            <h2 className="mt-4 text-4xl font-black tracking-tight text-white md:text-5xl">
-              Kartsho builds ventures that look premium and scale cleanly.
-            </h2>
+        rounded-full
 
-            <p className="mt-5 max-w-2xl text-base leading-relaxed text-slate-300">
-              We design and ship digital products across web development, AI systems, SaaS
-              platforms, cloud infrastructure, and enterprise-grade brand experiences.
-            </p>
+        bg-cyan-500/10
 
-            <div className="mt-8 flex flex-wrap gap-4">
-              <Link
-                to="/contact"
-                className="
-                  rounded-full
-                  bg-gradient-to-r
-                  from-cyan-500
-                  to-blue-500
-                  px-6
-                  py-3.5
-                  font-semibold
-                  text-white
-                  shadow-[0_18px_45px_rgba(6,182,212,0.25)]
-                  transition-transform
-                  duration-300
-                  hover:scale-105
-                "
-              >
-                Start a project
-              </Link>
+        blur-[160px]
+      "
+      />
 
-              <Link
-                to="/services"
-                className="
-                  rounded-full
-                  border
-                  border-white/15
-                  bg-white/5
-                  px-6
-                  py-3.5
-                  font-semibold
-                  text-white
-                  transition-all
-                  duration-300
-                  hover:border-cyan-300/40
-                  hover:bg-white/10
-                "
-              >
-                Explore services
-              </Link>
-            </div>
+      <div
+        className="
+        absolute
+        bottom-[-250px]
+        right-[-250px]
 
-            <div className="mt-8 grid gap-4 sm:grid-cols-2">
-              {contactCards.map((item) => {
-                const Icon = item.icon;
+        w-[500px]
+        h-[500px]
 
-                return (
-                  <div
-                    key={item.label}
-                    className="
-                      rounded-[24px]
-                      border
-                      border-white/10
-                      bg-black/20
-                      p-4
-                    "
-                  >
-                    <div className="flex items-start gap-3">
-                      <div className="mt-0.5 flex h-10 w-10 items-center justify-center rounded-2xl bg-cyan-500/10 text-cyan-300">
-                        <Icon size={18} />
-                      </div>
+        rounded-full
 
-                      <div>
-                        <p className="text-xs uppercase tracking-[0.22em] text-slate-400">
-                          {item.label}
-                        </p>
-                        <p className="mt-1 text-sm font-medium leading-relaxed text-white">
-                          {item.value}
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
-          </motion.div>
+        bg-blue-500/10
 
-          <div className="grid gap-8 lg:grid-cols-3">
-            {footerSections.map((section, index) => (
-              <motion.div
-                key={section.title}
-                initial={{ opacity: 0, y: 24 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.7, delay: index * 0.08 }}
-                viewport={{ once: true }}
-                className="
-                  rounded-[30px]
-                  border
-                  border-white/10
-                  bg-white/5
-                  p-6
-                  backdrop-blur-2xl
-                "
-              >
-                <h3 className="text-lg font-bold text-white">
-                  {section.title}
-                </h3>
+        blur-[160px]
+      "
+      />
 
-                <div className="mt-5 space-y-3">
-                  {section.links.map((link) => (
-                    <Link
-                      key={link.label}
-                      to={link.to}
-                      className="
-                        group
-                        flex
-                        items-center
-                        justify-between
-                        gap-3
-                        rounded-2xl
-                        px-4
-                        py-3
-                        text-sm
-                        font-medium
-                        text-slate-300
-                        transition-all
-                        duration-300
-                        hover:bg-white/10
-                        hover:text-white
-                      "
-                    >
-                      <span>{link.label}</span>
-                      <ArrowUpRight
-                        size={16}
-                        className="
-                          shrink-0
-                          text-cyan-300
-                          transition-transform
-                          duration-300
-                          group-hover:-translate-y-0.5
-                          group-hover:translate-x-0.5
-                        "
-                      />
-                    </Link>
-                  ))}
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
+      {/* ================= GRID ================= */}
+
+      <div
+        className="
+        absolute
+        inset-0
+
+        opacity-[0.03]
+
+        [background-image:linear-gradient(to_right,#ffffff_1px,transparent_1px),linear-gradient(to_bottom,#ffffff_1px,transparent_1px)]
+
+        [background-size:70px_70px]
+      "
+      />
+
+      {/* ================= MAIN ================= */}
+
+      <div
+        className="
+        relative
+        z-10
+
+        max-w-7xl
+        mx-auto
+
+        px-6
+        py-20
+      "
+      >
+        {/* ================= TRUST STRIP ================= */}
 
         <motion.div
-          initial={{ opacity: 0, y: 28 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7 }}
+          initial={{
+            opacity: 0,
+            y: 40,
+          }}
+          whileInView={{
+            opacity: 1,
+            y: 0,
+          }}
+          transition={{
+            duration: 0.8,
+          }}
           viewport={{ once: true }}
           className="
-            mt-8
-            rounded-[36px]
+          mb-16
+
+          grid
+          md:grid-cols-3
+
+          gap-5
+        "
+        >
+          {/* MCA */}
+
+          <div
+            className="
+            flex
+            items-start
+            gap-4
+
+            rounded-3xl
+
             border
             border-white/10
+
             bg-white/5
-            p-6
-            shadow-[0_20px_70px_rgba(0,0,0,0.16)]
-            backdrop-blur-2xl
+
+            backdrop-blur-xl
+
+            p-5
+
+            hover:border-cyan-400/30
+
+            transition-all
+            duration-300
           "
-        >
-          <div className="flex flex-col gap-5">
-            <div className="flex flex-col gap-2">
-              <p className="text-xs font-semibold uppercase tracking-[0.34em] text-cyan-300">
-                Compliance Essentials
-              </p>
-              <h3 className="text-2xl font-black text-white">
-                Legal identity and grievance details
-              </h3>
+          >
+            <div
+              className="
+              w-14
+              h-14
+
+              rounded-2xl
+
+              bg-cyan-500/10
+
+              flex
+              items-center
+              justify-center
+
+              text-cyan-400
+            "
+            >
+              <Building2 size={24} />
             </div>
 
-            <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
-              {complianceCards.map((item) => {
-                const Icon = item.icon;
+            <div>
+              <p
+                className="
+                text-sm
+                text-gray-400
+              "
+              >
+                MCA Registered
+              </p>
 
-                return (
-                  <div
-                    key={item.label}
-                    className="
-                      rounded-[24px]
-                      border
-                      border-white/10
-                      bg-black/20
-                      p-4
-                    "
-                  >
-                    <div className="flex items-start gap-3">
-                      <div className="mt-0.5 flex h-10 w-10 items-center justify-center rounded-2xl bg-white/10 text-cyan-300">
-                        <Icon size={18} />
-                      </div>
+              <h4
+                className="
+                mt-1
 
-                      <div>
-                        <p className="text-xs uppercase tracking-[0.22em] text-slate-400">
-                          {item.label}
-                        </p>
-                        <p className="mt-1 text-sm font-medium leading-relaxed text-white">
-                          {item.value}
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                );
-              })}
+                font-semibold
+              "
+              >
+                Kartsho Solutions Pvt. Ltd.
+              </h4>
+
+              <p
+                className="
+                mt-2
+
+                text-xs
+                text-gray-500
+              "
+              >
+                CIN: U74999UP2026PTCXXXXXX
+              </p>
+            </div>
+          </div>
+
+          {/* GST */}
+
+          <div
+            className="
+            flex
+            items-start
+            gap-4
+
+            rounded-3xl
+
+            border
+            border-white/10
+
+            bg-white/5
+
+            backdrop-blur-xl
+
+            p-5
+
+            hover:border-cyan-400/30
+
+            transition-all
+            duration-300
+          "
+          >
+            <div
+              className="
+              w-14
+              h-14
+
+              rounded-2xl
+
+              bg-cyan-500/10
+
+              flex
+              items-center
+              justify-center
+
+              text-cyan-400
+            "
+            >
+              <BadgeCheck size={24} />
+            </div>
+
+            <div>
+              <p
+                className="
+                text-sm
+                text-gray-400
+              "
+              >
+                GST Verified
+              </p>
+
+              <h4
+                className="
+                mt-1
+
+                font-semibold
+              "
+              >
+                GSTIN: 09XXXXXXXXX
+              </h4>
+
+              <p
+                className="
+                mt-2
+
+                text-xs
+                text-gray-500
+              "
+              >
+                Verified Business Identity
+              </p>
+            </div>
+          </div>
+
+          {/* SECURITY */}
+
+          <div
+            className="
+            flex
+            items-start
+            gap-4
+
+            rounded-3xl
+
+            border
+            border-white/10
+
+            bg-white/5
+
+            backdrop-blur-xl
+
+            p-5
+
+            hover:border-cyan-400/30
+
+            transition-all
+            duration-300
+          "
+          >
+            <div
+              className="
+              w-14
+              h-14
+
+              rounded-2xl
+
+              bg-cyan-500/10
+
+              flex
+              items-center
+              justify-center
+
+              text-cyan-400
+            "
+            >
+              <ShieldCheck size={24} />
+            </div>
+
+            <div>
+              <p
+                className="
+                text-sm
+                text-gray-400
+              "
+              >
+                Enterprise Security
+              </p>
+
+              <h4
+                className="
+                mt-1
+
+                font-semibold
+              "
+              >
+                Secure Digital Infrastructure
+              </h4>
+
+              <p
+                className="
+                mt-2
+
+                text-xs
+                text-gray-500
+              "
+              >
+                SSL • Cloud • AI Systems
+              </p>
             </div>
           </div>
         </motion.div>
 
+        {/* ================= TOP ================= */}
+
         <div
           className="
-            mt-8
-            flex
-            flex-col
-            gap-6
-            rounded-[28px]
-            border
-            border-white/10
-            bg-black/20
-            px-6
-            py-5
-            backdrop-blur-2xl
-            lg:flex-row
-            lg:items-center
-            lg:justify-between
-          "
+          grid
+          lg:grid-cols-4
+
+          gap-14
+        "
         >
-          <p className="text-sm text-slate-300">
-            © 2026 KartSho Technologies Pvt. Ltd. All rights reserved.
-          </p>
+          {/* ================= COMPANY ================= */}
 
-          <div className="flex items-center gap-3">
-            {socials.map((item) => {
-              const Icon = item.icon;
+          <div>
+            {/* LOGO */}
 
-              return (
-                <button
-                  key={item.label}
-                  type="button"
-                  aria-label={item.label}
+            <div
+              className="
+              flex
+              items-center
+              gap-4
+            "
+            >
+              <div
+                className="
+                w-14
+                h-14
+
+                rounded-2xl
+
+                bg-gradient-to-r
+                from-cyan-500
+                to-blue-500
+
+                flex
+                items-center
+                justify-center
+
+                text-white
+                font-black
+                text-xl
+
+                shadow-[0_10px_40px_rgba(6,182,212,0.35)]
+              "
+              >
+                K
+              </div>
+
+              <div>
+                <h2
                   className="
-                    flex
-                    h-11
-                    w-11
-                    items-center
-                    justify-center
-                    rounded-2xl
-                    border
-                    border-white/10
-                    bg-white/5
-                    text-slate-200
+                  text-3xl
+                  font-black
+                "
+                >
+                  Kartsho
+                </h2>
+
+                <p
+                  className="
+                  text-sm
+                  text-gray-400
+                "
+                >
+                  Solutions Pvt. Ltd.
+                </p>
+              </div>
+            </div>
+
+            {/* DESC */}
+
+            <p
+              className="
+              mt-8
+
+              text-gray-400
+              leading-relaxed
+            "
+            >
+              Empowering businesses
+              through AI systems,
+              SaaS platforms,
+              enterprise software,
+              automation,
+              and scalable
+              digital ecosystems.
+            </p>
+
+            {/* SOCIAL */}
+
+            <div className="mt-10">
+              <h3
+                className="
+                text-xl
+                font-bold
+              "
+              >
+                Connect With Us
+              </h3>
+
+              <div
+                className="
+                mt-5
+
+                flex
+                items-center
+                gap-4
+              "
+              >
+                {socialLinks.map(
+                  (
+                    item,
+                    index
+                  ) => {
+                    const Icon =
+                      item.icon;
+
+                    return (
+                      <motion.a
+                        key={index}
+                        href={item.link}
+                        target="_blank"
+                        rel="noreferrer"
+                        whileHover={{
+                          y: -6,
+                          scale: 1.08,
+                        }}
+                        whileTap={{
+                          scale: 0.95,
+                        }}
+                        className="
+                        group
+
+                        relative
+
+                        w-12
+                        h-12
+
+                        rounded-2xl
+
+                        border
+                        border-white/10
+
+                        bg-white/5
+
+                        flex
+                        items-center
+                        justify-center
+
+                        text-gray-300
+
+                        overflow-hidden
+
+                        transition-all
+                        duration-300
+
+                        hover:border-cyan-400/40
+                        hover:text-cyan-400
+                      "
+                      >
+                        <div
+                          className="
+                          absolute
+                          inset-0
+
+                          bg-gradient-to-r
+                          from-cyan-500/20
+                          to-blue-500/20
+
+                          opacity-0
+
+                          group-hover:opacity-100
+
+                          transition-all
+                          duration-300
+                        "
+                        />
+
+                        <Icon
+                          className="
+                          relative
+                          z-10
+                        "
+                        />
+                      </motion.a>
+                    );
+                  }
+                )}
+              </div>
+            </div>
+          </div>
+
+          {/* ================= COMPANY LINKS ================= */}
+
+          <div>
+            <h3
+              className="
+              text-2xl
+              font-bold
+            "
+            >
+              Company
+            </h3>
+
+            <div
+              className="
+              mt-8
+
+              flex
+              flex-col
+
+              gap-5
+            "
+            >
+              {[
+                "Home",
+                "About Us",
+                "Our Services",
+                "Career Opportunities",
+                "Contact Us",
+              ].map((item, index) => (
+                <Link
+                  key={index}
+                  to="/"
+                  className="
+                  group
+
+                  flex
+                  items-center
+                  justify-between
+
+                  text-gray-400
+
+                  hover:text-cyan-400
+
+                  transition-all
+                  duration-300
+                "
+                >
+                  {item}
+
+                  <ArrowUpRight
+                    size={16}
+                    className="
+                    opacity-0
+
+                    group-hover:opacity-100
+
                     transition-all
                     duration-300
-                    hover:-translate-y-0.5
-                    hover:border-cyan-300/40
-                    hover:bg-cyan-500/10
-                    hover:text-cyan-300
                   "
-                >
-                  <Icon size={18} />
-                </button>
-              );
-            })}
+                  />
+                </Link>
+              ))}
+            </div>
           </div>
+
+          {/* ================= SERVICES ================= */}
+
+          <div>
+            <h3
+              className="
+              text-2xl
+              font-bold
+            "
+            >
+              Services
+            </h3>
+
+            <div
+              className="
+              mt-8
+
+              flex
+              flex-col
+
+              gap-5
+            "
+            >
+              {[
+                "Web Development",
+                "AI Development",
+                "SaaS Platforms",
+                "Cloud Infrastructure",
+                "Enterprise Systems",
+              ].map((item, index) => (
+                <Link
+                  key={index}
+                  to="/services"
+                  className="
+                  group
+
+                  flex
+                  items-center
+                  justify-between
+
+                  text-gray-400
+
+                  hover:text-cyan-400
+
+                  transition-all
+                  duration-300
+                "
+                >
+                  {item}
+
+                  <ArrowUpRight
+                    size={16}
+                    className="
+                    opacity-0
+
+                    group-hover:opacity-100
+
+                    transition-all
+                    duration-300
+                  "
+                  />
+                </Link>
+              ))}
+            </div>
+          </div>
+
+          {/* ================= NEWSLETTER ================= */}
+
+          <div>
+            <h3
+              className="
+              text-2xl
+              font-bold
+            "
+            >
+              Stay Updated
+            </h3>
+
+            <p
+              className="
+              mt-6
+
+              text-gray-400
+              leading-relaxed
+            "
+            >
+              Get startup insights,
+              AI updates,
+              product launches,
+              and business news.
+            </p>
+
+            {/* INPUT */}
+
+            <div
+              className="
+              mt-8
+
+              overflow-hidden
+
+              rounded-2xl
+
+              border
+              border-white/10
+
+              bg-white/5
+
+              backdrop-blur-xl
+            "
+            >
+              <div
+                className="
+                flex
+                items-center
+              "
+              >
+                <input
+                  type="email"
+                  placeholder="Enter your email"
+                  className="
+                  flex-1
+
+                  bg-transparent
+
+                  px-5
+                  py-4
+
+                  text-white
+
+                  outline-none
+
+                  placeholder:text-gray-500
+                "
+                />
+
+                <button
+                  className="
+                  m-2
+
+                  w-12
+                  h-12
+
+                  rounded-xl
+
+                  bg-gradient-to-r
+                  from-cyan-500
+                  to-blue-500
+
+                  flex
+                  items-center
+                  justify-center
+
+                  hover:scale-105
+
+                  transition-all
+                  duration-300
+                "
+                >
+                  <Send size={18} />
+                </button>
+              </div>
+            </div>
+
+            {/* EMAIL */}
+
+            <div
+              className="
+              mt-8
+
+              flex
+              flex-col
+
+              gap-4
+            "
+            >
+              <a
+                href="mailto:info@kartsho.com"
+                className="
+                text-gray-400
+
+                hover:text-cyan-400
+
+                transition-all
+                duration-300
+              "
+              >
+                info@kartsho.com
+              </a>
+
+              <a
+                href="tel:+919453134901"
+                className="
+                text-gray-400
+
+                hover:text-cyan-400
+
+                transition-all
+                duration-300
+              "
+              >
+                +91 9453134901
+              </a>
+            </div>
+          </div>
+        </div>
+
+        {/* ================= BOTTOM ================= */}
+
+        <div
+          className="
+          mt-20
+
+          border-t
+          border-white/10
+
+          pt-8
+
+          flex
+          flex-col
+          lg:flex-row
+
+          items-center
+          justify-between
+
+          gap-6
+        "
+        >
+          {/* LEGAL */}
+
+          <div
+            className="
+            flex
+            flex-wrap
+
+            items-center
+
+            gap-6
+          "
+          >
+            {[
+              "Privacy Policy",
+              "Terms of Service",
+              "Refund Policy",
+              "Cancellation Policy",
+            ].map((item, index) => (
+              <Link
+                key={index}
+                to="/"
+                className="
+                flex
+                items-center
+                gap-2
+
+                text-gray-400
+                text-sm
+
+                hover:text-cyan-400
+
+                transition-all
+                duration-300
+              "
+              >
+                {item}
+
+                <ArrowUpRight
+                  size={14}
+                />
+              </Link>
+            ))}
+          </div>
+
+          {/* COPYRIGHT */}
+
+          <p
+            className="
+            text-sm
+            text-gray-500
+          "
+          >
+            © 2026 Kartsho Solutions
+            Pvt. Ltd.
+            All rights reserved.
+          </p>
         </div>
       </div>
     </footer>

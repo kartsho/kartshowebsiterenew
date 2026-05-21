@@ -56,18 +56,7 @@ const CTA = () => {
 
       {/* GRID BACKGROUND */}
 
-      <div
-        className="
-        absolute
-        inset-0
-
-        opacity-[0.04]
-
-        bg-[linear-gradient(to_right,#ffffff_1px,transparent_1px),linear-gradient(to_bottom,#ffffff_1px,transparent_1px)]
-
-        bg-[size:80px_80px]
-      "
-      />
+     
 
       {/* ================= CONTAINER ================= */}
 
@@ -281,32 +270,32 @@ const CTA = () => {
             </button>
 
             {/* SECONDARY BUTTON */}
-
-            <button
-              className="
-              px-8
-              py-4
-
-              rounded-full
-
-              border
-              border-t-4
-              border-red-400
-
-              bg-gray-400
-
-              text-blue-500
-
-              font-semibold
-
-              transition-all
-              duration-300
-
-              hover:bg-green-500
-            "
-            >
-              Email info@kartsho.com
-            </button>
+           <a 
+           href="https://mail.google.com/mail/?view=cm&fs=1&to=info@kartsho.com&su=Project%20Inquiry&body=Hi%20Kartsho%20Team,"
+           target="_blank"
+            rel="noopener noreferrer"
+           className="inline-flex
+           items-center
+           rounded-full
+           justify-center
+           px-8
+           py-4
+           bg-white
+           border-4
+           border-cyan-500
+            font-semibold
+            text-[#0B0F19]
+            transition-all
+            duration-300
+             hover:bg-cyan-400
+             hover:text-2xl
+             hover:border-8
+             hover:border-green-500
+              hover:shadow-[0_0_50px_rgba(6,182,212,0.45)]
+           ">
+           Email Info@kartsho.com
+           </a>
+              
           </div>
 
           {/* STATS */}

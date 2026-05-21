@@ -277,24 +277,22 @@ const AboutHero = () => {
               py-4
 
               rounded-full
-
-              border
-              border-black/10
-
-              bg-white/70
-              backdrop-blur-xl
-
-              font-semibold
-
-              flex
-              items-center
-              gap-3
-
-              transition-all
-              duration-300
-
-              hover:bg-green-500
-              text-black
+             flex 
+             items-center
+             gap-3
+            bg-white
+           border-4
+           border-b-emerald-500
+            font-semibold
+            text-[#0B0F19]
+            transition-all
+            duration-300
+            
+             hover:text-1xl
+             hover:border-8
+             hover:border-b-cyan-500
+             
+              hover:shadow-[0_0_50px_rgba(6,182,212,0.45)]
             "
             >
               <Play size={18} />
@@ -315,7 +313,7 @@ const AboutHero = () => {
           >
             {[
               {
-                number: "6+",
+                number: "3+",
                 label: "Active Ventures",
               },
 
@@ -387,7 +385,7 @@ const AboutHero = () => {
             overflow-hidden
 
             rounded-[40px]
-
+             p-20
             border
             border-white/30
 
@@ -402,6 +400,8 @@ const AboutHero = () => {
               alt="Office"
               className="
               w-full
+              scale-[10.10]
+              p-[100px]
               h-[700px]
 
               object-cover
@@ -434,17 +434,16 @@ const AboutHero = () => {
             }}
             className="
             absolute
-            top-10
+            top-[-170px]
             -left-10
-
             w-[240px]
-
             backdrop-blur-2xl
             bg-white/70
-
-            border
-            border-white/40
-
+            border-2
+            border-b-blue-400
+            border-l-cyan-300
+            border-r-emerald-500
+            border-t-fuchsia-600
             rounded-3xl
 
             p-6
@@ -528,16 +527,19 @@ const AboutHero = () => {
             }}
             className="
             absolute
-            bottom-10
-            -right-10
+            bottom-[-180px]
+            -right-5
 
             w-[250px]
 
             backdrop-blur-2xl
             bg-white/70
 
-            border
-            border-white/40
+            border-2
+            border-b-blue-400
+            border-l-cyan-300
+            border-r-emerald-500
+            border-t-fuchsia-600
 
             rounded-3xl
 
@@ -612,41 +614,8 @@ const AboutHero = () => {
 
           {/* FLOATING MINI CARD */}
 
-          <motion.div
-            animate={{
-              scale: [1, 1.06, 1],
-            }}
-            transition={{
-              repeat: Infinity,
-              duration: 3,
-            }}
-            className="
-            absolute
-            bottom-40
-            left-[-20px]
-
-            px-6
-            py-4
-
-            rounded-3xl
-
-            bg-cyan-500
-
-            text-white
-
-            font-semibold
-
-            flex
-            items-center
-            gap-3
-
-            shadow-[0_0_40px_rgba(6,182,212,0.35)]
-          "
-          >
-            <Globe2 size={20} />
-
-            Global Digital Engineering
-          </motion.div>
+         
+          
         </motion.div>
       </div>
 

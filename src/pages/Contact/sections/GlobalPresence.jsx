@@ -23,7 +23,7 @@ const stats = [
 
   {
     icon: <Smile size={28} />,
-    number: "6+",
+    number: "3+",
     label: "Active Ventures",
   },
 
@@ -33,11 +33,7 @@ const stats = [
     label: "Response Time",
   },
 
-  {
-    icon: <BriefcaseBusiness size={28} />,
-    number: "2026",
-    label: "Founded",
-  },
+ 
 ];
 
 const GlobalPresence = () => {

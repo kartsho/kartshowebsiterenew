@@ -463,7 +463,8 @@ const DetailedServices = () => {
 
                   border
                   border-black/5
-
+                  scale-[1.20]
+                  p-20
                   shadow-[0_30px_80px_rgba(0,0,0,0.12)]
 
                   group
@@ -479,11 +480,11 @@ const DetailedServices = () => {
                     h-[600px]
 
                     object-cover
-
+                     top-4
                     transition-all
                     duration-700
-
-                    group-hover:scale-105
+                    scale-[2.10]
+            
                   "
                   />
 
@@ -513,18 +514,18 @@ const DetailedServices = () => {
                   }}
                   className="
                   absolute
-                  bottom-10
+                  bottom-[-110px]
                   left-[-20px]
 
                   backdrop-blur-xl
 
                   bg-white/80
 
-                  border
-                  border-white/40
+                  border-4
+                  border-green-400
 
                   rounded-3xl
-
+                  
                   px-6
                   py-5
 
@@ -567,7 +568,7 @@ const DetailedServices = () => {
                   }}
                   className="
                   absolute
-                  top-10
+                  top-[-85px]
                   right-[-20px]
 
                   px-6
@@ -578,8 +579,12 @@ const DetailedServices = () => {
                   bg-cyan-500
 
                   text-white
-
-                  font-semibold
+                    border-4
+                  border-be-fuchsia-400
+                  border-e-emerald-500
+                  border-t-cyan-200
+                  border-r-indigo-500
+                  border-l-blue-700
 
                   shadow-[0_0_40px_rgba(6,182,212,0.35)]
                 "

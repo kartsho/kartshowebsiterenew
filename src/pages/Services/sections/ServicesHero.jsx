@@ -242,31 +242,28 @@ const ServicesHero = () => {
 
             {/* SECONDARY BUTTON */}
 
-            <button
-              className="
-              px-8
-              py-4
+           <button
+  className="
+  px-8
+  py-4
 
-              rounded-full
-
-              border
-              border-black/10
-
-              bg-white/70
-
-              backdrop-blur-xl
-
-              text-[#0B0F19]
-              font-semibold
-
-              transition-all
-              duration-300
-
-              hover:bg-white
-            "
-            >
-              Book Consultation
-            </button>
+   bg-white
+   rounded-full
+           border-4
+           border-b-emerald-500
+            font-semibold
+            text-[#0B0F19]
+            transition-all
+            duration-300
+            
+             hover:text-1xl
+             hover:border-8
+             hover:border-b-cyan-500
+              hover:shadow-[0_0_50px_rgba(6,182,212,0.45)]
+"
+>
+  Book Consultation
+</button>
           </div>
 
           {/* STATS */}
@@ -333,11 +330,11 @@ const ServicesHero = () => {
             overflow-hidden
 
             rounded-[40px]
-             -left-7
+             -left-4
             bg-white
-
-            border
-            border-black/5
+             
+            border-4
+            border-blue-400
 
             shadow-[0_30px_80px_rgba(0,0,0,0.12)]
           "
@@ -350,7 +347,7 @@ const ServicesHero = () => {
               className="
               w-full
               max-w-[650px]
-
+              
               h-[700px]
 
               object-cover
@@ -383,19 +380,19 @@ const ServicesHero = () => {
             }}
             className="
             absolute
-            top-10
-            -left-50
+            top-[2px]
+            -left-30
 
             backdrop-blur-xl
 
             bg-white/80
 
-            border
-            border-white/40
+            border-4
+            border-blue-700
 
             rounded-3xl
 
-            p-5
+            p-4
 
             shadow-xl
           "
@@ -460,12 +457,13 @@ const ServicesHero = () => {
             }}
             className="
             absolute
-            bottom-2
-            right-[-40px]
+            top-55
+            right-[-20px]
             backdrop-blur-xl
             bg-white/80
-            border
-            border-white/40
+            border-4
+            
+            border-green-400
             rounded-3xl
 
             p-5
@@ -530,8 +528,8 @@ const ServicesHero = () => {
             }}
             className="
             absolute
-            bottom-2
-            -left-30
+            top-55
+            -left-20
             px-6
             py-4
 
@@ -542,6 +540,8 @@ const ServicesHero = () => {
             text-white
 
             font-semibold
+            border-4
+            border-gray-950
 
             shadow-[0_0_50px_rgba(6,182,212,0.4)]
           "
@@ -561,15 +561,15 @@ const ServicesHero = () => {
             }}
             className="
             absolute
-            top-5
-            right-[-50px]
+            top-[1px]
+            right-[-20px]
 
             backdrop-blur-xl
 
             bg-white/80
 
-            border
-            border-white/40
+            border-4
+            border-pink-500
 
             rounded-3xl
 

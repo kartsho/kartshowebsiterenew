@@ -11,7 +11,7 @@ import {
 
 const stats = [
   {
-    number: 6,
+    number: 3,
     suffix: "+",
     title: "Active Ventures",
     icon: FolderKanban,

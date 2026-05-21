@@ -427,8 +427,11 @@ const ContactHero = () => {
             backdrop-blur-2xl
             bg-white/70
 
-            border
-            border-white/40
+            border-2
+            border-b-blue-400
+            border-l-cyan-300
+            border-r-emerald-500
+            border-t-fuchsia-600
 
             p-10
 
@@ -720,7 +723,7 @@ const ContactHero = () => {
             }}
             className="
             absolute
-            -bottom-8
+            -bottom-20
             -left-8
 
             hidden
@@ -733,12 +736,11 @@ const ContactHero = () => {
             py-5
 
             rounded-3xl
-
-            backdrop-blur-2xl
-            bg-white/80
-
-            border
-            border-white/40
+ border-2
+            border-b-blue-400
+            border-l-cyan-300
+            border-r-emerald-500
+            border-t-fuchsia-600
 
             shadow-[0_20px_60px_rgba(0,0,0,0.08)]
           "

@@ -18,7 +18,7 @@ const cards = [
 
   {
     id: 2,
-    title: "6+ Active Ventures",
+    title: "3+ Active Ventures",
     description:
       "The company operates multiple business lines with shared strategy, execution, and support.",
     icon: Rocket,

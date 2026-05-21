@@ -201,6 +201,7 @@ const CompanyStory = () => {
             className="
             grid
             sm:grid-cols-2
+            
 
             gap-5
 
@@ -216,6 +217,12 @@ const CompanyStory = () => {
               {
                 icon: Globe2,
                 title: "Global Scaling",
+                cartStyle:`
+                 border-2
+            border-b-blue-400
+            border-l-cyan-300
+            border-r-emerald-500
+            border-t-fuchsia-600`
               },
 
               {
@@ -281,6 +288,7 @@ const CompanyStory = () => {
                   >
                     {item.title}
                   </h4>
+                
                 </div>
               );
             })}
@@ -344,7 +352,7 @@ const CompanyStory = () => {
             overflow-hidden
 
             rounded-[40px]
-
+            p-10
             border
             border-black/5
 
@@ -359,13 +367,12 @@ const CompanyStory = () => {
               className="
               w-full
               h-[700px]
-
+              p-10
               object-cover
-
+               scale-[2.10]
               transition-all
               duration-700
 
-              group-hover:scale-105
             "
             />
 
@@ -385,55 +392,6 @@ const CompanyStory = () => {
 
           {/* FLOATING CARD 1 */}
 
-          <motion.div
-            animate={{
-              y: [0, -12, 0],
-            }}
-            transition={{
-              repeat: Infinity,
-              duration: 4,
-            }}
-            className="
-            absolute
-            top-8
-            -left-8
-
-            backdrop-blur-xl
-            bg-white/80
-
-            border
-            border-white/40
-
-            rounded-3xl
-
-            px-6
-            py-5
-
-            shadow-xl
-          "
-          >
-            <p
-              className="
-              text-sm
-              text-gray-500
-
-              mb-2
-            "
-            >
-              Founded
-            </p>
-
-            <h3
-              className="
-              text-3xl
-              font-bold
-
-              text-cyan-500
-            "
-            >
-              2023
-            </h3>
-          </motion.div>
 
           {/* FLOATING CARD 2 */}
 
@@ -447,14 +405,17 @@ const CompanyStory = () => {
             }}
             className="
             absolute
-            bottom-10
+            bottom-[-90px]
             right-[-10px]
 
             backdrop-blur-xl
             bg-white/80
 
-            border
-            border-white/40
+            border-2
+            border-b-blue-400
+            border-l-cyan-300
+            border-r-emerald-500
+            border-t-fuchsia-600
 
             rounded-3xl
 
@@ -499,7 +460,7 @@ const CompanyStory = () => {
             }}
             className="
             absolute
-            bottom-40
+            top-[-65px]
             left-[-20px]
 
             px-6
@@ -507,9 +468,11 @@ const CompanyStory = () => {
 
             rounded-3xl
 
-            bg-cyan-500
-
-            text-white
+           border-2
+            border-b-blue-400
+            border-l-cyan-300
+            border-r-emerald-500
+            border-t-fuchsia-600
 
             font-semibold
 

@@ -68,7 +68,7 @@ const leaders = [
     role: "Co-Founder",
     image: codirectorImg,
      portfolio:
-           "",
+           "https://ranjanshah.kartsho.com/",
 
     socials: {
      

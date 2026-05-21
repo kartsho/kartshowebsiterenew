@@ -2,7 +2,7 @@ import ServicesHero from "./sections/ServicesHero";
 import ServiceGrid from "./sections/ServiceGrid"
 import DetailedServices from "./sections/DetailedServices";
 import TechStack from "./sections/TechStack";
-import Industries from "./sections/Industries";
+
 import CTA from "./sections/CTA";
 
 const Services = () => {
@@ -12,7 +12,7 @@ const Services = () => {
       <ServiceGrid/> 
       <DetailedServices/>
       <TechStack/>
-      <Industries/>
+    
       <CTA/>
     </div>
   );

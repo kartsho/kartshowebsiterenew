@@ -65,6 +65,7 @@ const MissionVision = () => {
 
         max-w-7xl
         mx-auto
+        
 
         px-6
       "
@@ -197,11 +198,11 @@ const MissionVision = () => {
 
             rounded-[40px]
 
-            backdrop-blur-2xl
-            bg-white/70
-
-            border
-            border-white/40
+            border-2
+            border-b-blue-400
+            border-l-cyan-300
+            border-r-emerald-500
+            border-t-fuchsia-600
 
             p-10
 
@@ -230,6 +231,7 @@ const MissionVision = () => {
               bg-cyan-300/20
 
               blur-3xl
+              
 
               opacity-0
 
@@ -355,8 +357,11 @@ const MissionVision = () => {
             backdrop-blur-2xl
             bg-[#0B0F19]
 
-            border
-            border-white/10
+            border-2
+            border-b-blue-400
+            border-l-cyan-300
+            border-r-emerald-500
+            border-t-fuchsia-600
 
             p-10
 

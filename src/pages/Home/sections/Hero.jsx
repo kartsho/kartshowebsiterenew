@@ -203,7 +203,7 @@ const Hero = () => {
               opacity-60
             "
             >
-              <span className="font-bold">
+              <span className="font-bold text-3xl text-red-500">
                 3+ Ventures
               </span>
 
@@ -489,39 +489,6 @@ const Hero = () => {
           </motion.div>
 
           {/* ================= STATS CARD ================= */}
-
-          <motion.div
-            animate={{
-              y: [0, -12, 0],
-            }}
-            transition={{
-              repeat: Infinity,
-              duration: 4,
-            }}
-            className="
-            absolute
-            bottom-10
-            left-4
-            bg-white
-            p-6
-            rounded-3xl
-            shadow-2xl
-          "
-          >
-            <p className="text-gray-500 text-sm">
-              Active Ventures
-            </p>
-
-            <h3
-              className="
-              text-4xl
-              font-bold
-              text-[#0B0F19]
-            "
-            >
-              3+
-            </h3>
-          </motion.div>
         </motion.div>
       </div>
 

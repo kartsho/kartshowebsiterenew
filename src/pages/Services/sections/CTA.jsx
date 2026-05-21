@@ -8,8 +8,8 @@ import {
 const CTA = () => {
   return (
     <section
-     
-       className="
+
+      className="
       relative
       py-32
       overflow-hidden
@@ -282,31 +282,33 @@ const CTA = () => {
 
             {/* SECONDARY BUTTON */}
 
-            <button
-              className="
-              px-8
-              py-4
+            <a
+              href="https://mail.google.com/mail/?view=cm&fs=1&to=info@kartsho.com&su=Project%20Inquiry&body=Hi%20Kartsho%20Team,"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex
+           items-center
+           rounded-full
+           justify-center
+           px-8
+           py-4
+           bg-white
+           border-4
+           border-b-emerald-500
+            font-semibold
+            text-[#0B0F19]
+            transition-all
+            duration-300
+            
+             hover:text-1xl
+             hover:border-8
+             hover:border-b-cyan-500
+             
+              hover:shadow-[0_0_50px_rgba(6,182,212,0.45)]
+           ">
+              Email Info@kartsho.com
+            </a>
 
-              rounded-full
-
-              border
-              border-t-4
-              border-red-400
-
-              bg-gray-400
-
-              text-blue-500
-
-              font-semibold
-
-              transition-all
-              duration-300
-
-              hover:bg-green-500
-            "
-            >
-              Email info@kartsho.com
-            </button>
           </div>
 
           {/* STATS */}

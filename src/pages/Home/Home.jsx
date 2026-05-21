@@ -13,7 +13,6 @@ import ContactPreview from "./sections/ContactPreview";
 const Home = () => {
   return (
     <div>
-    
       <Hero />
       <WhyChooseUs />
       <TrustedCompanies />
@@ -25,7 +24,6 @@ const Home = () => {
       <FAQ />
       <CTA />
       <ContactPreview />
-     
     </div>
   );
 };

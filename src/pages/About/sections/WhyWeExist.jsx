@@ -142,7 +142,7 @@ const WhyWeExist = () => {
 
             leading-[1.05]
 
-            text-[#0B0F19]/25
+            text-pink-400
 
             mb-6
           "

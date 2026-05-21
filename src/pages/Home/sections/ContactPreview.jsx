@@ -64,19 +64,7 @@ const ContactPreview = () => {
     >
       {/* ================= BACKGROUND ================= */}
 
-      <div
-        className="
-        absolute
-        inset-0
-
-        opacity-[0.04]
-
-        bg-[linear-gradient(to_right,#ffffff_1px,transparent_1px),linear-gradient(to_bottom,#ffffff_1px,transparent_1px)]
-
-        bg-[size:70px_70px]
-      "
-      />
-
+    
       {/* GLOW */}
 
       <div
@@ -166,7 +154,7 @@ const ContactPreview = () => {
             border
             border-cyan-400/20
 
-            text-cyan-900
+            text-cyan-400
             text-sm
             font-medium
 
