@@ -381,7 +381,7 @@ const ServicesHero = () => {
             className="
             absolute
             top-[2px]
-            -left-30
+            -left-5
 
             backdrop-blur-xl
 
@@ -457,7 +457,7 @@ const ServicesHero = () => {
             }}
             className="
             absolute
-            top-55
+            top-45
             right-[-20px]
             backdrop-blur-xl
             bg-white/80
@@ -529,7 +529,7 @@ const ServicesHero = () => {
             className="
             absolute
             top-55
-            -left-20
+            -left-5
             px-6
             py-4
 

@@ -39,18 +39,7 @@ const ExpertiseSection = () => {
     >
       {/* ================= GRID ================= */}
 
-      <div
-        className="
-        absolute
-        inset-0
-
-        opacity-[0.03]
-
-        [background-image:linear-gradient(to_right,#0f172a_1px,transparent_1px),linear-gradient(to_bottom,#0f172a_1px,transparent_1px)]
-
-        [background-size:60px_60px]
-      "
-      />
+    
 
       {/* ================= GLOW ================= */}
 
@@ -175,7 +164,7 @@ const ExpertiseSection = () => {
             leading-[1.05]
             tracking-tight
 
-            text-[#0B1220]
+            text-blue-400
           "
           >
             Engineering Skills
@@ -214,9 +203,9 @@ const ExpertiseSection = () => {
             className="
             mt-8
 
-            text-lg
+            text-3xl
             leading-relaxed
-
+             
             text-[color:var(--text-primary)]
 
             max-w-3xl
@@ -551,7 +540,7 @@ const ExpertiseSection = () => {
             className="
             relative
             z-10
-
+     
             grid
             lg:grid-cols-3
 
@@ -626,7 +615,7 @@ const ExpertiseSection = () => {
                     text-2xl
                     font-bold
 
-                    text-[#0B1220]
+                    text-[#3b64b4]
                   "
                   >
                     {item.title}

@@ -52,7 +52,7 @@ const leaders = [
       scale-[1.0]
     `,
 
-    experience: "7+ Years",
+    experience: "2+ Years",
 
     bio: "Leading AI-first digital products, enterprise systems, and scalable SaaS ecosystems globally.",
 
@@ -92,7 +92,7 @@ const leaders = [
       translate-y-[30px]
     `,
 
-    experience: "5+ Years",
+    experience: "2+ Years",
 
     bio: "Architecting high-performance cloud infrastructure and scalable engineering systems.",
 
@@ -173,9 +173,9 @@ portfolio:"https://sateeshkumaryadav.netlify.app/",
       scale-[1.30]
     `,
 
-    experience: "5+ Years",
+    experience: "2+ Years",
 
-    bio: "Designing immersive user experiences with premium modern interfaces and product-first thinking.",
+    bio: "Engineering student | Full-Stack Developer | React & Node.js Enthusiast Passionate about building modern web applications, startup products, and scalable digital platforms using React.js, JavaScript, Tailwind CSS, Node.js, Express, MongoDB, and Firebase. Focused on clean UI, animations, real-world problem solving, and continuous learning.",
 
     expertise: [
       "UI Systems",

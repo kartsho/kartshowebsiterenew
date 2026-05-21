@@ -21,7 +21,7 @@ const Hero = () => {
       bg-[#F5F7FB]
       flex
       items-center
-      pt-20
+      pt-30
     "
     >
       {/* ================= BACKGROUND GLOW ================= */}
@@ -300,8 +300,8 @@ const Hero = () => {
             }}
             className="
             absolute
-            top-16
-            -left-10
+            top-[-80px]
+            -left-5
 
             backdrop-blur-xl
             bg-white/10
@@ -350,8 +350,8 @@ const Hero = () => {
             }}
             className="
             absolute
-            bottom-24
-            -left-16
+            bottom-1
+           left-[-23px]
 
             backdrop-blur-xl
             bg-white/10
@@ -400,8 +400,8 @@ const Hero = () => {
             }}
             className="
             absolute
-            top-24
-            -right-12
+            top-[-80px]
+            -right-5
 
             backdrop-blur-xl
             bg-white/10
@@ -450,8 +450,8 @@ const Hero = () => {
             }}
             className="
             absolute
-            bottom-10
-            right-0
+            bottom-1
+            right-[-20px]
 
             backdrop-blur-xl
             bg-white/10

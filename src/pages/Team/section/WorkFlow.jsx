@@ -228,7 +228,7 @@ const TeamWorkflow = () => {
 
             tracking-tight
 
-            text-[#0B1220]
+            text-green-400
           "
           >
             How Our Team
@@ -506,7 +506,7 @@ const TeamWorkflow = () => {
                             text-4xl
                             font-black
 
-                            text-[#0B1220]
+                            text-red-500
                           "
                           >
                             {step.title}

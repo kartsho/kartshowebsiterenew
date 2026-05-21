@@ -14,7 +14,7 @@ import {
   FaFacebookF,
   FaInstagram,
   FaLinkedinIn,
-  FaXTwitter,
+  FaGithub
 } from "react-icons/fa6";
 
 const socialLinks = [
@@ -23,16 +23,16 @@ const socialLinks = [
     link: "https://facebook.com",
   },
   {
-    icon: FaXTwitter,
-    link: "https://x.com",
+    icon: FaGithub,
+    link: "https://github.com/kartsho",
   },
   {
     icon: FaInstagram,
-    link: "https://instagram.com",
+    link: "https://www.instagram.com/kartshoenterprises?igsh=NWJubWZ0b2M3NzJh",
   },
   {
     icon: FaLinkedinIn,
-    link: "https://linkedin.com",
+    link: "https://www.linkedin.com/company/kartshoenterprises/posts/?feedView=all",
   },
 ];
 
@@ -84,19 +84,7 @@ const Footer = () => {
 
       {/* ================= GRID ================= */}
 
-      <div
-        className="
-        absolute
-        inset-0
-
-        opacity-[0.03]
-
-        [background-image:linear-gradient(to_right,#ffffff_1px,transparent_1px),linear-gradient(to_bottom,#ffffff_1px,transparent_1px)]
-
-        [background-size:70px_70px]
-      "
-      />
-
+     
       {/* ================= MAIN ================= */}
 
       <div
