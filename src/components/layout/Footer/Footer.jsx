@@ -36,6 +36,83 @@ const socialLinks = [
   },
 ];
 
+const companyLinks = [
+  {
+    label: "Home",
+    to: "/",
+  },
+  {
+    label: "About Us",
+    to: "/about",
+  },
+  {
+    label: "Our Services",
+    to: "/services",
+  },
+  {
+    label: "Career Opportunities",
+    to: "/career",
+  },
+  {
+    label: "Contact Us",
+    to: "/contact",
+  },
+];
+
+const serviceLinks = [
+  {
+    label: "Web Development",
+    to: "/services/web-development",
+  },
+  {
+    label: "AI Development",
+    to: "/services",
+  },
+  {
+    label: "SaaS Platforms",
+    to: "/services",
+  },
+  {
+    label: "Cloud Infrastructure",
+    to: "/services",
+  },
+  {
+    label: "Enterprise Systems",
+    to: "/services",
+  },
+];
+
+const legalLinks = [
+  {
+    label: "Privacy Policy",
+    to: "/privacy-policy",
+  },
+  {
+    label: "Terms of Service",
+    to: "/terms-and-conditions",
+  },
+  {
+    label: "Refund Policy",
+    to: "/refund-policy",
+  },
+  {
+    label: "About Company",
+    to: "/about-company",
+  },
+];
+
+const scrollToTop = () => {
+  if (typeof window === "undefined") {
+    return;
+  }
+
+  window.scrollTo({
+    top: 0,
+    left: 0,
+    behavior: "smooth",
+  });
+};
+
 const Footer = () => {
   return (
     <footer
@@ -568,16 +645,11 @@ const Footer = () => {
               gap-5
             "
             >
-              {[
-                "Home",
-                "About Us",
-                "Our Services",
-                "Career Opportunities",
-                "Contact Us",
-              ].map((item, index) => (
+              {companyLinks.map((item, index) => (
                 <Link
                   key={index}
-                  to="/"
+                  to={item.to}
+                  onClick={scrollToTop}
                   className="
                   group
 
@@ -593,7 +665,7 @@ const Footer = () => {
                   duration-300
                 "
                 >
-                  {item}
+                  {item.label}
 
                   <ArrowUpRight
                     size={16}
@@ -633,16 +705,11 @@ const Footer = () => {
               gap-5
             "
             >
-              {[
-                "Web Development",
-                "AI Development",
-                "SaaS Platforms",
-                "Cloud Infrastructure",
-                "Enterprise Systems",
-              ].map((item, index) => (
+              {serviceLinks.map((item, index) => (
                 <Link
                   key={index}
-                  to="/services"
+                  to={item.to}
+                  onClick={scrollToTop}
                   className="
                   group
 
@@ -658,7 +725,7 @@ const Footer = () => {
                   duration-300
                 "
                 >
-                  {item}
+                  {item.label}
 
                   <ArrowUpRight
                     size={16}
@@ -849,15 +916,11 @@ const Footer = () => {
             gap-6
           "
           >
-            {[
-              "Privacy Policy",
-              "Terms of Service",
-              "Refund Policy",
-              "Cancellation Policy",
-            ].map((item, index) => (
+            {legalLinks.map((item, index) => (
               <Link
                 key={index}
-                to="/"
+                to={item.to}
+                onClick={scrollToTop}
                 className="
                 flex
                 items-center
@@ -872,7 +935,7 @@ const Footer = () => {
                 duration-300
               "
               >
-                {item}
+                {item.label}
 
                 <ArrowUpRight
                   size={14}
