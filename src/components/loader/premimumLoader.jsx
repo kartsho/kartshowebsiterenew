@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 
-import logo from "../../../src/assets/logos/Kartsho K.jpeg"
+import logo from "../../../src/assets/logos/Kartsho K.jpeg";
 
 const PremiumLoader = () => {
   return (
@@ -9,11 +9,8 @@ const PremiumLoader = () => {
       fixed
       inset-0
       z-[99999]
-
       overflow-hidden
-
       bg-[#030712]
-
       flex
       items-center
       justify-center
@@ -26,14 +23,10 @@ const PremiumLoader = () => {
         absolute
         top-[-200px]
         left-[-200px]
-
         w-[500px]
         h-[500px]
-
         rounded-full
-
         bg-cyan-500/20
-
         blur-[160px]
       "
       />
@@ -43,14 +36,10 @@ const PremiumLoader = () => {
         absolute
         bottom-[-200px]
         right-[-200px]
-
         w-[500px]
         h-[500px]
-
         rounded-full
-
         bg-blue-500/20
-
         blur-[160px]
       "
       />
@@ -85,89 +74,50 @@ const PremiumLoader = () => {
         ))}
       </div>
 
-      {/* ================= MATRIX LINES ================= */}
-
-      <div
-        className="
-        absolute
-        inset-0
-
-        pointer-events-none
-      "
-      >
-        {[...Array(15)].map((_, i) => (
-          <motion.div
-            key={i}
-            animate={{
-              opacity: [0, 0.3, 0],
-            }}
-            transition={{
-              repeat: Infinity,
-              duration: 2 + i,
-              delay: i * 0.2,
-            }}
-            className="
-              absolute
-              top-0
-              bottom-0
-
-              w-px
-
-              bg-cyan-400/10
-            "
-            style={{
-              left: `${i * 7}%`,
-            }}
-          />
-        ))}
-      </div>
-
       {/* ================= CONTENT ================= */}
 
       <div
         className="
         relative
         z-10
-
         flex
         flex-col
         items-center
         justify-center
       "
       >
-        {/* ================= ROTATING LOGO CONTAINER ================= */}
+        {/* ================= ROTATING CONTAINER ================= */}
 
-        <motion.div
-          animate={{
-            rotate: 360,
-          }}
-          transition={{
-            repeat: Infinity,
-            duration: 10,
-            ease: "linear",
-          }}
-          className="
-          relative
+        <div className="relative w-44 h-44 flex items-center justify-center">
+          
+          {/* OUTER ROTATING BOX */}
 
-          w-44
-          h-44
+          <motion.div
+            animate={{
+              rotate: 360,
+            }}
+            transition={{
+              repeat: Infinity,
+              duration: 10,
+              ease: "linear",
+            }}
+            className="
+            absolute
+            inset-0
 
-          rounded-[45px]
+            rounded-[45px]
 
-          border
-          border-cyan-400/30
+            border
+            border-cyan-400/30
 
-          bg-white/5
-          backdrop-blur-2xl
+            bg-white/5
+            backdrop-blur-2xl
 
-          flex
-          items-center
-          justify-center
+            shadow-[0_0_100px_rgba(6,182,212,0.35)]
+          "
+          />
 
-          shadow-[0_0_100px_rgba(6,182,212,0.35)]
-        "
-        >
-          {/* INNER RING */}
+          {/* INNER ROTATING RING */}
 
           <motion.div
             animate={{
@@ -191,7 +141,7 @@ const PremiumLoader = () => {
           "
           />
 
-          {/* LOGO IMAGE */}
+          {/* STATIC LOGO */}
 
           <motion.img
             src={logo}
@@ -204,6 +154,9 @@ const PremiumLoader = () => {
               duration: 2,
             }}
             className="
+            relative
+            z-20
+
             w-24
             h-24
 
@@ -214,7 +167,7 @@ const PremiumLoader = () => {
             shadow-[0_0_40px_rgba(255,255,255,0.25)]
           "
           />
-        </motion.div>
+        </div>
 
         {/* ================= BRAND ================= */}
 
@@ -232,14 +185,10 @@ const PremiumLoader = () => {
           }}
           className="
           mt-10
-
           text-5xl
           md:text-6xl
-
           font-black
-
           tracking-[0.25em]
-
           text-white
         "
         >
@@ -261,11 +210,9 @@ const PremiumLoader = () => {
           }}
           className="
           mt-4
-
           text-gray-400
           text-sm
           md:text-base
-
           tracking-[0.35em]
           uppercase
         "
@@ -273,21 +220,16 @@ const PremiumLoader = () => {
           Engineering Digital Systems
         </motion.p>
 
-        {/* ================= AI SCAN BAR ================= */}
+        {/* ================= AI BAR ================= */}
 
         <div
           className="
           relative
-
           mt-12
-
           w-[320px]
           h-[7px]
-
           rounded-full
-
           overflow-hidden
-
           bg-white/10
         "
         >
@@ -348,7 +290,7 @@ const PremiumLoader = () => {
           />
         </div>
 
-        {/* ================= LOADING TEXT ================= */}
+        {/* ================= TEXT ================= */}
 
         <motion.p
           animate={{
@@ -360,10 +302,8 @@ const PremiumLoader = () => {
           }}
           className="
           mt-6
-
           text-cyan-300
           text-sm
-
           tracking-[0.3em]
           uppercase
         "
