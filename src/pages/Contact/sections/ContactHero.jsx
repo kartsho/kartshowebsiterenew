@@ -77,11 +77,12 @@ const ContactHero = () => {
         className="
         hidden
         xl:flex
-
+          overflow-visible
+          relative
         absolute
-        top-40
-        right-20
-
+        top-80
+        right-80
+        
         px-6
         py-5
 
@@ -130,7 +131,7 @@ const ContactHero = () => {
             text-[#0B0F19]
           "
           >
-            6+ Ventures
+            3+ Ventures
           </h3>
         </div>
       </motion.div>
@@ -347,7 +348,7 @@ const ContactHero = () => {
           "
           >
             {[
-              "6+ Active Ventures",
+              "3+ Active Ventures",
               "50+ Clients Served",
               "4+ Core Industries",
               "24h Response Time",

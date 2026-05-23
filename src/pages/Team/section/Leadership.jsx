@@ -52,7 +52,7 @@ const leaders = [
       scale-[1.0]
     `,
 
-    experience: "2+ Years",
+    experience: "3+ Years",
 
     bio: "Leading AI-first digital products, enterprise systems, and scalable SaaS ecosystems globally.",
 
@@ -92,7 +92,7 @@ const leaders = [
       translate-y-[30px]
     `,
 
-    experience: "2+ Years",
+    experience: "3+ Years",
 
     bio: "Architecting high-performance cloud infrastructure and scalable engineering systems.",
 

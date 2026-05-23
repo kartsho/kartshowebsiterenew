@@ -21,6 +21,10 @@ import Hospitalwebsite from "../components/services/hospital/Hospitalwebsite";
 import RealEstatewebsite from "../components/services/realEstate/RealEstatewebsite";
 import Transportwebsite from "../components/services/transport/Transportwebsite";
 import Restaurantwebsite from "../components/services/restaurant/Restaurantwebsite";
+import Events from "../pages/Events/Event";
+
+
+
 
 /* ================= FLOATING BUTTONS ================= */
 
@@ -36,6 +40,8 @@ const AppRoutes = () => {
         <Route path="/" element={<Home />} />
 
         <Route path="/services" element={<Services />} />
+
+       
 
         <Route path="/about" element={<About />} />
 
@@ -146,6 +152,10 @@ const AppRoutes = () => {
         <Route
           path="/services/resturent-website"
           element={<Navigate to="/services/restaurant-website" replace />}
+        />
+         <Route
+          path="/events"
+          element={<Events/>}
         />
       </Routes>
 

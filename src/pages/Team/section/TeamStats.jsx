@@ -39,7 +39,7 @@ const stats = [
   },
 
   {
-    number: 7,
+    number: 3,
     suffix: "+",
     label: "Years Experience",
     icon: Sparkles,

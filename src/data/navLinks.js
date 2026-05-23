@@ -43,13 +43,18 @@ export const navLinks = [
     title: "Contact",
     path: "/contact",
   },
-   {
+  {
     id: 5,
     title: "Team",
     path: "/team",
   },
-   {
+  {
     id: 6,
+    title: "Events",
+    path: "/events",
+  },
+  {
+    id: 7,
     title: "Career",
     path: "/career",
   },

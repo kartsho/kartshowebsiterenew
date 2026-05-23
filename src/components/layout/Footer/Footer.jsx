@@ -814,7 +814,7 @@ const Footer = () => {
 
                 <button
                   className="
-                  m-2
+                  m-1
 
                   w-12
                   h-12
@@ -835,7 +835,7 @@ const Footer = () => {
                   duration-300
                 "
                 >
-                  <Send size={18} />
+                  <Send size={20} />
                 </button>
               </div>
             </div>

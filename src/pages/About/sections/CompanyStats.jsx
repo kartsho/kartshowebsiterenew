@@ -34,18 +34,7 @@ const stats = [
     title: "Response Time",
     icon: SmilePlus,
   },
-  {
-    number: 2026,
-    suffix: "",
-    title: "Founded",
-    icon: Code2,
-  },
-  {
-    number: 2,
-    suffix: "",
-    title: "Official Emails",
-    icon: BriefcaseBusiness,
-  },
+
 ];
 
 // 🔥 simple safe counter (NO LIBRARY)
