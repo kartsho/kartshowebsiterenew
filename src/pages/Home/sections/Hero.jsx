@@ -493,31 +493,7 @@ const Hero = () => {
 
       {/* ================= SCROLL INDICATOR ================= */}
 
-      <div
-        className="
-        absolute
-        bottom-8
-        left-1/2
-        -translate-x-1/2
-        animate-bounce
-      "
-      >
-        <div
-          className="
-          w-12
-          h-12
-          rounded-full
-          bg-cyan-500
-          flex
-          items-center
-          justify-center
-          text-white
-          shadow-lg
-        "
-        >
-          ↓
-        </div>
-      </div>
+    
     </section>
   );
 };
