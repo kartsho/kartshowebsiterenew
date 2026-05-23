@@ -107,7 +107,8 @@ const SchoolHero = () => {
         grid
         lg:grid-cols-2
 
-        gap-20
+        gap-14
+        lg:gap-20
         items-center
       "
       >
@@ -183,6 +184,9 @@ const SchoolHero = () => {
             tracking-tight
 
             text-white
+            text-4xl
+            sm:text-6xl
+            lg:text-7xl
           "
           >
             Future-Ready
@@ -254,6 +258,8 @@ const SchoolHero = () => {
             }}
             className="
             flex
+            flex-col
+            sm:flex-row
             flex-wrap
 
             items-center
@@ -273,6 +279,8 @@ const SchoolHero = () => {
 
               px-8
               py-5
+              w-full
+              sm:w-auto
 
               rounded-2xl
 
@@ -323,6 +331,8 @@ const SchoolHero = () => {
               className="
               px-8
               py-5
+              w-full
+              sm:w-auto
 
               rounded-2xl
 
@@ -363,6 +373,8 @@ const SchoolHero = () => {
             className="
             flex
             flex-wrap
+            justify-center
+            sm:justify-start
 
             gap-4
 

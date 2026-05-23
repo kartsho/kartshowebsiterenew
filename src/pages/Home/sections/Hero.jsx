@@ -240,6 +240,8 @@ const Hero = () => {
           flex
           justify-center
           items-center
+          mt-8
+          lg:mt-0
         "
         >
           {/* MAIN IMAGE */}
@@ -249,11 +251,12 @@ const Hero = () => {
             relative
             w-full
             max-w-[600px]
-            h-[420px]
-            sm:h-[520px]
+            h-[320px]
+            sm:h-[440px]
             lg:h-[700px]
             overflow-hidden
-            rounded-[60px]
+            rounded-[32px]
+            sm:rounded-[60px]
             bg-slate-950/20
           "
           >
@@ -268,9 +271,10 @@ const Hero = () => {
               object-cover
               object-[55%_22%]
               sm:object-center
-              scale-[4.11]
-              lg:scale-360
-              pt-10
+              scale-100
+              sm:scale-[1.12]
+              lg:scale-[4.11]
+              lg:pt-10
             "
             />
 
@@ -298,6 +302,9 @@ const Hero = () => {
               duration: 4,
             }}
             className="
+            hidden
+            lg:block
+
             absolute
             top-[-48px]
             -left-5
@@ -348,9 +355,12 @@ const Hero = () => {
               duration: 5,
             }}
             className="
+            hidden
+            lg:block
+
             absolute
             bottom-1
-           left-[-23px]
+            left-[-23px]
 
             backdrop-blur-xl
             bg-white/10
@@ -398,6 +408,9 @@ const Hero = () => {
               duration: 6,
             }}
             className="
+            hidden
+            lg:block
+
             absolute
             top-[-48px]
             -right-5
@@ -448,6 +461,9 @@ const Hero = () => {
               duration: 5.5,
             }}
             className="
+            hidden
+            lg:block
+
             absolute
             bottom-1
             right-[-20px]

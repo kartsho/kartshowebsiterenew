@@ -318,6 +318,8 @@ const ServicesHero = () => {
           relative
           flex
           justify-center
+          mt-10
+          lg:mt-0
         "
         >
           {/* MAIN IMAGE */}
@@ -328,10 +330,12 @@ const ServicesHero = () => {
 
             overflow-hidden
 
-            rounded-[40px]
-             -left-4
+            rounded-[28px]
+            sm:rounded-[40px]
+
+            lg:-left-4
             bg-white
-             
+
             border-4
             border-blue-400
 
@@ -346,10 +350,12 @@ const ServicesHero = () => {
               className="
               w-full
               max-w-[650px]
-              
-              h-[700px]
+              h-[340px]
+              sm:h-[520px]
+              lg:h-[700px]
 
               object-cover
+              object-center
             "
             />
 
@@ -378,6 +384,9 @@ const ServicesHero = () => {
               duration: 4,
             }}
             className="
+            hidden
+            lg:block
+
             absolute
             top-[2px]
             -left-5
@@ -455,8 +464,11 @@ const ServicesHero = () => {
               duration: 5,
             }}
             className="
+            hidden
+            lg:block
+
             absolute
-            top-45
+            top-44
             right-[-20px]
             backdrop-blur-xl
             bg-white/80
@@ -526,8 +538,11 @@ const ServicesHero = () => {
               duration: 3,
             }}
             className="
+            hidden
+            lg:block
+
             absolute
-            top-55
+            top-56
             -left-5
             px-6
             py-4
@@ -559,6 +574,9 @@ const ServicesHero = () => {
               duration: 6,
             }}
             className="
+            hidden
+            lg:block
+
             absolute
             top-[1px]
             right-[-20px]

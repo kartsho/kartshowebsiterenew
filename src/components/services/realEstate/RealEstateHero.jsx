@@ -30,14 +30,14 @@ const RealEstateHero = () => {
       <div className="absolute top-[-160px] left-[-120px] h-[420px] w-[420px] rounded-full bg-cyan-400/15 blur-[130px]" />
       <div className="absolute bottom-[-200px] right-[-120px] h-[460px] w-[460px] rounded-full bg-blue-400/15 blur-[150px]" />
 
-      <div className="relative z-10 mx-auto grid max-w-7xl grid-cols-1 items-center gap-20 px-6 lg:grid-cols-2">
+      <div className="relative z-10 mx-auto grid max-w-7xl grid-cols-1 items-center gap-14 px-6 lg:grid-cols-2 lg:gap-20">
         <div>
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} className="mb-8 inline-flex items-center gap-2 rounded-full border border-cyan-500/15 bg-white/75 px-5 py-3 text-sm font-semibold text-cyan-700 shadow-[0_10px_40px_rgba(6,182,212,0.08)] backdrop-blur-xl">
             <Sparkles size={16} />
             Real Estate Website Solutions
           </motion.div>
 
-          <motion.h1 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }} className="text-5xl font-black leading-[1] tracking-tight text-[#0B0F19] sm:text-6xl lg:text-7xl">
+          <motion.h1 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }} className="text-4xl font-black leading-[1] tracking-tight text-[#0B0F19] sm:text-6xl lg:text-7xl">
             Showcase
             <span className="block bg-gradient-to-r from-cyan-600 via-blue-600 to-emerald-600 bg-clip-text text-transparent">
               Properties With Trust
@@ -49,8 +49,8 @@ const RealEstateHero = () => {
             Real estate websites with elegant property listings, agent profiles, search filters, and lead capture flows that help visitors move faster from browsing to enquiry.
           </motion.p>
 
-          <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1.05 }} className="mt-12 flex flex-wrap items-center gap-5">
-            <button type="button" onClick={scrollToPricing} className="group relative overflow-hidden rounded-2xl bg-gradient-to-r from-cyan-500 to-blue-500 px-8 py-5 font-semibold text-white shadow-[0_20px_60px_rgba(6,182,212,0.28)] transition-all duration-500 hover:scale-105">
+          <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1.05 }} className="mt-12 flex flex-col items-stretch gap-5 sm:flex-row sm:items-center">
+            <button type="button" onClick={scrollToPricing} className="group relative overflow-hidden rounded-2xl bg-gradient-to-r from-cyan-500 to-blue-500 px-8 py-5 font-semibold text-white shadow-[0_20px_60px_rgba(6,182,212,0.28)] transition-all duration-500 hover:scale-105 sm:w-auto">
               <span className="relative z-10 flex items-center gap-3">
                 View Pricing
                 <ArrowRight size={18} className="transition-transform duration-300 group-hover:translate-x-1" />
@@ -58,13 +58,13 @@ const RealEstateHero = () => {
               <div className="absolute inset-0 bg-white/20 opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
             </button>
 
-            <button type="button" onClick={scrollToPricing} className="flex items-center gap-3 rounded-2xl border border-black/10 bg-white/75 px-7 py-5 font-semibold text-[#0B0F19] shadow-[0_10px_30px_rgba(15,23,42,0.06)] backdrop-blur-xl transition-all duration-300 hover:border-cyan-500/20 hover:bg-white hover:text-cyan-700">
+            <button type="button" onClick={scrollToPricing} className="flex items-center gap-3 rounded-2xl border border-black/10 bg-white/75 px-7 py-5 font-semibold text-[#0B0F19] shadow-[0_10px_30px_rgba(15,23,42,0.06)] backdrop-blur-xl transition-all duration-300 hover:border-cyan-500/20 hover:bg-white hover:text-cyan-700 sm:w-auto">
               <Filter size={18} />
               Browse Projects
             </button>
           </motion.div>
 
-          <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1.1 }} className="mt-14 flex flex-wrap gap-4">
+          <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1.1 }} className="mt-14 flex flex-wrap justify-center gap-4 sm:justify-start">
             {trustPills.map((pill) => (
               <div key={pill} className="rounded-full border border-black/5 bg-white/70 px-5 py-3 text-sm font-medium text-gray-700 shadow-[0_8px_24px_rgba(15,23,42,0.04)] backdrop-blur-xl">
                 {pill}

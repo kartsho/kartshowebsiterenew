@@ -151,7 +151,8 @@ const ContactHero = () => {
         grid
         lg:grid-cols-2
 
-        gap-20
+        gap-14
+        lg:gap-20
 
         items-center
       "
@@ -204,7 +205,8 @@ const ContactHero = () => {
 
           <h1
             className="
-            text-5xl
+            text-4xl
+            sm:text-6xl
             md:text-7xl
 
             font-bold
@@ -237,7 +239,8 @@ const ContactHero = () => {
 
           <p
             className="
-            text-xl
+            text-lg
+            sm:text-xl
 
             leading-relaxed
 
@@ -260,6 +263,8 @@ const ContactHero = () => {
           <div
             className="
             flex
+            flex-col
+            sm:flex-row
             flex-wrap
 
             gap-5
@@ -275,6 +280,8 @@ const ContactHero = () => {
 
               px-8
               py-4
+              w-full
+              sm:w-auto
 
               rounded-full
 
@@ -314,6 +321,8 @@ const ContactHero = () => {
               className="
               px-8
               py-4
+              w-full
+              sm:w-auto
 
               rounded-full
 
@@ -411,8 +420,13 @@ const ContactHero = () => {
           transition={{
             duration: 1,
           }}
-          className="
+        className="
           relative
+          mt-10
+          lg:mt-0
+          w-full
+          max-w-[560px]
+          mx-auto
         "
         >
           {/* MAIN CARD */}
@@ -423,7 +437,8 @@ const ContactHero = () => {
 
             overflow-hidden
 
-            rounded-[40px]
+            rounded-[28px]
+            sm:rounded-[40px]
 
             backdrop-blur-2xl
             bg-white/70
@@ -434,7 +449,9 @@ const ContactHero = () => {
             border-r-emerald-500
             border-t-fuchsia-600
 
-            p-10
+            p-6
+            sm:p-8
+            md:p-10
 
             shadow-[0_30px_80px_rgba(0,0,0,0.08)]
           "
@@ -463,8 +480,10 @@ const ContactHero = () => {
             <div className="relative z-10 mb-10">
               <div
                 className="
-                w-20
-                h-20
+                w-16
+                h-16
+                sm:w-20
+                sm:h-20
 
                 rounded-3xl
 
@@ -486,7 +505,8 @@ const ContactHero = () => {
 
               <h2
                 className="
-                text-4xl
+                text-3xl
+                sm:text-4xl
                 font-bold
 
                 text-[#0B0F19]

@@ -98,7 +98,8 @@ const HowWeWork = () => {
           text-center
           max-w-3xl
           mx-auto
-          mb-24
+          mb-16
+          md:mb-24
         "
         >
           <div
@@ -151,7 +152,8 @@ const HowWeWork = () => {
           relative
           flex
           flex-col
-          gap-16
+          gap-10
+          md:gap-16
         "
         >
           {/* CENTER LINE */}
@@ -216,22 +218,24 @@ const HowWeWork = () => {
               "
               >
                 <div
-                  className="
-                  group
-                  relative
-                  overflow-hidden
+                className="
+                group
+                relative
+                overflow-hidden
 
-                  rounded-[32px]
+                rounded-[32px]
 
-                  bg-white/70
-                  backdrop-blur-xl
+                bg-white/70
+                backdrop-blur-xl
 
-                  border
-                  border-white/40
+                border
+                border-white/40
 
-                  p-10
+                p-6
+                sm:p-8
+                md:p-10
 
-                  shadow-[0_10px_40px_rgba(0,0,0,0.06)]
+                shadow-[0_10px_40px_rgba(0,0,0,0.06)]
 
                   transition-all
                   duration-500
@@ -262,12 +266,14 @@ const HowWeWork = () => {
                   {/* STEP NUMBER */}
 
                   <div
-                    className="
-                    relative
-                    z-10
+                  className="
+                  relative
+                  z-10
 
-                    text-6xl
-                    font-bold
+                  text-4xl
+                  sm:text-5xl
+                  md:text-6xl
+                  font-bold
 
                     text-cyan-500/20
 
@@ -280,12 +286,13 @@ const HowWeWork = () => {
                   {/* TITLE */}
 
                   <h3
-                    className="
-                    relative
-                    z-10
+                  className="
+                  relative
+                  z-10
 
-                    text-3xl
-                    font-bold
+                  text-2xl
+                  sm:text-3xl
+                  font-bold
                     text-[#0B0F19]
 
                     mb-5
@@ -297,16 +304,17 @@ const HowWeWork = () => {
                   {/* DESCRIPTION */}
 
                   <p
-                    className="
-                    relative
-                    z-10
+                  className="
+                  relative
+                  z-10
 
-                    text-gray-600
-                    leading-relaxed
-                    text-lg
-                  "
-                  >
-                    {step.description}
+                  text-gray-600
+                  leading-relaxed
+                  text-base
+                  sm:text-lg
+                "
+                >
+                  {step.description}
                   </p>
 
                   {/* BOTTOM LINE */}

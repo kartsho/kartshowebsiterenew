@@ -157,7 +157,8 @@ const TrustedCompanies = () => {
             }}
             className="
             flex
-            gap-12
+            gap-6
+            sm:gap-12
             w-max
           "
           >
@@ -172,8 +173,10 @@ const TrustedCompanies = () => {
                   items-center
                   justify-center
 
-                  min-w-[220px]
-                  h-[120px]
+                  min-w-[160px]
+                  h-[96px]
+                  sm:min-w-[220px]
+                  sm:h-[120px]
 
                   rounded-3xl
 
@@ -201,7 +204,8 @@ const TrustedCompanies = () => {
                 >
                   <h3
                     className="
-                    text-2xl
+                    text-lg
+                    sm:text-2xl
                     font-bold
 
                     transition-all

@@ -39,7 +39,7 @@ const HospitalHero = () => {
       <div className="absolute top-[-160px] left-[-120px] h-[420px] w-[420px] rounded-full bg-cyan-400/15 blur-[130px]" />
       <div className="absolute bottom-[-200px] right-[-120px] h-[460px] w-[460px] rounded-full bg-blue-400/15 blur-[150px]" />
 
-      <div className="relative z-10 mx-auto grid max-w-7xl grid-cols-1 items-center gap-20 px-6 lg:grid-cols-2">
+      <div className="relative z-10 mx-auto grid max-w-7xl grid-cols-1 items-center gap-14 px-6 lg:grid-cols-2 lg:gap-20">
         <div>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -55,7 +55,7 @@ const HospitalHero = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="text-5xl font-black leading-[1] tracking-tight text-[#0B0F19] sm:text-6xl lg:text-7xl"
+            className="text-4xl font-black leading-[1] tracking-tight text-[#0B0F19] sm:text-6xl lg:text-7xl"
           >
             Build A
             <span className="block bg-gradient-to-r from-cyan-600 via-blue-600 to-emerald-600 bg-clip-text text-transparent">
@@ -78,12 +78,12 @@ const HospitalHero = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1.05 }}
-            className="mt-12 flex flex-wrap items-center gap-5"
+            className="mt-12 flex flex-col items-stretch gap-4 sm:flex-row sm:items-center sm:gap-5"
           >
             <button
               type="button"
               onClick={scrollToPricing}
-              className="group relative overflow-hidden rounded-2xl bg-gradient-to-r from-cyan-500 to-blue-500 px-8 py-5 font-semibold text-white shadow-[0_20px_60px_rgba(6,182,212,0.28)] transition-all duration-500 hover:scale-105"
+              className="group relative overflow-hidden rounded-2xl bg-gradient-to-r from-cyan-500 to-blue-500 px-8 py-5 font-semibold text-white shadow-[0_20px_60px_rgba(6,182,212,0.28)] transition-all duration-500 hover:scale-105 sm:w-auto"
             >
               <span className="relative z-10 flex items-center gap-3">
                 View Pricing
@@ -95,14 +95,14 @@ const HospitalHero = () => {
             <button
               type="button"
               onClick={scrollToPricing}
-              className="flex items-center gap-3 rounded-2xl border border-black/10 bg-white/75 px-7 py-5 font-semibold text-[#0B0F19] shadow-[0_10px_30px_rgba(15,23,42,0.06)] backdrop-blur-xl transition-all duration-300 hover:border-cyan-500/20 hover:bg-white hover:text-cyan-700"
+              className="flex items-center gap-3 rounded-2xl border border-black/10 bg-white/75 px-7 py-5 font-semibold text-[#0B0F19] shadow-[0_10px_30px_rgba(15,23,42,0.06)] backdrop-blur-xl transition-all duration-300 hover:border-cyan-500/20 hover:bg-white hover:text-cyan-700 sm:w-auto"
             >
               <Stethoscope size={18} />
               Book Demo
             </button>
           </motion.div>
 
-          <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1.1 }} className="mt-14 flex flex-wrap gap-4">
+          <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1.1 }} className="mt-14 flex flex-wrap justify-center gap-4 sm:justify-start">
             {trustPills.map((pill) => (
               <div key={pill} className="rounded-full border border-black/5 bg-white/70 px-5 py-3 text-sm font-medium text-gray-700 shadow-[0_8px_24px_rgba(15,23,42,0.04)] backdrop-blur-xl">
                 {pill}
@@ -148,7 +148,7 @@ const HospitalHero = () => {
           </motion.div>
 
           {statCards.map((card, index) => (
-            <motion.div key={card.title || card.label} animate={{ y: [0, -10, 0] }} transition={{ duration: 4 + index, repeat: Infinity }} className={`absolute ${card.className}`}>
+            <motion.div key={card.title || card.label} animate={{ y: [0, -10, 0] }} transition={{ duration: 4 + index, repeat: Infinity }} className={`absolute hidden lg:block ${card.className}`}>
               <div className="rounded-3xl border border-white/60 bg-white/80 px-5 py-4 shadow-[0_20px_50px_rgba(15,23,42,0.10)] backdrop-blur-2xl">
                 <p className="text-sm text-gray-500">{card.label}</p>
                 <h3 className="mt-2 text-2xl font-black text-[#0B0F19]">{card.value}</h3>

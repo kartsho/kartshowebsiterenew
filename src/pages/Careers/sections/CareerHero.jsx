@@ -346,6 +346,7 @@ const CareerHero = () => {
             gap-5
 
             mt-12
+            max-w-2xl
           "
           >
             {/* BUTTON 1 */}
@@ -522,9 +523,11 @@ const CareerHero = () => {
           className="
           relative
 
+          hidden
+          lg:flex
+
           h-[700px]
 
-          flex
           items-center
           justify-center
         "

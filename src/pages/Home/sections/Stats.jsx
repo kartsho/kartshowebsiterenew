@@ -106,7 +106,8 @@ const Stats = () => {
           text-center
           max-w-3xl
           mx-auto
-          mb-20
+          mb-14
+          md:mb-20
         "
         >
           <div
@@ -167,10 +168,13 @@ const Stats = () => {
         <div
           className="
           grid
+          sm:grid-cols-2
           md:grid-cols-2
           xl:grid-cols-4
 
-          gap-8
+          gap-4
+          sm:gap-6
+          md:gap-8
         "
         >
           {stats.map((stat, index) => (
@@ -202,7 +206,9 @@ const Stats = () => {
               bg-white/5
               backdrop-blur-xl
 
-              p-10
+              p-6
+              sm:p-8
+              md:p-10
 
               transition-all
               duration-500
@@ -239,14 +245,16 @@ const Stats = () => {
                 relative
                 z-10
 
-                text-6xl
+                text-4xl
+                sm:text-5xl
                 md:text-7xl
 
                 font-bold
 
                 text-cyan-400
 
-                mb-6
+                mb-4
+                md:mb-6
               "
               >
                 {stat.number}
@@ -259,7 +267,8 @@ const Stats = () => {
                 relative
                 z-10
 
-                text-xl
+                text-base
+                sm:text-lg
                 text-gray-300
 
                 font-medium

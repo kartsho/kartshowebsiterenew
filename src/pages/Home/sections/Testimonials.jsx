@@ -234,6 +234,8 @@ const Testimonials = () => {
                 backdrop-blur-xl
 
                 p-8
+                sm:p-8
+                p-6
 
                 shadow-[0_20px_60px_rgba(0,0,0,0.08)]
 
@@ -279,7 +281,7 @@ const Testimonials = () => {
                     alt={testimonial.name}
                     className="
                     w-12
-                    h-50
+                    h-12
 
                     rounded-full
 

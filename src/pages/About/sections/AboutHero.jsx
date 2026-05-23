@@ -373,6 +373,8 @@ const AboutHero = () => {
           relative
           flex
           justify-center
+          mt-10
+          lg:mt-0
         "
         >
           {/* IMAGE CONTAINER */}
@@ -383,8 +385,13 @@ const AboutHero = () => {
 
             overflow-hidden
 
-            rounded-[40px]
-             p-20
+            rounded-[28px]
+            sm:rounded-[40px]
+
+            p-4
+            sm:p-8
+            lg:p-20
+
             border
             border-white/30
 
@@ -399,11 +406,12 @@ const AboutHero = () => {
               alt="Office"
               className="
               w-full
-              scale-[10.10]
-              p-[100px]
-              h-[700px]
+              h-[320px]
+              sm:h-[520px]
+              lg:h-[700px]
 
               object-cover
+              object-center
             "
             />
 
@@ -432,6 +440,9 @@ const AboutHero = () => {
               duration: 4,
             }}
             className="
+            hidden
+            lg:block
+
             absolute
             top-[-170px]
             -left-10
@@ -525,6 +536,9 @@ const AboutHero = () => {
               duration: 5,
             }}
             className="
+            hidden
+            lg:block
+
             absolute
             bottom-[-180px]
             -right-5

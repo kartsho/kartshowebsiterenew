@@ -83,7 +83,8 @@ const FeaturedProjects = () => {
 
         grid
         lg:grid-cols-2
-        gap-20
+        gap-14
+        lg:gap-20
 
         items-center
       "
@@ -415,6 +416,8 @@ const FeaturedProjects = () => {
           viewport={{ once: true }}
           className="
           relative
+          mt-10
+          lg:mt-0
         "
         >
           {/* IMAGE CONTAINER */}
@@ -424,7 +427,8 @@ const FeaturedProjects = () => {
             relative
             overflow-hidden
 
-            rounded-[40px]
+            rounded-[28px]
+            sm:rounded-[40px]
 
             shadow-[0_30px_80px_rgba(0,0,0,0.15)]
           "
@@ -436,7 +440,9 @@ const FeaturedProjects = () => {
               alt="Project"
               className="
               w-full
-              h-full
+              h-[280px]
+              sm:h-[420px]
+              lg:h-full
               object-cover
 
               transition-all
@@ -471,6 +477,9 @@ const FeaturedProjects = () => {
               duration: 4,
             }}
             className="
+            hidden
+            lg:block
+
             absolute
             top-8
             -left-10
@@ -515,6 +524,9 @@ const FeaturedProjects = () => {
               duration: 5,
             }}
             className="
+            hidden
+            lg:block
+
             absolute
             bottom-10
             right-0
@@ -566,10 +578,16 @@ const FeaturedProjects = () => {
             className="
             absolute
 
-            -bottom-24
-            left-10
+            bottom-4
+            left-4
+            right-4
 
-            w-[320px]
+            w-auto
+            lg:-bottom-24
+            lg:left-10
+            lg:right-auto
+
+            lg:w-[320px]
 
             backdrop-blur-xl
             bg-white/80

@@ -115,7 +115,8 @@ const ContactPreview = () => {
         grid
         lg:grid-cols-2
 
-        gap-20
+        gap-14
+        lg:gap-20
 
         items-center
       "
@@ -171,6 +172,7 @@ const ContactPreview = () => {
           <h2
             className="
             text-4xl
+            sm:text-5xl
             md:text-6xl
 
             font-bold
@@ -196,7 +198,8 @@ const ContactPreview = () => {
 
             leading-relaxed
 
-            mb-14
+            mb-10
+            md:mb-14
 
             max-w-2xl
           "
@@ -214,7 +217,8 @@ const ContactPreview = () => {
             grid
             md:grid-cols-2
 
-            gap-6
+            gap-4
+            sm:gap-6
           "
           >
             {contactInfo.map(
@@ -352,10 +356,14 @@ const ContactPreview = () => {
           <div
             className="
             relative
+            w-full
+            max-w-2xl
+            mx-auto
 
             overflow-hidden
 
-            rounded-[40px]
+            rounded-[28px]
+            sm:rounded-[40px]
 
             border
             border-white/10
@@ -363,7 +371,8 @@ const ContactPreview = () => {
             bg-white/5
             backdrop-blur-xl
 
-            p-8
+            p-6
+            sm:p-8
             md:p-10
 
             shadow-[0_30px_80px_rgba(0,0,0,0.35)]
@@ -401,7 +410,8 @@ const ContactPreview = () => {
             >
               <h3
                 className="
-                text-3xl
+                text-2xl
+                sm:text-3xl
                 font-bold
 
                 text-black
