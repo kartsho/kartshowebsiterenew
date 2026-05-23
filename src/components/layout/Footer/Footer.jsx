@@ -2,6 +2,8 @@ import { motion } from "framer-motion";
 
 import { Link } from "react-router-dom";
 
+import logoMark from "../../../assets/logos/Kartsho K.jpeg";
+
 import {
   ArrowUpRight,
   Send,
@@ -456,27 +458,29 @@ const Footer = () => {
             >
               <div
                 className="
-                w-14
                 h-14
+                w-14
 
-                rounded-2xl
+                overflow-hidden
+                rounded-full
 
-                bg-gradient-to-r
-                from-cyan-500
-                to-blue-500
+                border
+                border-cyan-400/30
 
-                flex
-                items-center
-                justify-center
+                bg-[#08111a]
 
-                text-white
-                font-black
-                text-xl
-
-                shadow-[0_10px_40px_rgba(6,182,212,0.35)]
+                shadow-[0_0_0_1px_rgba(34,211,238,0.08)]
               "
               >
-                K
+                <img
+                  src={logoMark}
+                  alt="KartSho logo"
+                  className="
+                  h-full
+                  w-full
+                  object-cover
+                "
+                />
               </div>
 
               <div>
