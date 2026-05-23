@@ -21,7 +21,9 @@ const Hero = () => {
       bg-[#F5F7FB]
       flex
       items-center
-      pt-30
+      pt-24
+      sm:pt-28
+      pb-14
     "
     >
       {/* ================= BACKGROUND GLOW ================= */}
@@ -63,7 +65,8 @@ const Hero = () => {
         px-6
         grid
         lg:grid-cols-2
-        gap-20
+        gap-12
+        lg:gap-20
         items-center
       "
       >
@@ -84,7 +87,8 @@ const Hero = () => {
           className="
           flex
           flex-col
-          gap-8
+          gap-6
+          sm:gap-8
         "
         >
           {/* BADGE */}
@@ -111,6 +115,7 @@ const Hero = () => {
           <h1
             className="
             text-5xl
+            sm:text-5xl
             md:text-6xl
             xl:text-7xl
             font-bold
@@ -142,11 +147,13 @@ const Hero = () => {
 
           {/* BUTTONS */}
 
-          <div className="flex flex-wrap gap-5">
+          <div className="flex flex-col sm:flex-row gap-4 sm:gap-5">
             <button
               type="button"
               onClick={scrollToServicesPreview}
               className="
+              w-full
+              sm:w-auto
               px-8
               py-4
               rounded-full
@@ -164,6 +171,8 @@ const Hero = () => {
 
             <button
               className="
+             w-full
+             sm:w-auto
              backdrop-blur-xl
             bg-white/10
             border
@@ -195,26 +204,29 @@ const Hero = () => {
 
             <div
               className="
-              flex
-              flex-wrap
-              gap-8
+              grid
+              grid-cols-2
+              gap-3
+              sm:flex
+              sm:flex-wrap
+              sm:gap-8
               items-center
               opacity-60
             "
             >
-              <span className="font-bold text-3xl text-red-500">
+              <span className="font-bold text-xl sm:text-3xl text-red-500">
                 3+ Ventures
               </span>
 
-              <span className="font-bold">
+              <span className="font-bold text-sm sm:text-base">
                 50+ Clients
               </span>
 
-              <span className="font-bold">
+              <span className="font-bold text-sm sm:text-base">
                 4+ Industries
               </span>
 
-              <span className="font-bold">
+              <span className="font-bold text-sm sm:text-base">
                 24h Response
               </span>
             </div>
@@ -252,12 +264,12 @@ const Hero = () => {
             w-full
             max-w-[600px]
             h-[320px]
-            sm:h-[440px]
+            sm:h-[460px]
             lg:h-[700px]
             overflow-hidden
             rounded-[32px]
             sm:rounded-[60px]
-            bg-slate-950/20
+            bg-[#EAF0F7]
           "
           >
             <img
@@ -269,12 +281,7 @@ const Hero = () => {
               w-full
               h-full
               object-cover
-              object-[55%_22%]
-              sm:object-center
-              scale-100
-              sm:scale-[1.12]
-              lg:scale-[4.11]
-              lg:pt-10
+              object-center
             "
             />
 

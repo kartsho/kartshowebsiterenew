@@ -452,19 +452,21 @@ const DetailedServices = () => {
                 {/* IMAGE CARD */}
 
                 <div
-                  className="
-                  relative
+                className="
+                relative
 
-                  overflow-hidden
+                overflow-hidden
 
-                  rounded-[40px]
+                  rounded-[28px]
+                  sm:rounded-[40px]
 
                   bg-white
 
                   border
                   border-black/5
-                  scale-[1.20]
-                  p-20
+                  p-3
+                  sm:p-6
+                  lg:p-10
                   shadow-[0_30px_80px_rgba(0,0,0,0.12)]
 
                   group
@@ -477,14 +479,13 @@ const DetailedServices = () => {
                     alt={service.title}
                     className="
                     w-full
-                    h-[600px]
-
+                    h-[260px]
+                    sm:h-[380px]
+                    lg:h-[520px]
                     object-cover
-                     top-4
+                    object-center
                     transition-all
                     duration-700
-                    scale-[2.10]
-            
                   "
                   />
 
@@ -513,6 +514,9 @@ const DetailedServices = () => {
                     duration: 4,
                   }}
                   className="
+                  hidden
+                  lg:block
+
                   absolute
                   bottom-[-110px]
                   left-[-20px]
@@ -567,6 +571,9 @@ const DetailedServices = () => {
                     duration: 3,
                   }}
                   className="
+                  hidden
+                  lg:block
+
                   absolute
                   top-[-85px]
                   right-[-20px]
