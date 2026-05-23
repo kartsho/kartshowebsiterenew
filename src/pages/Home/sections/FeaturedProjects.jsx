@@ -226,7 +226,7 @@ const FeaturedProjects = () => {
                 text-cyan-500
               "
               >
-                6+
+                3+
               </h3>
 
               <p className="text-gray-600 mt-2">

@@ -12,7 +12,7 @@ const cards = [
     id: 1,
     title: "Multi-Venture Ecosystem",
     description:
-      "Kartsho connects marketing, legal tech, education, commerce, media, and counseling under one brand.",
+      "Kartsho connects marketing, legal tech, and education under one brand.",
     icon: Cpu,
   },
 

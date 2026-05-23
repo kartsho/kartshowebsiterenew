@@ -3,9 +3,9 @@ export const kartshoBrand = {
   tagline: "Engineering the Digital Future",
   kicker: "Global Digital Innovation Conglomerate",
   summary:
-    "A multi-venture digital enterprise building across marketing, legal tech, education, commerce, media, and counseling.",
+    "A three-venture digital enterprise building across marketing, legal tech, and education.",
   longSummary:
-    "Kartsho Enterprises creates scalable digital solutions that connect strategy, technology, and execution across multiple industries.",
+    "Kartsho Enterprises creates scalable digital solutions that connect strategy, technology, and execution across its core ventures.",
 };
 
 export const heroData = {
@@ -19,7 +19,7 @@ export const heroData = {
 };
 
 export const metrics = [
-  { label: "Active Ventures", value: "6+" },
+  { label: "Active Ventures", value: "3+" },
   { label: "Clients Served", value: "50+" },
   { label: "Core Industries", value: "4+" },
   { label: "Response Time", value: "24h" },
@@ -27,7 +27,7 @@ export const metrics = [
 
 export const stats = [
   { label: "Founded", value: "2026" },
-  { label: "Ventures", value: "6+" },
+  { label: "Ventures", value: "3+" },
   { label: "Priority response", value: "24h" },
   { label: "Business hours", value: "Mon-Fri 9-6" },
 ];
@@ -55,30 +55,6 @@ export const ventures = [
     description:
       "Practical upskilling and career-focused learning pathways for people entering the digital workforce.",
     action: "Start Learning",
-    href: "https://kartsho.com/",
-  },
-  {
-    name: "Kartsho Commerce",
-    category: "E-Commerce",
-    description:
-      "A premium digital commerce experience focused on frictionless transactions and high-performance retail.",
-    action: "Visit Site",
-    href: "https://kartsho.com/",
-  },
-  {
-    name: "Knowledge Hub",
-    category: "Media",
-    description:
-      "Industry intelligence, analysis, and trend-led insights to keep teams and founders ahead of the curve.",
-    action: "Read Insights",
-    href: "https://kartsho.com/",
-  },
-  {
-    name: "Kartsho Counseling",
-    category: "Counseling",
-    description:
-      "Strategic academic consulting and mentorship for ambitious learners targeting top institutions.",
-    action: "Get Guidance",
     href: "https://kartsho.com/",
   },
 ];
@@ -120,7 +96,7 @@ export const chooseUs = [
   {
     title: "One enterprise, multiple strengths",
     description:
-      "A connected ecosystem lets Kartsho ship solutions across related industries without losing focus or speed.",
+      "A connected ecosystem lets Kartsho ship solutions across marketing, legal tech, and education without losing focus or speed.",
   },
   {
     title: "Built for measurable growth",
@@ -195,7 +171,7 @@ export const insights = [
   },
   {
     quote:
-      "Six pillars of innovation keep the brand focused on execution, scale, and long-term relevance.",
+      "Three pillars of innovation keep the brand focused on execution, scale, and long-term relevance.",
     meta: "Innovation model",
   },
 ];
@@ -204,7 +180,7 @@ export const faqs = [
   {
     question: "What does Kartsho Enterprises do?",
     answer:
-      "Kartsho operates as a multi-venture digital enterprise spanning marketing, legal tech, education, commerce, media, and counseling.",
+      "Kartsho operates as a multi-venture digital enterprise centered on marketing, legal tech, and education.",
   },
   {
     question: "How quickly does the team respond?",

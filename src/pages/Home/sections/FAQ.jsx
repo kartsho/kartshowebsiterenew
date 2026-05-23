@@ -13,7 +13,7 @@ const faqData = [
       "What does Kartsho Enterprises provide?",
 
     answer:
-      "Kartsho is a multi-venture digital enterprise spanning marketing, legal tech, education, commerce, media, and counseling.",
+      "Kartsho is a multi-venture digital enterprise centered on marketing, legal tech, and education.",
   },
 
   {

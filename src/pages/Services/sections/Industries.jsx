@@ -484,7 +484,7 @@ const Industries = () => {
         >
           {[
             {
-              number: "6+",
+              number: "3+",
               label: "Active Ventures",
             },
 

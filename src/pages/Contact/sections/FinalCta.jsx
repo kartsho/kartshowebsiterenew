@@ -280,8 +280,8 @@ const FinalCTA = () => {
             >
               Partner with KartSho to build
               scalable digital ventures across
-              marketing, legal tech, education,
-              commerce, media, and counseling.
+              marketing, legal tech, and
+              education.
             </motion.p>
 
             {/* TRUST POINTS */}
@@ -312,7 +312,7 @@ const FinalCTA = () => {
             "
             >
               {[
-                "6+ Ventures",
+                "3+ Ventures",
                 "50+ Clients",
                 "4+ Industries",
                 "24h Response",

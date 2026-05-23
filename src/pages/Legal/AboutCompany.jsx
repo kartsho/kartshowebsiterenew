@@ -47,7 +47,7 @@ const AboutCompany = () => {
 
             <p className="mt-4 text-[color:var(--text-secondary)] leading-relaxed">
               Kartsho operates as a multi-venture digital ecosystem spanning marketing, legal
-              tech, education, commerce, media, and counseling. Replace the placeholder
+              tech, and education. Replace the placeholder
               registration values in this page with verified legal records before going live.
             </p>
 

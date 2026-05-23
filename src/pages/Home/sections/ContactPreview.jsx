@@ -203,9 +203,8 @@ const ContactPreview = () => {
           >
             Kartsho Enterprises builds scalable
             AI platforms, enterprise systems,
-            SaaS products, legal-tech solutions,
-            digital ecosystems, and growth-driven
-            ventures for modern businesses.
+            SaaS products, and growth-driven
+            digital ventures for modern businesses.
           </p>
 
           {/* CONTACT INFO */}

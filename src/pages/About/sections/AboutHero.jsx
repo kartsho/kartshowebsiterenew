@@ -213,8 +213,7 @@ const AboutHero = () => {
           >
             Kartsho Enterprises is a multi-venture
             digital ecosystem spanning marketing,
-            legal tech, education, commerce, media,
-            and counseling.
+            legal tech, and education.
           </p>
 
           {/* BUTTONS */}

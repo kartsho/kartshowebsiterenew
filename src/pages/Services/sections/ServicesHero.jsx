@@ -183,9 +183,8 @@ const ServicesHero = () => {
           "
           >
             Kartsho Enterprises operates across
-            marketing, legal tech, education,
-            commerce, media, and counseling with
-            a 24-hour response promise.
+            marketing, legal tech, and education
+            with a 24-hour response promise.
           </p>
 
           {/* BUTTONS */}

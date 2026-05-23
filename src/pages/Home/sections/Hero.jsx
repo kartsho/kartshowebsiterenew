@@ -136,9 +136,8 @@ const Hero = () => {
           "
           >
             We build and scale digital ventures
-            across marketing, legal tech,
-            education, commerce, media, and
-            counseling.
+            across marketing, legal tech, and
+            education.
           </p>
 
           {/* BUTTONS */}
@@ -300,7 +299,7 @@ const Hero = () => {
             }}
             className="
             absolute
-            top-[-80px]
+            top-[-48px]
             -left-5
 
             backdrop-blur-xl
@@ -400,7 +399,7 @@ const Hero = () => {
             }}
             className="
             absolute
-            top-[-80px]
+            top-[-48px]
             -right-5
 
             backdrop-blur-xl

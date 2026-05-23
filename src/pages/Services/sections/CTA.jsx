@@ -219,9 +219,8 @@ const CTA = () => {
           >
             We help startups and enterprises
             design, build, and scale ventures
-            across marketing, legal tech,
-            education, commerce, media, and
-            counseling.
+            across marketing, legal tech, and
+            education.
           </p>
 
           {/* BUTTONS */}
@@ -337,7 +336,7 @@ const CTA = () => {
                 mb-2
               "
               >
-                6+
+                3+
               </h3>
 
               <p className="text-gray-400">

@@ -156,8 +156,7 @@ const ServicesPreview = () => {
           >
             We help startups and enterprises
             grow through marketing, legal tech,
-            education, commerce, media, and
-            counseling ventures.
+            and education ventures.
           </p>
         </motion.div>
 
