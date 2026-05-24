@@ -1,28 +1,10 @@
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 
-import {
-  ArrowUpRight,
-  Globe,
-} from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 
-import heroImage from "../../../assets/images/hero.jpg";
 
-const liveProjects = [
-  {
-    title: "AI Analytics Platform",
-    url: "https://example.com",
-  },
-
-  {
-    title: "Cloud CRM System",
-    url: "https://example.com",
-  },
-
-  {
-    title: "Enterprise SaaS",
-    url: "https://example.com",
-  },
-];
+import projectimg from "../../../assets/images/projectimg.jpeg"
 
 const FeaturedProjects = () => {
   return (
@@ -376,26 +358,35 @@ const FeaturedProjects = () => {
               View Case Study
             </button>
 
-            <button
+            <Link
+              to="/live-projects"
               className="
+              inline-flex
+              items-center
+              gap-2
+
               px-8
               py-4
 
               rounded-full
 
               border
-              border-gray-300
+              border-[color:var(--border)]
+
+              text-[color:var(--text-primary)]
 
               font-semibold
 
               transition-all
               duration-300
 
-              hover:bg-[#F5F7FB]
+              hover:bg-[color:var(--surface)]
             "
             >
-              Live Preview
-            </button>
+              View Live Projects
+
+              <ArrowUpRight size={18} />
+            </Link>
           </div>
         </motion.div>
 
@@ -423,48 +414,73 @@ const FeaturedProjects = () => {
           {/* IMAGE CONTAINER */}
 
           <div
-            className="
-            relative
-            overflow-hidden
-
-            rounded-[28px]
-            sm:rounded-[40px]
-
-            shadow-[0_30px_80px_rgba(0,0,0,0.15)]
-          "
-          >
-            {/* IMAGE */}
-
-            <img
-              src={heroImage}
-              alt="Project"
-              className="
-              w-full
-              h-[280px]
-              sm:h-[420px]
-              lg:h-full
-              object-cover
-
-              transition-all
-              duration-700
-
-              hover:scale-105
-            "
-            />
-
-            {/* OVERLAY */}
-
-            <div
-              className="
-              absolute
-              inset-0
-
-              bg-gradient-to-t
-              from-black/20
-              to-transparent
-            "
-            />
-          </div>
+                     className="
+                     relative
+                     w-full
+                     max-w-[620px]
+                     aspect-[4/3]
+                     overflow-hidden
+                     rounded-[32px]
+                     sm:rounded-[44px]
+                     p-4
+                     sm:p-4
+                     bg-[color:var(--surface)]
+                     backdrop-blur-3xl
+                     border
+                     border-[color:var(--border)]
+                     shadow-[0_30px_80px_rgba(15,23,42,0.16)]
+                     
+                   "
+                   >
+                     <div
+                       className="
+                       relative
+                       h-full
+                       w-full
+                       overflow-hidden
+                       rounded-[20px]
+                       sm:rounded-[28px]
+                       bg-[color:var(--surface-strong)]
+                     "
+                     >
+                       <img
+                         src={projectimg}
+                         alt="Hero"
+                         className="
+                         h-full
+                         w-full
+                         rounded-3xl
+                         object-cover
+                         object-center
+                       
+                         pt-6
+                         scale-[1.20]
+                        
+                         
+                      
+                       "
+                       />
+         
+                       {/* SOFT TINT */}
+         
+                       <div
+                         className="
+                          absolute
+                            inset-0
+                            border-4
+                         border-b-emerald-400
+                         border-l-blue-400
+                         border-t-blue-900
+                         border-r-cyan-400
+                           rounded-3xl
+                         bg-gradient-to-tr
+                         from-cyan-500/10
+                         via-transparent
+                         to-transparent
+                       "
+                       />
+                     </div>
+                   </div>
 
           {/* FLOATING CARD 1 */}
 
@@ -560,157 +576,6 @@ const FeaturedProjects = () => {
             </h3>
           </motion.div>
 
-          {/* ================= LIVE PROJECTS PANEL ================= */}
-
-          <motion.div
-            initial={{
-              opacity: 0,
-              y: 30,
-            }}
-            whileInView={{
-              opacity: 1,
-              y: 0,
-            }}
-            transition={{
-              duration: 0.8,
-            }}
-            viewport={{ once: true }}
-            className="
-            absolute
-
-            bottom-4
-            left-4
-            right-4
-
-            w-auto
-            lg:-bottom-24
-            lg:left-10
-            lg:right-auto
-
-            lg:w-[320px]
-
-            backdrop-blur-xl
-            bg-white/80
-
-            border
-            border-white/40
-
-            rounded-[32px]
-
-            p-6
-
-            shadow-[0_20px_50px_rgba(0,0,0,0.12)]
-          "
-          >
-            {/* TITLE */}
-
-            <div
-              className="
-              flex
-              items-center
-              gap-3
-
-              mb-6
-            "
-            >
-              <div
-                className="
-                w-12
-                h-12
-
-                rounded-2xl
-
-                bg-cyan-100
-
-                flex
-                items-center
-                justify-center
-              "
-              >
-                <Globe className="text-cyan-600" />
-              </div>
-
-              <div>
-                <h3
-                  className="
-                  font-bold
-                  text-[#0B0F19]
-                "
-                >
-                  Live Projects
-                </h3>
-
-                <p className="text-sm text-gray-500">
-                  Explore deployed products
-                </p>
-              </div>
-            </div>
-
-            {/* PROJECT LIST */}
-
-            <div className="flex flex-col gap-4">
-              {liveProjects.map(
-                (project, index) => (
-                  <a
-                    key={index}
-                    href={project.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="
-                    group
-
-                    flex
-                    items-center
-                    justify-between
-
-                    p-4
-
-                    rounded-2xl
-
-                    bg-[#F5F7FB]
-
-                    hover:bg-cyan-50
-
-                    transition-all
-                    duration-300
-                  "
-                  >
-                    <div>
-                      <h4
-                        className="
-                        font-semibold
-                        text-[#0B0F19]
-                      "
-                      >
-                        {project.title}
-                      </h4>
-
-                      <p
-                        className="
-                        text-sm
-                        text-gray-500
-                      "
-                      >
-                        Live Preview
-                      </p>
-                    </div>
-
-                    <ArrowUpRight
-                      className="
-                      text-cyan-500
-
-                      transition-all
-                      duration-300
-
-                      group-hover:translate-x-1
-                      group-hover:-translate-y-1
-                    "
-                    />
-                  </a>
-                )
-              )}
-            </div>
-          </motion.div>
         </motion.div>
       </div>
     </section>

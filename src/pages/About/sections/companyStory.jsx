@@ -346,50 +346,67 @@ const CompanyStory = () => {
           {/* IMAGE */}
 
           <div
-            className="
-            relative
-
-            overflow-hidden
-
-            rounded-[40px]
-            p-10
-            border
-            border-black/5
-
-            shadow-[0_30px_80px_rgba(0,0,0,0.12)]
-
-            group
-          "
-          >
-            <img
-              src={officeImage}
-              alt="Company Story"
-              className="
-              w-full
-              h-[700px]
-              p-10
-              object-cover
-               scale-[2.10]
-              transition-all
-              duration-700
-
-            "
-            />
-
-            {/* OVERLAY */}
-
-            <div
-              className="
-              absolute
-              inset-0
-
-              bg-gradient-to-t
-              from-black/30
-              to-transparent
-            "
-            />
-          </div>
-
+                     className="
+                     relative
+                     w-full
+                     max-w-[620px]
+                     aspect-[5/4]
+                     overflow-hidden
+                     rounded-[32px]
+                     sm:rounded-[44px]
+                     p-4
+                     sm:p-5
+                     bg-[color:var(--surface)]
+                     backdrop-blur-3xl
+                     border
+                     border-[color:var(--border)]
+                     shadow-[0_30px_80px_rgba(15,23,42,0.16)]
+                   "
+                   >
+                     <div
+                       className="
+                       relative
+                       h-full
+                       w-full
+                       overflow-hidden
+                       rounded-[20px]
+                       sm:rounded-[28px]
+                       bg-[color:var(--surface-strong)]
+                     "
+                     >
+                       <img
+                         src={officeImage}
+                         alt="Hero"
+                         className="
+                         h-full
+                         w-full
+                         object-cover
+                         object-center
+                         scale-[1.40]
+                         pt-10
+                       "
+                       />
+         
+                       {/* SOFT TINT */}
+         
+                       <div
+                         className="
+                         absolute
+                         inset-0
+                                 border-4
+                         border-b-emerald-400
+                         border-l-blue-400
+                         border-t-blue-900
+                         border-r-cyan-400
+                           rounded-3xl
+                         bg-gradient-to-tr
+                         from-cyan-500/10
+                         via-transparent
+                         to-transparent
+                       "
+                       />
+                     </div>
+                   </div>
           {/* FLOATING CARD 1 */}
 
 
@@ -416,9 +433,7 @@ const CompanyStory = () => {
             border-l-cyan-300
             border-r-emerald-500
             border-t-fuchsia-600
-
             rounded-3xl
-
             px-7
             py-5
 
@@ -460,7 +475,7 @@ const CompanyStory = () => {
             }}
             className="
             absolute
-            top-[-65px]
+            top-[-60px]
             left-[-20px]
 
             px-6

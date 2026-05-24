@@ -486,6 +486,13 @@ const DetailedServices = () => {
                     object-center
                     transition-all
                     duration-700
+                    rounded-3xl
+                    scale-[1.10]
+                    border-4
+                    border-b-fuchsia-400
+                    border-l-cyan-300
+                    border-r-lime-500
+                    border-t-red-400
                   "
                   />
 

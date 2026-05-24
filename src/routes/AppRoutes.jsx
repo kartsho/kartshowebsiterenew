@@ -10,6 +10,7 @@ import AboutCompany from "../pages/Legal/AboutCompany";
 import PrivacyPolicy from "../pages/Legal/PrivacyPolicy";
 import TermsConditions from "../pages/Legal/TermsConditions";
 import RefundPolicy from "../pages/Legal/RefundPolicy";
+import LiveProjects from "../pages/CaseStudies/LiveProjects";
 
 import WebDevelopment from "../pages/WebDevelopment/WebDevelopment";
 import WebPricingPage from "../pages/WebDevelopment/WebPricingPage";
@@ -50,6 +51,16 @@ const AppRoutes = () => {
         <Route path="/team" element={<Team />} />
 
         <Route path="/career" element={<Career />} />
+
+        <Route path="/live-projects" element={<LiveProjects />} />
+        <Route
+          path="/case-studies"
+          element={<Navigate to="/live-projects" replace />}
+        />
+        <Route
+          path="/case-studies/live-projects"
+          element={<Navigate to="/live-projects" replace />}
+        />
 
         {/* ================= LEGAL ================= */}
 

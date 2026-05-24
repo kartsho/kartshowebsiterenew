@@ -262,40 +262,62 @@ const Hero = () => {
             className="
             relative
             w-full
-            max-w-[600px]
-            h-[320px]
-            sm:h-[460px]
-            lg:h-[700px]
+            max-w-[620px]
+            aspect-[5/4]
             overflow-hidden
             rounded-[32px]
-            sm:rounded-[60px]
-            bg-[#EAF0F7]
+            sm:rounded-[44px]
+            p-4
+            sm:p-5
+            bg-[color:var(--surface)]
+            backdrop-blur-3xl
+            border
+            border-[color:var(--border)]
+            shadow-[0_30px_80px_rgba(15,23,42,0.16)]
           "
           >
-            <img
-              src={heroImage}
-              alt="Hero"
-              className="
-              absolute
-              inset-0
-              w-full
-              h-full
-              object-cover
-              object-center
-            "
-            />
-
-            {/* OVERLAY */}
-
             <div
               className="
-              absolute
-              inset-0
-              bg-gradient-to-t
-              from-black/30
-              to-transparent
+              relative
+              h-full
+              w-full
+              overflow-hidden
+              rounded-[20px]
+              sm:rounded-[28px]
+              bg-[color:var(--surface-strong)]
             "
-          />
+            >
+              <img
+                src={heroImage}
+                alt="Hero"
+                className="
+                h-full
+                w-full
+                object-cover
+                object-center
+                scale-[1.35]
+              "
+              />
+
+              {/* SOFT TINT */}
+
+              <div
+                className="
+                absolute
+                inset-0
+                        border-4
+                         border-b-emerald-400
+                         border-l-blue-400
+                         border-t-blue-900
+                         border-r-cyan-400
+                           rounded-3xl
+                bg-gradient-to-tr
+                from-cyan-500/10
+                via-transparent
+                to-transparent
+              "
+              />
+            </div>
           </div>
 
           {/* ================= FLOATING CARD 1 ================= */}

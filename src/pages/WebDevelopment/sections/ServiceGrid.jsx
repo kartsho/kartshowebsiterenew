@@ -383,6 +383,7 @@ const ServicesGrid = () => {
                     rounded-[32px]
 
                     p-[1px]
+                    
 
                     bg-gradient-to-br
                     from-cyan-500/40
@@ -512,7 +513,7 @@ const ServicesGrid = () => {
                       text-2xl
                       font-bold
 
-                      text-[#0B1220]
+                      text-[#234fa5]
                     "
                     >
                       {service.title}
