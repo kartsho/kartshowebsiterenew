@@ -34,7 +34,7 @@ export const stats = [
 
 export const ventures = [
   {
-    name: "Kartsho Digital",
+    name: "Kartsho Counseling",
     category: "Digital Marketing",
     description:
       "Data-driven SEO, paid media, and performance marketing systems built to lift visibility and conversions.",
@@ -140,7 +140,7 @@ export const processSteps = [
 export const featuredWork = [
   {
     title: "Growth engine for brands",
-    label: "Kartsho Digital",
+    label: "Kartsho Counseling",
     description:
       "SEO, paid ads, content, and website optimization built to amplify reach and conversions.",
   },
@@ -205,7 +205,7 @@ export const faqs = [
 export const contact = {
   email: "info@kartsho.com",
   hrEmail: "hr@kartsho.com",
-  phones: ["+91 9453134901", "+91 9528660578"],
+  phones: ["+91 9453134901", "+91 9453135182"],
   location: "Godhoopatti Patti, Pratapgarh, Uttar Pradesh - 230134",
   hours: [
     "Mon - Fri: 9:00 AM - 6:00 PM",

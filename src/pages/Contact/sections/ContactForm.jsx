@@ -1,5 +1,3 @@
-import { useState } from "react";
-
 import { motion } from "framer-motion";
 
 import {
@@ -19,24 +17,41 @@ import {
   FaXTwitter,
 } from "react-icons/fa6";
 
+import {
+  buildMailtoLink,
+  buildProjectInquiryBody,
+  contactEmails,
+  contactPhones,
+} from "../../../utils/contactLinks";
+
 const ContactFormSection = () => {
-  const [loading, setLoading] = useState(false);
-
-  const [success, setSuccess] = useState(false);
-
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    setLoading(true);
+    const formData = new FormData(e.currentTarget);
 
-    setTimeout(() => {
-      setLoading(false);
-      setSuccess(true);
-    }, 2500);
+    const mailtoLink = buildMailtoLink({
+      to: [contactEmails.hr],
+      cc: [contactEmails.business],
+      subject: `Project Enquiry${formData.get("fullName") ? ` - ${formData.get("fullName")}` : ""}`,
+      body: buildProjectInquiryBody({
+        name: formData.get("fullName")?.toString().trim() || "",
+        company: formData.get("companyName")?.toString().trim() || "",
+        email: formData.get("emailAddress")?.toString().trim() || "",
+        phone: formData.get("phoneNumber")?.toString().trim() || "",
+        service: formData.get("serviceType")?.toString().trim() || "",
+        budget: formData.get("projectBudget")?.toString().trim() || "",
+        timeline: formData.get("projectTimeline")?.toString().trim() || "",
+        message: formData.get("projectMessage")?.toString().trim() || "",
+      }),
+    });
+
+    window.location.href = mailtoLink;
   };
 
   return (
     <section
+      id="contact-form"
       className="
       relative
       py-32
@@ -238,6 +253,7 @@ const ContactFormSection = () => {
                 <input
                   type="text"
                   required
+                  name="fullName"
                   placeholder=" "
                   className="
                   peer
@@ -296,6 +312,7 @@ const ContactFormSection = () => {
               <div className="relative">
                 <input
                   type="text"
+                  name="companyName"
                   placeholder=" "
                   className="
                   peer
@@ -363,6 +380,7 @@ const ContactFormSection = () => {
                 <input
                   type="email"
                   required
+                  name="emailAddress"
                   placeholder=" "
                   className="
                   peer
@@ -419,6 +437,7 @@ const ContactFormSection = () => {
               <div className="relative">
                 <input
                   type="tel"
+                  name="phoneNumber"
                   placeholder=" "
                   className="
                   peer
@@ -483,6 +502,7 @@ const ContactFormSection = () => {
               {/* SERVICE */}
 
               <select
+                name="serviceType"
                 className="
                 w-full
 
@@ -535,6 +555,7 @@ const ContactFormSection = () => {
               {/* BUDGET */}
 
               <select
+                name="projectBudget"
                 className="
                 w-full
 
@@ -584,6 +605,7 @@ const ContactFormSection = () => {
             {/* TIMELINE */}
 
             <select
+              name="projectTimeline"
               className="
               w-full
 
@@ -635,6 +657,8 @@ const ContactFormSection = () => {
               <textarea
                 rows="6"
                 placeholder=" "
+                name="projectMessage"
+                required
                 className="
                 peer
 
@@ -762,36 +786,11 @@ const ContactFormSection = () => {
 
               transition-all
               duration-300
-            "
+              "
             >
-              {loading ? (
-                <div
-                  className="
-                  w-6
-                  h-6
+              Send Enquiry
 
-                  rounded-full
-
-                  border-2
-                  border-white/30
-                  border-t-white
-
-                  animate-spin
-                "
-                />
-              ) : success ? (
-                <>
-                  <CheckCircle2 size={22} />
-
-                  Project Request Sent
-                </>
-              ) : (
-                <>
-                  Start Your Project
-
-                  <ArrowRight size={20} />
-                </>
-              )}
+              <ArrowRight size={20} />
             </motion.button>
           </form>
         </motion.div>
@@ -920,18 +919,21 @@ const ContactFormSection = () => {
                 icon: <Mail size={22} />,
                 title: "Email",
                 value: "info@kartsho.com",
+                href: buildMailtoLink({ to: [contactEmails.business] }),
               },
 
               {
                 icon: <Mail size={22} />,
                 title: "HR",
                 value: "hr@kartsho.com",
+                href: buildMailtoLink({ to: [contactEmails.hr] }),
               },
 
               {
                 icon: <Phone size={22} />,
                 title: "Phone",
-                value: "+91 9453134901 / +91 9528660578",
+                value: "+91 9453134901 / +91 9453135182",
+                href: `tel:${contactPhones.primary.replace(/\s+/g, "")}`,
               },
 
               {
@@ -939,6 +941,7 @@ const ContactFormSection = () => {
                 title: "Address",
                 value:
                   "Godhoopatti Patti, Pratapgarh, Uttar Pradesh - 230134",
+                href: "https://www.google.com/maps/search/?api=1&query=Godhoopatti%20Patti%2C%20Pratapgarh%2C%20Uttar%20Pradesh%20-%20230134",
               },
 
               {
@@ -993,7 +996,16 @@ const ContactFormSection = () => {
                     font-semibold
                   "
                   >
-                    {item.value}
+                    {item.href ? (
+                      <a
+                        href={item.href}
+                        className="hover:text-cyan-300 transition-colors"
+                      >
+                        {item.value}
+                      </a>
+                    ) : (
+                      item.value
+                    )}
                   </h4>
                 </div>
               </div>

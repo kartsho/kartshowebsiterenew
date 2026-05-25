@@ -17,11 +17,18 @@ import {
   Truck,
   UtensilsCrossed,
 } from "lucide-react";
+import { MonitorSmartphone } from "lucide-react";
 
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 
 const services = [
+  {
+  title: "Custom Website",
+  icon: MonitorSmartphone,
+  description:
+    "Responsive and scalable websites crafted with modern technologies, animations, and immersive user experiences.",
+},
     {
     title: "Gym Websites",
     icon: Dumbbell,
@@ -149,6 +156,9 @@ const openServicePage = (
   let targetPath = null;
 
   switch (serviceTitle) {
+     case "Custom Website":
+      targetPath = "/services/custom-website";
+      break;
     case "Gym Websites":
       targetPath = "/services/gym-website";
       break;

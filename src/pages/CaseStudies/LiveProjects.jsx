@@ -1,13 +1,35 @@
+import { useEffect } from "react";
+
 import { Link } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 
 import { ArrowRight, BadgeCheck, CalendarDays, Layers3 } from "lucide-react";
 
 import { liveProjectStats, liveProjects } from "../../data/liveProjectsData";
 
 const LiveProjects = () => {
+  const location = useLocation();
+
+  useEffect(() => {
+    if (typeof window === "undefined" || !location.hash) {
+      return;
+    }
+
+    const frame = window.requestAnimationFrame(() => {
+      document
+        .getElementById(location.hash.replace("#", ""))
+        ?.scrollIntoView({
+          behavior: "smooth",
+          block: "start",
+        });
+    });
+
+    return () => window.cancelAnimationFrame(frame);
+  }, [location.hash]);
+
   return (
     <main className="bg-[color:var(--page-bg)]">
-      <section className="relative overflow-hidden py-28">
+      <section className="relative overflow-hidden pt-36 pb-28 md:pt-44">
         <div className="absolute top-[-180px] right-[-180px] h-[420px] w-[420px] rounded-full bg-cyan-200/20 blur-3xl" />
         <div className="absolute bottom-[-180px] left-[-180px] h-[360px] w-[360px] rounded-full bg-blue-200/20 blur-3xl" />
 
@@ -47,6 +69,7 @@ const LiveProjects = () => {
             {liveProjects.map((project, index) => (
               <article
                 key={project.id}
+                id={index === 0 ? "kartsho-counseling" : undefined}
                 className="group relative overflow-hidden rounded-[34px] border border-[color:var(--border)] bg-[color:var(--surface-strong)] p-8 shadow-[0_24px_70px_rgba(15,23,42,0.12)] backdrop-blur-3xl transition-transform duration-300 hover:-translate-y-2"
               >
                 <div className="absolute right-0 top-0 h-28 w-28 rounded-full bg-cyan-500/10 blur-3xl" />
@@ -113,7 +136,7 @@ const LiveProjects = () => {
 
                 <div className="relative z-10 mt-8">
                   <Link
-                    to="/contact"
+                    to="/contact#contact-form"
                     className="inline-flex items-center gap-2 rounded-full bg-cyan-500 px-5 py-3 font-semibold text-white transition-transform duration-300 hover:scale-105"
                   >
                     Talk About This Project

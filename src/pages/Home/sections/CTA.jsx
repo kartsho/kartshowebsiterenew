@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { buildMailtoLink, contactEmails } from "../../../utils/contactLinks";
 
 import {
   ArrowRight,
@@ -6,6 +7,20 @@ import {
 } from "lucide-react";
 
 const CTA = () => {
+  const projectMailLink = buildMailtoLink({
+    to: [contactEmails.business, contactEmails.hr],
+    subject: "Project Inquiry from Kartsho Website",
+    body:
+      "Hi Kartsho Team,\n\nI would like to discuss a new project.\n\nPlease share the next steps.",
+  });
+
+  const infoMailLink = buildMailtoLink({
+    to: [contactEmails.business],
+    subject: "Business Enquiry from Kartsho Website",
+    body:
+      "Hi Kartsho Team,\n\nI would like to enquire about your services.\n\nPlease get back to me.",
+  });
+
   return (
     <section
      
@@ -230,7 +245,8 @@ const CTA = () => {
           >
             {/* PRIMARY BUTTON */}
 
-            <button
+            <a
+              href={projectMailLink}
               className="
               group
 
@@ -266,13 +282,11 @@ const CTA = () => {
                 group-hover:translate-x-1
               "
               />
-            </button>
+            </a>
 
             {/* SECONDARY BUTTON */}
            <a 
-           href="https://mail.google.com/mail/?view=cm&fs=1&to=info@kartsho.com&su=Project%20Inquiry&body=Hi%20Kartsho%20Team,"
-           target="_blank"
-            rel="noopener noreferrer"
+           href={infoMailLink}
            className="inline-flex
            items-center
            rounded-full

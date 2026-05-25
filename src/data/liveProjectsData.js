@@ -1,7 +1,7 @@
 export const liveProjects = [
   {
     id: "kartsho-digital",
-    venture: "Kartsho Digital",
+    venture: "Kartsho Counseling",
     title: "Growth Engine & Campaign Dashboard",
     status: "Live",
     description:
@@ -9,6 +9,7 @@ export const liveProjects = [
     stack: ["React", "Node.js", "Analytics", "Automation"],
     team: [
       { name: "Ayush Misra", role: "Strategy & Product Direction" },
+      { name: "Prince Kumar", role: "Frontend Engineer" },
       { name: "Salu Singh", role: "Automation & AI Workflows" },
       { name: "Sateesh Yadav", role: "Frontend & Systems" },
     ],

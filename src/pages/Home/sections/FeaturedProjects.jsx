@@ -336,7 +336,8 @@ const FeaturedProjects = () => {
           {/* ================= BUTTONS ================= */}
 
           <div className="flex flex-wrap gap-5">
-            <button
+            <Link
+              to="/live-projects#kartsho-counseling"
               className="
               px-8
               py-4
@@ -356,7 +357,7 @@ const FeaturedProjects = () => {
             "
             >
               View Case Study
-            </button>
+            </Link>
 
             <Link
               to="/live-projects"

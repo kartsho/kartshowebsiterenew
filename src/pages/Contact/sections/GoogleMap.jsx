@@ -8,6 +8,11 @@ import {
   ArrowUpRight,
 } from "lucide-react";
 
+import {
+  buildGoogleMapsSearchUrl,
+  buildMailtoLink,
+} from "../../../utils/contactLinks";
+
 const offices = [
   {
     title: "India Office",
@@ -19,7 +24,7 @@ const offices = [
   {
     title: "Business Support",
     location: "info@kartsho.com",
-    phone: "+91 9528660578",
+    phone: "+91 9453135182",
     timezone: "Mon - Fri 9AM - 6PM",
   },
 
@@ -263,7 +268,7 @@ const GoogleMapSection = () => {
 
             <iframe
               title="KartSho Map"
-              src="https://www.google.com/maps?q=Pratapgarh%20Uttar%20Pradesh&output=embed"
+              src="https://www.google.com/maps?q=Godhoopatti%20Patti%2C%20Pratapgarh%2C%20Uttar%20Pradesh%20-%20230134&output=embed"
               className="
               w-full
               h-[650px]
@@ -341,7 +346,7 @@ const GoogleMapSection = () => {
                   </h3>
 
                   <p className="text-gray-600 text-sm">
-                    Godhoopatti Patti, Pratapgarh
+                    Godhoopatti Patti, Pratapgarh, Uttar Pradesh - 230134
                   </p>
                 </div>
               </div>
@@ -479,14 +484,23 @@ const GoogleMapSection = () => {
                     "
                     />
 
-                    <p
-                      className="
-                      text-gray-600
-                      leading-relaxed
-                    "
-                    >
-                      {office.location}
-                    </p>
+                    {office.location.includes("@") ? (
+                      <a
+                        href={buildMailtoLink({ to: [office.location] })}
+                        className="text-gray-600 leading-relaxed hover:text-cyan-500 transition-colors"
+                      >
+                        {office.location}
+                      </a>
+                    ) : (
+                      <p
+                        className="
+                        text-gray-600
+                        leading-relaxed
+                      "
+                      >
+                        {office.location}
+                      </p>
+                    )}
                   </div>
 
                   {/* PHONE */}
@@ -505,9 +519,18 @@ const GoogleMapSection = () => {
                     "
                     />
 
-                    <p className="text-gray-700">
-                      {office.phone}
-                    </p>
+                    {office.phone.includes("+") ? (
+                      <a
+                        href={`tel:${office.phone.replace(/\s+/g, "")}`}
+                        className="text-gray-700 hover:text-cyan-500 transition-colors"
+                      >
+                        {office.phone}
+                      </a>
+                    ) : (
+                      <p className="text-gray-700">
+                        {office.phone}
+                      </p>
+                    )}
                   </div>
 
                   {/* TIMEZONE */}
@@ -534,13 +557,16 @@ const GoogleMapSection = () => {
 
                 {/* BUTTON */}
 
-                <button
+                <a
+                  href={buildGoogleMapsSearchUrl(office.location)}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="
                   group
 
                   mt-8
 
-                  flex
+                  inline-flex
                   items-center
                   gap-3
 
@@ -560,7 +586,7 @@ const GoogleMapSection = () => {
                     group-hover:-translate-y-1
                   "
                   />
-                </button>
+                </a>
               </motion.div>
             ))}
           </div>

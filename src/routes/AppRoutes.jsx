@@ -31,6 +31,7 @@ import Events from "../pages/Events/Event";
 
 import ContactFloatingButtons from "../components/floating/ContactfloatingButton";
 import ScrollToTop from "./ScrollToTop";
+import CustomeWebsite from "../components/services/custom/CustomeWebsite";
 
 const AppRoutes = () => {
   return (
@@ -99,6 +100,17 @@ const AppRoutes = () => {
         <Route
           path="/services/web-development/pricing/:serviceKey"
           element={<WebPricingPage />}
+        />
+
+        {/*custome website*/}
+
+         <Route
+          path="/services/custom-website"
+          element={<CustomeWebsite/>}
+        />
+         <Route
+          path="/services/custom-website"
+          element={<Navigate to="/services/custom-website" replace />}
         />
 
         {/* ================= GYM ================= */}

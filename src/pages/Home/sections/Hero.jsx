@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 import { motion } from "framer-motion";
 
 import heroImage from "../../../assets/images/hero.jpg";
@@ -169,11 +171,16 @@ const Hero = () => {
               Explore Ventures
             </button>
 
-            <button
+            <Link
+              to="/contact#contact-form"
               className="
-             w-full
-             sm:w-auto
-             backdrop-blur-xl
+              inline-flex
+              items-center
+              justify-center
+
+              w-full
+              sm:w-auto
+              backdrop-blur-xl
             bg-white/10
             border
             border-white/20
@@ -186,7 +193,7 @@ const Hero = () => {
             "
             >
               Contact Team
-            </button>
+            </Link>
           </div>
 
           {/* TRUSTED LOGOS */}

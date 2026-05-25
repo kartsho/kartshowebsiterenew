@@ -89,7 +89,7 @@ const floatingMembers = [
       "top-1/2 right-[-40px] -translate-y-1/2",
 
     description:
-      "Commands global brand dominance for Kartsho Enterprises, orchestrating high-impact campaigns through Kartsho Digital's full-service capabilities. Her data-driven strategies have consistently elevated venture visibility across key international markets.",
+      "Commands global brand dominance for Kartsho Enterprises, orchestrating high-impact campaigns through Kartsho Counseling's full-service capabilities. Her data-driven strategies have consistently elevated venture visibility across key international markets.",
   },
 
   {

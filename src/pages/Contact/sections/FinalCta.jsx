@@ -6,7 +6,23 @@ import {
   CheckCircle2,
 } from "lucide-react";
 
+import { buildMailtoLink, contactEmails } from "../../../utils/contactLinks";
+
 const FinalCTA = () => {
+  const projectMailLink = buildMailtoLink({
+    to: [contactEmails.business, contactEmails.hr],
+    subject: "Project Enquiry from Contact Page",
+    body:
+      "Hi Kartsho Team,\n\nI would like to discuss a project after visiting the contact page.\n\nPlease share the next steps.",
+  });
+
+  const discoveryMailLink = buildMailtoLink({
+    to: [contactEmails.business],
+    subject: "Discovery Call Request from Contact Page",
+    body:
+      "Hi Kartsho Team,\n\nI would like to book a discovery call.\n\nPlease let me know the available slots.",
+  });
+
   return (
     <section
       className="
@@ -383,7 +399,8 @@ const FinalCTA = () => {
             >
               {/* PRIMARY BUTTON */}
 
-              <button
+              <a
+                href={projectMailLink}
                 className="
                 group
 
@@ -421,12 +438,17 @@ const FinalCTA = () => {
                   group-hover:translate-x-1
                 "
                 />
-              </button>
+              </a>
 
               {/* SECONDARY BUTTON */}
 
-              <button
+              <a
+                href={discoveryMailLink}
                 className="
+                inline-flex
+                items-center
+                justify-center
+
                 px-10
                 py-5
 
@@ -449,7 +471,7 @@ const FinalCTA = () => {
               "
               >
                 Book Discovery Call
-              </button>
+              </a>
             </motion.div>
           </div>
         </motion.div>

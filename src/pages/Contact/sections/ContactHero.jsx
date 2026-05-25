@@ -10,9 +10,30 @@ import {
   Globe2,
 } from "lucide-react";
 
+import {
+  buildMailtoLink,
+  contactEmails,
+  contactPhones,
+} from "../../../utils/contactLinks";
+
 const ContactHero = () => {
+  const discoveryMailLink = buildMailtoLink({
+    to: [contactEmails.business],
+    subject: "Discovery Call Request",
+    body:
+      "Hi Kartsho Team,\n\nI would like to book a discovery call.\n\nPlease share the available slots.",
+  });
+
+  const projectMailLink = buildMailtoLink({
+    to: [contactEmails.business, contactEmails.hr],
+    subject: "Project Enquiry from Kartsho Website",
+    body:
+      "Hi Kartsho Team,\n\nI would like to discuss a project.\n\nPlease get back to me with the next steps.",
+  });
+
   return (
     <section
+      id="contact-hero"
       className="
       relative
       min-h-screen
@@ -274,7 +295,8 @@ const ContactHero = () => {
           >
             {/* BUTTON 1 */}
 
-            <button
+            <a
+              href={discoveryMailLink}
               className="
               group
 
@@ -313,12 +335,17 @@ const ContactHero = () => {
                 group-hover:translate-x-1
               "
               />
-            </button>
+            </a>
 
             {/* BUTTON 2 */}
 
-            <button
+            <a
+              href={projectMailLink}
               className="
+              inline-flex
+              items-center
+              justify-center
+
               px-8
               py-4
               w-full
@@ -343,7 +370,7 @@ const ContactHero = () => {
             "
             >
               Start Your Project
-            </button>
+            </a>
           </div>
 
           {/* TRUST BADGES */}
@@ -360,7 +387,6 @@ const ContactHero = () => {
               "3+ Active Ventures",
               "50+ Clients Served",
               "4+ Core Industries",
-              "24h Response Time",
             ].map((item, index) => (
               <motion.div
                 key={index}
@@ -585,10 +611,21 @@ const ContactHero = () => {
                     text-[#0B0F19]
                   "
                   >
-                    info@kartsho.com
+                    <a
+                      href={buildMailtoLink({ to: [contactEmails.business] })}
+                      className="hover:text-cyan-500 transition-colors"
+                    >
+                      info@kartsho.com
+                    </a>
                   </h3>
                   <p className="text-sm text-gray-500 mt-1">
-                    HR: hr@kartsho.com
+                    HR:{" "}
+                    <a
+                      href={buildMailtoLink({ to: [contactEmails.hr] })}
+                      className="hover:text-cyan-500 transition-colors"
+                    >
+                      hr@kartsho.com
+                    </a>
                   </p>
                 </div>
               </div>
@@ -633,7 +670,19 @@ const ContactHero = () => {
                     text-[#0B0F19]
                   "
                   >
-                    +91 9453134901 / +91 9528660578
+                    <a
+                      href={`tel:${contactPhones.primary.replace(/\s+/g, "")}`}
+                      className="hover:text-cyan-500 transition-colors"
+                    >
+                      +91 9453134901
+                    </a>
+                    {" / "}
+                    <a
+                      href={`tel:${contactPhones.secondary.replace(/\s+/g, "")}`}
+                      className="hover:text-cyan-500 transition-colors"
+                    >
+                      +91 9453135182
+                    </a>
                   </h3>
                 </div>
               </div>
@@ -680,7 +729,7 @@ const ContactHero = () => {
                   >
                     Kartsho Enterprises
                     <br />
-                    Godhoopatti Patti, Pratapgarh
+                    Godhoopatti Patti, Pratapgarh, Uttar Pradesh - 230134
                   </h3>
                 </div>
               </div>
@@ -732,75 +781,6 @@ const ContactHero = () => {
             </div>
           </div>
 
-          {/* FLOATING MINI CARD */}
-
-          <motion.div
-            animate={{
-              y: [0, -10, 0],
-            }}
-            transition={{
-              repeat: Infinity,
-              duration: 4,
-            }}
-            className="
-            absolute
-            -bottom-20
-            -left-8
-
-            hidden
-            md:flex
-
-            items-center
-            gap-4
-
-            px-6
-            py-5
-
-            rounded-3xl
- border-2
-            border-b-blue-400
-            border-l-cyan-300
-            border-r-emerald-500
-            border-t-fuchsia-600
-
-            shadow-[0_20px_60px_rgba(0,0,0,0.08)]
-          "
-          >
-            <div
-              className="
-              w-14
-              h-14
-
-              rounded-2xl
-
-              bg-cyan-500
-
-              flex
-              items-center
-              justify-center
-
-              text-white
-            "
-            >
-              <Clock3 size={26} />
-            </div>
-
-            <div>
-              <p className="text-sm text-gray-500">
-                Average Response
-              </p>
-
-              <h3
-                className="
-                text-2xl
-                font-bold
-                text-[#0B0F19]
-              "
-              >
-                &lt; 24 Hours
-              </h3>
-            </div>
-          </motion.div>
         </motion.div>
       </div>
     </section>

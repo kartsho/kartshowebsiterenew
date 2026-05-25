@@ -32,6 +32,11 @@ const stats = [
     number: "24h",
     label: "Response Time",
   },
+   {
+  icon: <Users size={28} />,
+  number: "28+",
+  label: "Team Members",
+},
 
  
 ];
@@ -39,6 +44,7 @@ const stats = [
 const GlobalPresence = () => {
   return (
     <section
+      id="global-presence"
       className="
       relative
       py-32
@@ -229,7 +235,7 @@ const GlobalPresence = () => {
               relative
 
               overflow-hidden
-
+              
               rounded-[32px]
 
               bg-white/70
@@ -244,6 +250,11 @@ const GlobalPresence = () => {
 
               transition-all
               duration-500
+
+              text-center
+              flex
+              flex-col
+              items-center
             "
             >
               {/* INNER GLOW */}
@@ -307,6 +318,8 @@ const GlobalPresence = () => {
                 text-[#0B0F19]
 
                 mb-3
+
+                text-center
               "
               >
                 {item.number}

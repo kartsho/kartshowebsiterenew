@@ -8,6 +8,11 @@ import {
   ArrowRight,
 } from "lucide-react";
 
+import {
+  buildGoogleMapsSearchUrl,
+  buildMailtoLink,
+} from "../../../utils/contactLinks";
+
 const offices = [
   {
     city: "Head Office",
@@ -23,7 +28,7 @@ const offices = [
     address:
       "Partnerships, projects, and support",
     email: "info@kartsho.com",
-    phone: "+91 9528660578",
+    phone: "+91 9453135182",
     timezone: "Mon - Fri 9AM - 6PM",
   },
 
@@ -234,9 +239,12 @@ const OfficeLocations = () => {
                       className="text-cyan-500"
                       size={20}
                     />
-                    <p className="text-gray-600">
+                    <a
+                      href={buildMailtoLink({ to: [office.email] })}
+                      className="text-gray-600 hover:text-cyan-500 transition-colors"
+                    >
                       {office.email}
-                    </p>
+                    </a>
                   </div>
 
                   <div className="flex gap-4">
@@ -244,9 +252,18 @@ const OfficeLocations = () => {
                       className="text-cyan-500"
                       size={20}
                     />
-                    <p className="text-gray-600">
-                      {office.phone}
-                    </p>
+                    {office.phone.includes("+") ? (
+                      <a
+                        href={`tel:${office.phone.replace(/\s+/g, "")}`}
+                        className="text-gray-600 hover:text-cyan-500 transition-colors"
+                      >
+                        {office.phone}
+                      </a>
+                    ) : (
+                      <p className="text-gray-600">
+                        {office.phone}
+                      </p>
+                    )}
                   </div>
 
                   <div className="flex gap-4">
@@ -262,7 +279,10 @@ const OfficeLocations = () => {
 
                 {/* Button */}
 
-                <button
+                <a
+                  href={buildGoogleMapsSearchUrl(office.address)}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="
                   mt-10
                   group
@@ -277,13 +297,13 @@ const OfficeLocations = () => {
 
                   <ArrowRight
                     size={18}
-                    className="
+                  className="
                     transition-transform
                     duration-300
                     group-hover:translate-x-1
                   "
                   />
-                </button>
+                </a>
               </div>
             </motion.div>
           ))}

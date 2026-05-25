@@ -356,7 +356,7 @@ const PerformanceSEOSection = () => {
                   text-3xl
                   font-black
 
-                  text-[#0B1220]
+                  text-gray-900
                 "
                 >
                   Live Metrics
@@ -468,7 +468,7 @@ const PerformanceSEOSection = () => {
                     text-lg
                     font-semibold
 
-                    text-[#0B1220]
+                    text-shadow-green-300
                   "
                   >
                     Lighthouse Performance
@@ -489,7 +489,7 @@ const PerformanceSEOSection = () => {
                     text-7xl
                     font-black
 
-                    text-[#0B1220]
+                    text-green-500
                   "
                   >
                     98
@@ -499,7 +499,7 @@ const PerformanceSEOSection = () => {
                     className="
                     mb-3
 
-                    text-green-600
+                    text-purple-600
                     font-semibold
                   "
                   >
@@ -551,7 +551,7 @@ const PerformanceSEOSection = () => {
                     text-2xl
                     font-bold
 
-                    text-[#0B1220]
+                    text-purple-300
                   "
                   >
                     Core Metrics

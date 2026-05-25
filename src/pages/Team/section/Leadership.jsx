@@ -17,6 +17,8 @@ import directorImage from "../../../assets/images/founderimg/director.jpg";
 import codirectorImg from "../../../assets/images/founderimg/codirector.jpeg";
 import salusingh from "../../../assets/images/founderimg/Salu.jpeg";
 import sateesh from "../../../assets/images/founderimg/sateesh.jpg"
+import princeKumar from "../../../assets/images/founderimg/pranav.jpg.jpeg";
+import Ravi from "../../../assets/images/founderimg/Ravi.jpg"
 
 /* ================================================= */
 /* TEAM DATA */
@@ -143,6 +145,45 @@ portfolio:
       "Machine Learning",
     ],
   },
+    {
+    name: "Adv. Ravi Shankar Mishara",
+    role: "Chief Legal Advisor",
+    image: Ravi,
+
+     portfolio:
+           "ravimishra.kartsho.com",
+
+    socials: {
+     
+      linkedin:
+        "https://www.linkedin.com/in/misraayush",
+
+      github:
+        "https://github.com/ayushrajmisra",
+
+      instagram:
+        "https://www.instagram.com/ayushatkartsho?igsh=MXM4dzBlODN2d291Zw==",
+
+      facebook:
+        "https://www.facebook.com/share/18H9fondJH/",
+    },
+
+    imageStyle: `
+      object-cover
+      object-top
+      scale-[1.0]
+    `,
+
+    experience: "3+ Years",
+
+    bio: "Leading AI-first digital products, enterprise systems, and scalable SaaS ecosystems globally.",
+
+    expertise: [
+      "Product Strategy",
+      "AI Systems",
+      "Startup Scaling",
+    ],
+  },
 
   {
     name: "Sateesh Yadav",
@@ -183,6 +224,8 @@ portfolio:"https://sateeshkumaryadav.netlify.app/",
       "Motion Design",
     ],
   },
+
+  
 ];
 
 const LeadershipTeam = () => {
@@ -601,7 +644,7 @@ const LeadershipTeam = () => {
                             link:
                               leader
                                 .socials
-                                .linkedin,
+                                ?.linkedin,
                           },
 
                           {
@@ -610,7 +653,7 @@ const LeadershipTeam = () => {
                             link:
                               leader
                                 .socials
-                                .github,
+                                ?.github,
                           },
 
                           {
@@ -619,7 +662,7 @@ const LeadershipTeam = () => {
                             link:
                               leader
                                 .socials
-                                .instagram,
+                                ?.instagram,
                           },
 
                           {
@@ -628,9 +671,14 @@ const LeadershipTeam = () => {
                             link:
                               leader
                                 .socials
-                                .twitter,
+                                ?.twitter,
                           },
-                        ].map(
+                        ]
+                          .filter(
+                            (item) =>
+                              item.link
+                          )
+                        .map(
                           (
                             item,
                             i

@@ -9,11 +9,19 @@ import {
   Sparkles,
 } from "lucide-react";
 
+import {
+  buildMailtoLink,
+  buildProjectInquiryBody,
+  contactEmails,
+  contactPhones,
+} from "../../../utils/contactLinks";
+
 const contactInfo = [
   {
     icon: <Mail size={22} />,
     title: "Email Us",
     value: "info@kartsho.com",
+    href: buildMailtoLink({ to: [contactEmails.business] }),
     description:
       "Business & partnership inquiries",
   },
@@ -22,6 +30,7 @@ const contactInfo = [
     icon: <Mail size={22} />,
     title: "HR Email",
     value: "hr@kartsho.com",
+    href: buildMailtoLink({ to: [contactEmails.hr] }),
     description:
       "Careers, hiring, and talent conversations",
   },
@@ -29,7 +38,8 @@ const contactInfo = [
   {
     icon: <Phone size={22} />,
     title: "Call Us",
-    value: "+91 9453134901 / +91 9528660578",
+    value: "+91 9453134901 / +91 9453135182",
+    href: `tel:${contactPhones.primary.replace(/\s+/g, "")}`,
     description: "Mon - Sat support available",
   },
 
@@ -37,6 +47,7 @@ const contactInfo = [
     icon: <MapPin size={22} />,
     title: "Head Office",
     value: "Godhoopatti Patti, Pratapgarh, Uttar Pradesh - 230134",
+    href: "https://www.google.com/maps/search/?api=1&query=Godhoopatti%20Patti%2C%20Pratapgarh%2C%20Uttar%20Pradesh%20-%20230134",
     description: "Kartsho Enterprises HQ",
   },
 
@@ -49,6 +60,29 @@ const contactInfo = [
 ];
 
 const ContactPreview = () => {
+  const handleSubmit = (event) => {
+    event.preventDefault();
+
+    const formData = new FormData(event.currentTarget);
+    const name = formData.get("name")?.toString().trim() || "";
+    const company = formData.get("company")?.toString().trim() || "";
+    const email = formData.get("email")?.toString().trim() || "";
+    const message = formData.get("message")?.toString().trim() || "";
+
+    const mailtoLink = buildMailtoLink({
+      to: [contactEmails.business, contactEmails.hr],
+      subject: `Project Enquiry${name ? ` - ${name}` : ""}`,
+      body: buildProjectInquiryBody({
+        name,
+        company,
+        email,
+        message,
+      }),
+    });
+
+    window.location.href = mailtoLink;
+  };
+
   return (
     <section
       className="
@@ -319,7 +353,16 @@ const ContactPreview = () => {
                       mb-2
                     "
                     >
-                      {item.value}
+                      {item.href ? (
+                        <a
+                          href={item.href}
+                          className="hover:text-cyan-200 transition-colors"
+                        >
+                          {item.value}
+                        </a>
+                      ) : (
+                        item.value
+                      )}
                     </p>
 
                     <p
@@ -431,6 +474,7 @@ const ContactPreview = () => {
             {/* FORM */}
 
             <form
+              onSubmit={handleSubmit}
               className="
               relative
               z-10
@@ -446,6 +490,7 @@ const ContactPreview = () => {
               <input
                 type="text"
                 placeholder="Your Name"
+                name="name"
                 className="
                 w-full
 
@@ -475,6 +520,7 @@ const ContactPreview = () => {
               <input
                 type="email"
                 placeholder="Business Email"
+                name="email"
                 className="
                 w-full
 
@@ -504,6 +550,7 @@ const ContactPreview = () => {
               <input
                 type="text"
                 placeholder="Company Name"
+                name="company"
                 className="
                 w-full
 
@@ -533,6 +580,7 @@ const ContactPreview = () => {
               <textarea
                 rows="5"
                 placeholder="Tell us about your project..."
+                name="message"
                 className="
                 w-full
 
@@ -562,6 +610,7 @@ const ContactPreview = () => {
               {/* BUTTON */}
 
               <button
+                type="submit"
                 className="
                 group
 
@@ -588,7 +637,7 @@ const ContactPreview = () => {
                 hover:shadow-[0_0_50px_rgba(6,182,212,0.45)]
               "
               >
-                Send Inquiry
+                Send Enquiry
 
                 <ArrowRight
                   className="

@@ -19,6 +19,8 @@ import {
   FaGithub
 } from "react-icons/fa6";
 
+import { buildMailtoLink, contactEmails, contactPhones } from "../../../utils/contactLinks";
+
 const socialLinks = [
   {
     icon: FaFacebookF,
@@ -857,7 +859,7 @@ const Footer = () => {
             "
             >
               <a
-                href="mailto:info@kartsho.com"
+                href={buildMailtoLink({ to: [contactEmails.business] })}
                 className="
                 text-gray-400
 
@@ -871,7 +873,7 @@ const Footer = () => {
               </a>
 
               <a
-                href="tel:+919453134901"
+                href={`tel:${contactPhones.primary.replace(/\s+/g, "")}`}
                 className="
                 text-gray-400
 

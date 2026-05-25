@@ -5,7 +5,19 @@ import {
   Sparkles,
 } from "lucide-react";
 
+import {
+  buildMailtoLink,
+  contactEmails,
+} from "../../../utils/contactLinks";
+
 const CTA = () => {
+  const emailLink = buildMailtoLink({
+    to: [contactEmails.business],
+    subject: "Project Inquiry from Services Page",
+    body:
+      "Hi Kartsho Team,\n\nI would like to enquire about a project.\n\nPlease get back to me with the next steps.",
+  });
+
   return (
     <section
 
@@ -241,7 +253,8 @@ const CTA = () => {
           >
             {/* PRIMARY BUTTON */}
 
-            <button
+            <a
+              href={emailLink}
               className="
               group
 
@@ -277,14 +290,12 @@ const CTA = () => {
                 group-hover:translate-x-1
               "
               />
-            </button>
+            </a>
 
             {/* SECONDARY BUTTON */}
 
             <a
-              href="https://mail.google.com/mail/?view=cm&fs=1&to=info@kartsho.com&su=Project%20Inquiry&body=Hi%20Kartsho%20Team,"
-              target="_blank"
-              rel="noopener noreferrer"
+              href={emailLink}
               className="inline-flex
            items-center
            rounded-full

@@ -8,6 +8,11 @@ import {
   CheckCircle2,
 } from "lucide-react";
 
+import {
+  buildMailtoLink,
+  contactEmails,
+} from "../../../utils/contactLinks";
+
 const slots = [
   "10:00 AM",
   "11:30 AM",
@@ -16,6 +21,13 @@ const slots = [
 ];
 
 const BookCall = () => {
+  const calendlyLink = buildMailtoLink({
+    to: [contactEmails.business],
+    subject: "Discovery Call Request",
+    body:
+      "Hi Kartsho Team,\n\nI would like to book a free strategy session.\n\nPlease share the available time slots.",
+  });
+
   return (
     <section
       className="
@@ -479,10 +491,15 @@ const BookCall = () => {
 
             {/* CALENDLY BUTTON */}
 
-            <button
+            <a
+              href={calendlyLink}
               className="
               relative
               z-10
+
+              inline-flex
+              items-center
+              justify-center
 
               w-full
 
@@ -502,7 +519,7 @@ const BookCall = () => {
             "
             >
               Open Calendly
-            </button>
+            </a>
           </div>
 
           {/* FLOATING CARD */}
