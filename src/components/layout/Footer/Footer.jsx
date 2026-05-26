@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 
 import { Link } from "react-router-dom";
 
-import logoMark from "../../../assets/logos/Kartsho K.jpeg";
+import logoMark from "../../../assets/logos/Kartsho K.png";
 
 import {
   ArrowUpRight,

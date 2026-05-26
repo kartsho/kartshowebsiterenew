@@ -52,7 +52,7 @@ const services = [
   {
   id: 5,
 
-  title: "startup Lunch",
+  title: "Startup Launch",
 
   description:
     "Complete startup setup solutions including company registration, GST, branding, legal documentation, compliance, and digital business launch support.",

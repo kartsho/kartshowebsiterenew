@@ -13,7 +13,7 @@ import { Toaster } from "react-hot-toast";
 
 /* ================= LOADER ================= */
 
-import PremiumLoader from "./components/loader/premimumLoader"
+import PremiumLoader from "./components/loader/premimumLoader";
 
 const App = () => {
   const [loading, setLoading] = useState(true);
@@ -21,7 +21,7 @@ const App = () => {
   useEffect(() => {
     const timer = setTimeout(() => {
       setLoading(false);
-    }, 4500);
+    }, 2000);
 
     return () => clearTimeout(timer);
   }, []);

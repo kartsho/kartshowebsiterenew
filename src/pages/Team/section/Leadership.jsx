@@ -186,7 +186,7 @@ portfolio:
   },
 
   {
-    name: "Mr.Sateesh Yadav",
+    name: "Mr. Sateesh Yadav",
     role: "Teachnical Head",
     image:sateesh,
 portfolio:"https://sateeshkumaryadav.netlify.app/",

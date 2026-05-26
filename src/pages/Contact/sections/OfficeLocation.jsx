@@ -37,7 +37,7 @@ const offices = [
     address:
       "Hiring, talent, and culture conversations",
     email: "hr@kartsho.com",
-    phone: "9453135182",
+    phone: "+91 9453135182",
     timezone: "Fast Response",
   },
 ];

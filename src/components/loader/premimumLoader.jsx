@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 
-import logo from "../../../src/assets/logos/Kartsho K.jpeg";
+import logo from "../../assets/logos/Kartsho K.png";
 
 const PremiumLoader = () => {
   return (
@@ -10,12 +10,14 @@ const PremiumLoader = () => {
       inset-0
       z-[99999]
       overflow-hidden
-      bg-[#030712]
+      bg-[color:var(--page-bg)]
       flex
       items-center
       justify-center
     "
     >
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(34,211,238,0.12),transparent_32%),radial-gradient(circle_at_bottom_right,rgba(59,130,246,0.1),transparent_30%)]" />
+
       {/* ================= BACKGROUND GLOW ================= */}
 
       <div
@@ -26,8 +28,8 @@ const PremiumLoader = () => {
         w-[500px]
         h-[500px]
         rounded-full
-        bg-cyan-500/20
-        blur-[160px]
+        bg-cyan-400/15
+        blur-[180px]
       "
       />
 
@@ -39,8 +41,8 @@ const PremiumLoader = () => {
         w-[500px]
         h-[500px]
         rounded-full
-        bg-blue-500/20
-        blur-[160px]
+        bg-blue-400/15
+        blur-[180px]
       "
       />
 
@@ -55,9 +57,9 @@ const PremiumLoader = () => {
               opacity: [0, 1, 0],
             }}
             transition={{
-              duration: 5 + i * 0.2,
+              duration: 3.2 + i * 0.08,
               repeat: Infinity,
-              delay: i * 0.2,
+              delay: i * 0.06,
             }}
             className="
               absolute
@@ -88,7 +90,7 @@ const PremiumLoader = () => {
       >
         {/* ================= ROTATING CONTAINER ================= */}
 
-        <div className="relative w-44 h-44 flex items-center justify-center">
+        <div className="relative flex h-44 w-44 items-center justify-center">
           
           {/* OUTER ROTATING BOX */}
 
@@ -98,22 +100,22 @@ const PremiumLoader = () => {
             }}
             transition={{
               repeat: Infinity,
-              duration: 10,
+              duration: 7,
               ease: "linear",
             }}
             className="
             absolute
             inset-0
 
-            rounded-[45px]
+            rounded-[42px]
 
             border
             border-cyan-400/30
 
             bg-white/5
-            backdrop-blur-2xl
+            backdrop-blur-3xl
 
-            shadow-[0_0_100px_rgba(6,182,212,0.35)]
+            shadow-[0_0_80px_rgba(6,182,212,0.18)]
           "
           />
 
@@ -125,7 +127,7 @@ const PremiumLoader = () => {
             }}
             transition={{
               repeat: Infinity,
-              duration: 6,
+              duration: 4,
               ease: "linear",
             }}
             className="
@@ -133,7 +135,7 @@ const PremiumLoader = () => {
 
             inset-4
 
-            rounded-[35px]
+            rounded-[34px]
 
             border-2
             border-dashed
@@ -147,24 +149,27 @@ const PremiumLoader = () => {
             src={logo}
             alt="Kartsho Logo"
             animate={{
-              scale: [1, 1.08, 1],
+              scale: [1, 1.04, 1],
             }}
             transition={{
               repeat: Infinity,
-              duration: 2,
+              duration: 1.4,
             }}
             className="
             relative
             z-20
 
-            w-24
-            h-24
-
-            object-cover
+            h-28
+            w-28
 
             rounded-2xl
+            bg-transparent
+            object-contain
+            p-1
+            mix-blend-normal
+            drop-shadow-[0_0_18px_rgba(255,255,255,0.08)]
 
-            shadow-[0_0_40px_rgba(255,255,255,0.25)]
+            shadow-[0_0_22px_rgba(6,182,212,0.16)]
           "
           />
         </div>
@@ -181,7 +186,7 @@ const PremiumLoader = () => {
             y: 0,
           }}
           transition={{
-            duration: 1,
+            duration: 0.7,
           }}
           className="
           mt-10
@@ -206,7 +211,7 @@ const PremiumLoader = () => {
           }}
           transition={{
             delay: 0.5,
-            duration: 1,
+            duration: 0.7,
           }}
           className="
           mt-4
@@ -241,7 +246,7 @@ const PremiumLoader = () => {
             }}
             transition={{
               repeat: Infinity,
-              duration: 1.8,
+              duration: 1.1,
               ease: "linear",
             }}
             className="
@@ -271,7 +276,7 @@ const PremiumLoader = () => {
               width: "100%",
             }}
             transition={{
-              duration: 4,
+              duration: 1.6,
               ease: "easeInOut",
             }}
             className="
@@ -298,7 +303,7 @@ const PremiumLoader = () => {
           }}
           transition={{
             repeat: Infinity,
-            duration: 2,
+            duration: 1.1,
           }}
           className="
           mt-6
