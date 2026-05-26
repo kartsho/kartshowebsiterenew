@@ -157,7 +157,7 @@ const Stats = () => {
           "
           >
             Our numbers reflect the official
-            scale of <span className="text-cyan-300 font-bold">Kartsho Solutions Pvt. Ltd</span>  across
+            scale of <span className="text-cyan-300 font-bold">Kartsho Solutions Pvt. Ltd.</span>  across
             ventures, clients, industries, and
             response time.
           </p>

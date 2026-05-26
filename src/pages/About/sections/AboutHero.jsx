@@ -211,7 +211,7 @@ const AboutHero = () => {
             mb-12
           "
           >
-            Kartsho Solutions Pvt .Ltd is a multi-venture
+            Kartsho Solutions Pvt. Ltd. is a multi-venture
             digital ecosystem spanning marketing,
             legal tech, and education.
           </p>

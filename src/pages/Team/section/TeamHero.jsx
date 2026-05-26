@@ -89,7 +89,7 @@ const floatingMembers = [
       "top-1/2 right-[-40px] -translate-y-1/2",
 
     description:
-      "Commands global brand dominance for Kartsho Solutions Pvt .Ltd, orchestrating high-impact campaigns through Kartsho Counseling's full-service capabilities. Her data-driven strategies have consistently elevated venture visibility across key international markets.",
+      "Commands global brand dominance for Kartsho Solutions Pvt. Ltd., orchestrating high-impact campaigns through Kartsho Counseling's full-service capabilities. Her data-driven strategies have consistently elevated venture visibility across key international markets.",
   },
 
   {
@@ -111,7 +111,7 @@ const floatingMembers = [
       "bottom-[2%] left-1/2 -translate-x-1/2",
 
     description:
-      "Orchestrating the legal framework of Kartsho Solutions Pvt .Ltd, Ravi ensures ironclad compliance and corporate integrity across all global operations. In his dual capacity as CEO of Lawdalat, he leads our disruptive legal-tech vertical, architecting scalable platforms designed to revolutionize how the world accesses premium legal counsel.",
+      "Orchestrating the legal framework of Kartsho Solutions Pvt. Ltd., Ravi ensures ironclad compliance and corporate integrity across all global operations. In his dual capacity as CEO of Lawdalat, he leads our disruptive legal-tech vertical, architecting scalable platforms designed to revolutionize how the world accesses premium legal counsel.",
   },
 
   {

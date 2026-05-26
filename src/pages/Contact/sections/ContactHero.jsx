@@ -727,7 +727,7 @@ const ContactHero = () => {
                     text-[#0B0F19]
                   "
                   >
-                    Kartsho Solutions Pvt .Ltd
+                    Kartsho Solutions Pvt. Ltd.
                     <br />
                     Godhoopatti Patti, Pratapgarh, Uttar Pradesh - 230134
                   </h3>

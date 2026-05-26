@@ -138,7 +138,7 @@ const ServicesHero = () => {
           >
             <Sparkles size={16} />
 
-            Kartsho Solutions Pvt .Ltd
+            Kartsho Solutions Pvt. Ltd.
           </div>
 
           {/* HEADING */}
@@ -183,7 +183,7 @@ const ServicesHero = () => {
             mb-10
           "
           >
-            Kartsho Solutions Pvt .Ltd operates across
+            Kartsho Solutions Pvt. Ltd. operates across
             marketing, legal tech, and education
             with a 24-hour response promise.
           </p>
