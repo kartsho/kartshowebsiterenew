@@ -26,8 +26,8 @@ import Ravi from "../../../assets/images/founderimg/Ravi.jpg"
 
 const leaders = [
   {
-    name: "Mr.Ayush Misra",
-    role: "Founder/Director",
+    name: "Mr. Ayush Misra",
+    role: "Founder & Director",
     image: directorImage,
 
      portfolio:
@@ -54,7 +54,7 @@ const leaders = [
       scale-[1.0]
     `,
 
-    experience: "2+ Years",
+    experience: "3+ Years",
 
     bio: "Leading AI-first digital products, enterprise systems, and scalable SaaS ecosystems globally.",
 
@@ -66,8 +66,8 @@ const leaders = [
   },
 
   {
-    name: "Mr.Ranjan Kumar",
-    role: "Co-Founder/Director",
+    name: "Mr. Ranjan Kumar",
+    role: "Co-Founder & Director",
     image: codirectorImg,
      portfolio:
            "https://ranjanshah.kartsho.com/",
@@ -94,7 +94,7 @@ const leaders = [
       translate-y-[30px]
     `,
 
-    experience: "3+ Years",
+    experience: "2+ Years",
 
     bio: "Architecting high-performance cloud infrastructure and scalable engineering systems.",
 
@@ -106,7 +106,7 @@ const leaders = [
   },
 
   {
-    name: "Ms.Salu Singh",
+    name: "Ms. Salu Singh",
     role: "CEO",
     image: salusingh,
 portfolio:
@@ -146,7 +146,7 @@ portfolio:
     ],
   },
     {
-    name: "Adv. Ravi Shankar Mishara",
+    name: "Adv. Ravi Shankar Mishra",
     role: "Chief Legal Advisor",
     image: Ravi,
 
