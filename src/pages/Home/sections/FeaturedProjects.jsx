@@ -239,8 +239,10 @@ const FeaturedProjects = () => {
           <div
             className="
             grid
-            grid-cols-3
-            gap-6
+            grid-cols-1
+            sm:grid-cols-3
+            gap-4
+            sm:gap-6
 
             mb-12
           "
@@ -249,7 +251,10 @@ const FeaturedProjects = () => {
 
             <div
               className="
-              p-5
+              p-4
+              sm:p-5
+
+              text-center
 
               rounded-3xl
 
@@ -260,8 +265,9 @@ const FeaturedProjects = () => {
             "
             >
               <h3
-                className="
-                text-3xl
+              className="
+                text-2xl
+                sm:text-3xl
                 font-bold
                 text-cyan-500
               "
@@ -269,7 +275,7 @@ const FeaturedProjects = () => {
                 6
               </h3>
 
-              <p className="text-gray-600 mt-2">
+              <p className="mt-2 text-sm sm:text-base text-gray-600">
                 Weeks
               </p>
             </div>
@@ -278,7 +284,10 @@ const FeaturedProjects = () => {
 
             <div
               className="
-              p-5
+              p-4
+              sm:p-5
+
+              text-center
 
               rounded-3xl
 
@@ -289,8 +298,9 @@ const FeaturedProjects = () => {
             "
             >
               <h3
-                className="
-                text-3xl
+              className="
+                text-2xl
+                sm:text-3xl
                 font-bold
                 text-cyan-500
               "
@@ -298,7 +308,7 @@ const FeaturedProjects = () => {
                 12
               </h3>
 
-              <p className="text-gray-600 mt-2">
+              <p className="mt-2 text-sm sm:text-base text-gray-600">
                 Developers
               </p>
             </div>
@@ -307,7 +317,10 @@ const FeaturedProjects = () => {
 
             <div
               className="
-              p-5
+              p-4
+              sm:p-5
+
+              text-center
 
               rounded-3xl
 
@@ -318,8 +331,9 @@ const FeaturedProjects = () => {
             "
             >
               <h3
-                className="
-                text-3xl
+              className="
+                text-2xl
+                sm:text-3xl
                 font-bold
                 text-cyan-500
               "
@@ -327,7 +341,7 @@ const FeaturedProjects = () => {
                 4
               </h3>
 
-              <p className="text-gray-600 mt-2">
+              <p className="mt-2 text-sm sm:text-base text-gray-600">
                 Countries
               </p>
             </div>
