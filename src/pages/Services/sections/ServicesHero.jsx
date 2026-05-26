@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 
 import {
   ArrowRight,
@@ -199,9 +200,11 @@ const ServicesHero = () => {
             mb-14
           "
           >
+            
             {/* PRIMARY BUTTON */}
 
-            <button
+            <Link
+              to="/contact#contact-form"
               className="
               group
 
@@ -215,8 +218,8 @@ const ServicesHero = () => {
               rounded-full
 
               bg-cyan-500
-
               text-white
+
               font-semibold
 
               transition-all
@@ -224,7 +227,7 @@ const ServicesHero = () => {
 
               hover:scale-105
 
-              hover:shadow-[0_0_50px_rgba(6,182,212,0.35)]
+              hover:shadow-[0_0_50px_rgba(6,182,212,0.45)]
             "
             >
               Start Your Project
@@ -237,7 +240,8 @@ const ServicesHero = () => {
                 group-hover:translate-x-1
               "
               />
-            </button>
+            </Link>
+
 
             {/* SECONDARY BUTTON */}
 

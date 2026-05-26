@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 import { buildMailtoLink, contactEmails } from "../../../utils/contactLinks";
 
 import {
@@ -7,13 +8,6 @@ import {
 } from "lucide-react";
 
 const CTA = () => {
-  const projectMailLink = buildMailtoLink({
-    to: [contactEmails.business, contactEmails.hr],
-    subject: "Project Inquiry from Kartsho Website",
-    body:
-      "Hi Kartsho Team,\n\nI would like to discuss a new project.\n\nPlease share the next steps.",
-  });
-
   const infoMailLink = buildMailtoLink({
     to: [contactEmails.business],
     subject: "Business Enquiry from Kartsho Website",
@@ -245,8 +239,8 @@ const CTA = () => {
           >
             {/* PRIMARY BUTTON */}
 
-            <a
-              href={projectMailLink}
+            <Link
+              to="/contact#contact-form"
               className="
               group
 
@@ -282,7 +276,7 @@ const CTA = () => {
                 group-hover:translate-x-1
               "
               />
-            </a>
+            </Link>
 
             {/* SECONDARY BUTTON */}
            <a 

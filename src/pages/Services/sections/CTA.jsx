@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 
 import {
   ArrowRight,
@@ -253,8 +254,8 @@ const CTA = () => {
           >
             {/* PRIMARY BUTTON */}
 
-            <a
-              href={emailLink}
+            <Link
+              to="/contact#contact-form"
               className="
               group
 
@@ -290,7 +291,7 @@ const CTA = () => {
                 group-hover:translate-x-1
               "
               />
-            </a>
+            </Link>
 
             {/* SECONDARY BUTTON */}
 
@@ -316,7 +317,7 @@ const CTA = () => {
              
               hover:shadow-[0_0_50px_rgba(6,182,212,0.45)]
            ">
-              Email Info@kartsho.com
+           Email Info@kartsho.com
             </a>
 
           </div>

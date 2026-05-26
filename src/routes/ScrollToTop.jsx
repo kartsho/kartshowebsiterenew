@@ -3,11 +3,29 @@ import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 
 const ScrollToTop = () => {
-  const { pathname, search } = useLocation();
+  const { pathname, search, hash } = useLocation();
 
   useEffect(() => {
     if (typeof window === "undefined") {
       return;
+    }
+
+    if (hash) {
+      const targetId = hash.replace("#", "");
+      const targetElement = document.getElementById(
+        targetId
+      );
+
+      if (targetElement) {
+        window.requestAnimationFrame(() => {
+          targetElement.scrollIntoView({
+            behavior: "auto",
+            block: "start",
+          });
+        });
+
+        return;
+      }
     }
 
     window.scrollTo({
@@ -15,7 +33,7 @@ const ScrollToTop = () => {
       left: 0,
       behavior: "auto",
     });
-  }, [pathname, search]);
+  }, [pathname, search, hash]);
 
   return null;
 };

@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 
 import {
   ArrowRight,
@@ -268,73 +269,45 @@ const WebDevelopmentHero = () => {
           >
             {/* BUTTON 1 */}
 
-            <button
+            <Link
+              to="/contact#contact-form"
               className="
               group
 
-              relative
+              flex
+              items-center
+              gap-3
 
               px-8
-              py-5
+              py-4
 
-              rounded-2xl
+              rounded-full
 
-              overflow-hidden
-
-              bg-gradient-to-r
-              from-cyan-500
-              to-blue-500
-
+              bg-cyan-500
               text-white
+
               font-semibold
 
-              shadow-[0_15px_50px_rgba(6,182,212,0.35)]
+              transition-all
+              duration-300
 
               hover:scale-105
 
-              transition-all
-              duration-500
+              hover:shadow-[0_0_50px_rgba(6,182,212,0.45)]
             "
             >
-              <span
+              Start Your Project
+
+              <ArrowRight
                 className="
-                relative
-                z-10
+                transition-transform
+                duration-300
 
-                flex
-                items-center
-                gap-3
-              "
-              >
-                Start Your Project
-
-                <ArrowRight
-                  size={18}
-                  className="
-                  transition-transform
-                  duration-300
-
-                  group-hover:translate-x-1
-                "
-                />
-              </span>
-
-              <div
-                className="
-                absolute
-                inset-0
-
-                opacity-0
-
-                bg-white/20
-
-                transition-opacity
-                duration-500
-
-                group-hover:opacity-100
+                group-hover:translate-x-1
               "
               />
-            </button>
+            </Link>
+
 
             {/* BUTTON 2 */}
 

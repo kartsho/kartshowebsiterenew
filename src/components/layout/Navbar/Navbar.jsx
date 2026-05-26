@@ -4,6 +4,7 @@ import {
   useRef,
   useState,
 } from "react";
+import { useNavigate } from "react-router-dom";
 
 import {
   AnimatePresence,
@@ -29,6 +30,7 @@ import { navLinks } from "../../../data/navLinks.js";
 
 const Navbar = () => {
   const noiseUrl = `${import.meta.env.BASE_URL}noise.svg`;
+  const navigate = useNavigate();
 
   /* ================= STATES ================= */
 
@@ -622,7 +624,11 @@ const Navbar = () => {
               {/* CTA */}
 
               <div className="hidden lg:block">
-                <MagneticButton>
+                <MagneticButton
+                  onClick={() =>
+                    navigate("/contact#contact-form")
+                  }
+                >
                   Get Started
                 </MagneticButton>
               </div>
