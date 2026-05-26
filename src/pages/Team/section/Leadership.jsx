@@ -16,7 +16,7 @@ import {
 import directorImage from "../../../assets/images/founderimg/director.jpg";
 import codirectorImg from "../../../assets/images/founderimg/codirector.jpeg";
 import salusingh from "../../../assets/images/founderimg/Salu.jpeg";
-import sateesh from "../../../assets/images/founderimg/sateesh.jpg"
+import sateesh from "../../../assets/images/founderimg/sateesh2.jpeg"
 import princeKumar from "../../../assets/images/founderimg/pranav.jpg.jpeg";
 import Ravi from "../../../assets/images/founderimg/Ravi.jpg"
 
