@@ -5,7 +5,9 @@ import {
   PenTool,
   Layers3,
   Bot,
+  Rocket,
   ArrowUpRight,
+  FileText
 } from "lucide-react";
 
 import { motion } from "framer-motion";
@@ -37,6 +39,26 @@ const services = [
     icon: Bot,
     href: "https://counselling.kartsho.com/",
   },
+  {
+  id: 4,
+
+  title: "GST Filing",
+
+  description:
+    "End-to-end GST solutions including registration, monthly return filing, compliance management, tax consultation, and business accounting support.",
+
+  icon: FileText,
+},
+  {
+  id: 5,
+
+  title: "startup Lunch",
+
+  description:
+    "Complete startup setup solutions including company registration, GST, branding, legal documentation, compliance, and digital business launch support.",
+
+  icon: Rocket,
+}
 ];
 
 const ServicesPreview = () => {
@@ -375,27 +397,7 @@ const ServicesPreview = () => {
           mt-20
         "
         >
-          <button
-            className="
-            px-8
-            py-4
-
-            rounded-full
-
-            bg-cyan-500
-            text-white
-
-            font-semibold
-
-            transition-all
-            duration-300
-
-            hover:scale-105
-            hover:shadow-[0_0_40px_rgba(6,182,212,0.4)]
-          "
-          >
-            Explore All Services
-          </button>
+         
         </motion.div>
       </div>
     </section>

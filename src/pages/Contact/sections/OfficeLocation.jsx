@@ -28,7 +28,7 @@ const offices = [
     address:
       "Partnerships, projects, and support",
     email: "info@kartsho.com",
-    phone: "+91 9453135182",
+    phone: "+91 9528660578",
     timezone: "Mon - Fri 9AM - 6PM",
   },
 
@@ -37,7 +37,7 @@ const offices = [
     address:
       "Hiring, talent, and culture conversations",
     email: "hr@kartsho.com",
-    phone: "Mon - Sat Support",
+    phone: "9453135182",
     timezone: "Fast Response",
   },
 ];

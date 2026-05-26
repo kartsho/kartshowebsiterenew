@@ -31,7 +31,7 @@ const offices = [
   {
     title: "Careers / HR",
     location: "hr@kartsho.com",
-    phone: "Mon - Sat Support",
+    phone: "9453135182",
     timezone: "Fast Response",
   },
 ];
@@ -342,7 +342,7 @@ const GoogleMapSection = () => {
                     text-[#0B0F19]
                   "
                   >
-                    KartSho HQ
+                    Kartsho HQ
                   </h3>
 
                   <p className="text-gray-600 text-sm">

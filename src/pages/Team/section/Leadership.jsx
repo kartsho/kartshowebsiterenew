@@ -26,8 +26,8 @@ import Ravi from "../../../assets/images/founderimg/Ravi.jpg"
 
 const leaders = [
   {
-    name: "Ayush Misra",
-    role: "Founder",
+    name: "Mr.Ayush Misra",
+    role: "Founder/Director",
     image: directorImage,
 
      portfolio:
@@ -54,7 +54,7 @@ const leaders = [
       scale-[1.0]
     `,
 
-    experience: "3+ Years",
+    experience: "2+ Years",
 
     bio: "Leading AI-first digital products, enterprise systems, and scalable SaaS ecosystems globally.",
 
@@ -66,8 +66,8 @@ const leaders = [
   },
 
   {
-    name: "Ranjan Kumar",
-    role: "Co-Founder",
+    name: "Mr.Ranjan Kumar",
+    role: "Co-Founder/Director",
     image: codirectorImg,
      portfolio:
            "https://ranjanshah.kartsho.com/",
@@ -106,7 +106,7 @@ const leaders = [
   },
 
   {
-    name: "Salu Singh",
+    name: "Ms.Salu Singh",
     role: "CEO",
     image: salusingh,
 portfolio:
@@ -135,7 +135,7 @@ portfolio:
       translate-y-[80px]
     `,
 
-    experience: "2+ Years",
+    experience: "1+ Years",
 
     bio: "Building intelligent AI workflows and automation systems.",
 
@@ -174,7 +174,7 @@ portfolio:
       scale-[1.0]
     `,
 
-    experience: "3+ Years",
+    experience: "15+ Years",
 
     bio: "Leading AI-first digital products, enterprise systems, and scalable SaaS ecosystems globally.",
 
@@ -186,7 +186,7 @@ portfolio:
   },
 
   {
-    name: "Sateesh Yadav",
+    name: "Mr.Sateesh Yadav",
     role: "Teachnical Head",
     image:sateesh,
 portfolio:"https://sateeshkumaryadav.netlify.app/",
