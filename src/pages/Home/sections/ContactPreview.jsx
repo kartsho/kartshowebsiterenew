@@ -48,7 +48,7 @@ const contactInfo = [
     title: "Head Office",
     value: "Godhoopatti Patti, Pratapgarh, Uttar Pradesh - 230134",
     href: "https://www.google.com/maps/search/?api=1&query=Godhoopatti%20Patti%2C%20Pratapgarh%2C%20Uttar%20Pradesh%20-%20230134",
-    description: "Kartsho Enterprises HQ",
+    description: "Kartsho Solutions Pvt .Ltd HQ",
   },
 
   {
@@ -238,7 +238,7 @@ const ContactPreview = () => {
             max-w-2xl
           "
           >
-            Kartsho Enterprises builds scalable
+            Kartsho Solutions Pvt .Ltd builds scalable
             AI platforms, enterprise systems,
             SaaS products, and growth-driven
             digital ventures for modern businesses.

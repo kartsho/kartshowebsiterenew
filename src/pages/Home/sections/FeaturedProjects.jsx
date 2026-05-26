@@ -351,7 +351,7 @@ const FeaturedProjects = () => {
 
           <div className="flex flex-wrap gap-5">
             <Link
-              to="/live-projects#kartsho-counseling"
+              to="/live-projects"
               className="
               px-8
               py-4

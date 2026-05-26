@@ -276,7 +276,7 @@ const Footer = () => {
                 text-gray-500
               "
               >
-                CIN: U74999UP2026PTCXXXXXX
+                CIN: U62011UP2026PTC248380
               </p>
             </div>
           </div>

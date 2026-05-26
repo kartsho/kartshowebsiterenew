@@ -1,11 +1,11 @@
 export const kartshoBrand = {
-  name: "Kartsho Enterprises",
+  name: "Kartsho Solutions Pvt .Ltd",
   tagline: "Engineering the Digital Future",
   kicker: "Global Digital Innovation Conglomerate",
   summary:
     "A three-venture digital enterprise building across marketing, legal tech, and education.",
   longSummary:
-    "Kartsho Enterprises creates scalable digital solutions that connect strategy, technology, and execution across its core ventures.",
+    "Kartsho Solutions Pvt .Ltd creates scalable digital solutions that connect strategy, technology, and execution across its core ventures.",
 };
 
 export const heroData = {
@@ -161,7 +161,7 @@ export const featuredWork = [
 export const insights = [
   {
     quote:
-      "Kartsho Enterprises bridges cutting-edge technology and real-world applications.",
+      "Kartsho Solutions Pvt .Ltd bridges cutting-edge technology and real-world applications.",
     meta: "Enterprise mission",
   },
   {
@@ -178,7 +178,7 @@ export const insights = [
 
 export const faqs = [
   {
-    question: "What does Kartsho Enterprises do?",
+    question: "What does Kartsho Solutions Pvt .Ltd do?",
     answer:
       "Kartsho operates as a multi-venture digital enterprise centered on marketing, legal tech, and education.",
   },

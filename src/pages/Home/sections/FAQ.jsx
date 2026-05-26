@@ -10,7 +10,7 @@ import {
 const faqData = [
   {
     question:
-      "What does Kartsho Enterprises provide?",
+      "What does Kartsho Solutions Pvt .Ltd provide?",
 
     answer:
       "Kartsho is a multi-venture digital enterprise centered on marketing, legal tech, and education.",
