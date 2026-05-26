@@ -22,9 +22,11 @@ const Hero = () => {
       overflow-hidden
       bg-[#F5F7FB]
       flex
-      items-center
-      pt-24
-      sm:pt-28
+      items-start
+      lg:items-center
+      pt-36
+      sm:pt-32
+      lg:pt-30
       pb-14
     "
     >

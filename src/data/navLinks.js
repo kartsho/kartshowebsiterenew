@@ -12,6 +12,7 @@ export const navLinks = [
     megaMenu: [
       {
         title: "Web Development",
+        title2:"18 services",
         path: "/services/web-development",
       },
 

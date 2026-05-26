@@ -456,77 +456,146 @@ const Navbar = () => {
 
                   {/* ================= MEGA MENU ================= */}
 
-                  {item.megaMenu && (
-                    <div
-                      className="
-                      absolute
-                      top-[120%]
-                      left-0
+               {/* ================= MEGA MENU ================= */}
 
-                      opacity-0
-                      invisible
+{item.megaMenu && (
+  <div
+    className="
+    absolute
+    top-[120%]
+    left-0
 
-                      translate-y-4
+    opacity-0
+    invisible
 
-                      transition-all
-                      duration-300
+    translate-y-4
 
-                      group-hover:opacity-100
-                      group-hover:visible
-                      group-hover:translate-y-0
-                    "
-                    >
-                      <div
-                        className="
-                        w-[280px]
+    transition-all
+    duration-300
 
-                        rounded-3xl
-
-                        border
-                        border-black/5
-
-                        bg-white/90
-                        backdrop-blur-3xl
-
-                        shadow-[0_20px_60px_rgba(0,0,0,0.08)]
-
-                        p-4
-                      "
-                      >
-                      {
-  item.megaMenu.map((service, index) => (
-    <Link
-      key={index}
-      to={service.path}
-      onClick={() =>
-        setActive(service.path.split("#")[0])
-      }
+    group-hover:opacity-100
+    group-hover:visible
+    group-hover:translate-y-0
+  "
+  >
+    <div
       className="
-      w-full
-      flex
-      items-center
-      justify-between
-      px-4
-      py-4
-      rounded-2xl
-      text-left
-      text-[#0B0F19]
-      font-medium
-      transition-all
-      duration-300
-      hover:bg-cyan-500/10
-      hover:text-cyan-600
+      w-[320px]
+
+      rounded-3xl
+
+      border
+      border-black/5
+
+      bg-white/90
+      backdrop-blur-3xl
+
+      shadow-[0_20px_60px_rgba(0,0,0,0.08)]
+
+      p-4
     "
     >
-      {service.title}
+      {item.megaMenu.map(
+        (service, index) => (
+          <Link
+            key={index}
+            to={service.path}
+            onClick={() =>
+              setActive(
+                service.path.split("#")[0]
+              )
+            }
+            className="
+            group/item
 
-      <Sparkles size={16} />
-    </Link>
-  ))
-}
-                      </div>
-                    </div>
-                  )}
+            w-full
+
+            flex
+            items-center
+            justify-between
+
+            gap-4
+
+            px-4
+            py-4
+
+            rounded-2xl
+
+            transition-all
+            duration-300
+
+            hover:bg-cyan-500/10
+          "
+          >
+            {/* LEFT SIDE */}
+
+            <div className="flex flex-col">
+              {/* TITLE */}
+
+              <h4
+                className="
+                text-[15px]
+                font-semibold
+                text-[#0B0F19]
+
+                group-hover/item:text-cyan-600
+
+                transition-all
+                duration-300
+              "
+              >
+                {service.title}
+              </h4>
+
+              {/* SUBTITLE */}
+
+              {service.title2 && (
+                <p
+                  className="
+                  mt-1
+
+                  text-xs
+                  font-medium
+
+                  text-gray-500
+                "
+                >
+                  {service.title2}
+                </p>
+              )}
+            </div>
+
+            {/* RIGHT ICON */}
+
+            <div
+              className="
+              min-w-[38px]
+              h-[38px]
+
+              rounded-xl
+
+              bg-cyan-500/10
+
+              flex
+              items-center
+              justify-center
+
+              text-cyan-600
+
+              transition-all
+              duration-300
+
+              group-hover/item:scale-110
+            "
+            >
+              <Sparkles size={16} />
+            </div>
+          </Link>
+        )
+      )}
+    </div>
+  </div>
+)}
                 </div>
               ))}
             </div>

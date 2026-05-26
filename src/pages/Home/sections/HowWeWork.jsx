@@ -275,7 +275,7 @@ const HowWeWork = () => {
                   md:text-6xl
                   font-bold
 
-                    text-cyan-500/20
+                    text-purple-900
 
                     mb-6
                   "
@@ -293,7 +293,7 @@ const HowWeWork = () => {
                   text-2xl
                   sm:text-3xl
                   font-bold
-                    text-[#0B0F19]
+                    text-gray-900
 
                     mb-5
                   "

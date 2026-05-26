@@ -151,13 +151,13 @@ const Stats = () => {
             mt-6
 
             text-lg
-            text-gray-400
+            text-gray-900
 
             leading-relaxed
           "
           >
             Our numbers reflect the official
-            scale of Kartsho Enterprises across
+            scale of <span className="text-cyan-300 font-bold">Kartsho Solutions Pvt. Ltd</span>  across
             ventures, clients, industries, and
             response time.
           </p>
@@ -269,7 +269,7 @@ const Stats = () => {
 
                 text-base
                 sm:text-lg
-                text-gray-300
+                text-gray-900
 
                 font-medium
               "
