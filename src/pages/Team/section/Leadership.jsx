@@ -11,6 +11,7 @@ import {
   FaGithub,
   FaInstagram,
   FaXTwitter,
+  FaFacebook
 } from "react-icons/fa6";
 
 import directorImage from "../../../assets/images/founderimg/director.jpg";
@@ -117,14 +118,10 @@ portfolio:
       linkedin:
         "https://www.linkedin.com/in/salusingh-7869142b8?utm_source=share_via&utm_content=profile&utm_medium=member_android",
 
-      github:
-        "https://github.com/salu",
 
       instagram:
         "https://www.instagram.com/salu_singh18?igsh=MWF3eDB5bzhxcXhsNQ==",
 
-      twitter:
-        "https://x.com/salu",
     },
 
     imageStyle: `
@@ -155,12 +152,9 @@ portfolio:
 
     socials: {
      
-      linkedin:
-        "https://www.linkedin.com/in/misraayush",
+      
 
-      github:
-        "https://github.com/ayushrajmisra",
-
+     
       instagram:
         "https://www.instagram.com/ayushatkartsho?igsh=MXM4dzBlODN2d291Zw==",
 
@@ -514,6 +508,10 @@ const LeadershipTeam = () => {
                     from-cyan-400/30
                     via-transparent
                     to-blue-500/30
+                    border-4
+                    border-b-cyan-400
+                    border-r-emerald-400
+                    border-l-orange-500
                   "
                   />
 
@@ -624,154 +622,197 @@ const LeadershipTeam = () => {
                         {leader.experience}
                       </div>
 
-                      {/* SOCIAL ICONS */}
-
                       <div
                         className="
                         absolute
-                        bottom-2
-                        right-6
+                        inset-x-0
+                        bottom-0
 
-                        flex
-                        items-center
-                        gap-3
+                        p-4
+                        sm:p-6
                       "
                       >
-                        {[
-                          {
-                            icon:
-                              FaLinkedin,
-                            link:
-                              leader
-                                .socials
-                                ?.linkedin,
-                          },
+                        <div
+                          className="
+                          flex
+                          flex-col
+                          gap-4
 
-                          {
-                            icon:
-                              FaGithub,
-                            link:
-                              leader
-                                .socials
-                                ?.github,
-                          },
+                          sm:flex-row
+                          sm:items-end
+                          sm:justify-between
+                        "
+                        >
+                          {/* NAME */}
 
-                          {
-                            icon:
-                              FaInstagram,
-                            link:
-                              leader
-                                .socials
-                                ?.instagram,
-                          },
+                          <div
+                            className="
+                            w-full
+                            sm:max-w-[70%]
+                          "
+                          >
+                            <h3
+                              className="
+                              text-2xl
+                              sm:text-4xl
 
-                          {
-                            icon:
-                              FaXTwitter,
-                            link:
-                              leader
-                                .socials
-                                ?.twitter,
-                          },
-                        ]
-                          .filter(
-                            (item) =>
-                              item.link
-                          )
-                        .map(
-                          (
-                            item,
-                            i
-                          ) => {
-                            const Icon =
-                              item.icon;
+                              font-black
+                              leading-tight
+                              text-white
 
-                            return (
-                              <motion.a
-                                key={i}
-                                href={
+                              drop-shadow-lg
+                            "
+                            >
+                              {leader.name}
+                            </h3>
+
+                            <p
+                              className="
+                              mt-1
+
+                              text-sm
+                              sm:text-lg
+                              leading-snug
+
+                              text-cyan-300
+                              font-semibold
+                            "
+                            >
+                              {leader.role}
+                            </p>
+                          </div>
+
+                          {/* SOCIAL ICONS */}
+
+                          <div
+                            className="
+                            flex
+                            flex-wrap
+                            items-center
+                            gap-2
+
+                            sm:gap-3
+                          "
+                          >
+                            {[
+                              {
+                                icon:
+                                  FaLinkedin,
+                                link:
+                                  leader
+                                    .socials
+                                    ?.linkedin,
+                              },
+
+                              {
+                                icon:
+                                  FaGithub,
+                                link:
+                                  leader
+                                    .socials
+                                    ?.github,
+                              },
+
+                              {
+                                icon:
+                                  FaInstagram,
+                                link:
+                                  leader
+                                    .socials
+                                    ?.instagram,
+                              },
+
+                              {
+                                icon:
+                                  FaXTwitter,
+                                link:
+                                  leader
+                                    .socials
+                                    ?.twitter,
+                              },
+                               {
+                                icon:
+                                  FaFacebook,
+                                link:
+                                  leader
+                                    .socials
+                                    ?.facebook,
+                              },
+                            ]
+                              .filter(
+                                (item) =>
                                   item.link
+                              )
+                              .map(
+                                (
+                                  item,
+                                  i
+                                ) => {
+                                  const Icon =
+                                    item.icon;
+
+                                  return (
+                                    <motion.a
+                                      key={i}
+                                      href={
+                                        item.link
+                                      }
+                                      target="_blank"
+                                      rel="noopener noreferrer"
+                                      whileHover={{
+                                        y: -4,
+                                        scale: 1.08,
+                                      }}
+                                      whileTap={{
+                                        scale: 0.95,
+                                      }}
+                                      className="
+                                      w-9
+                                      h-9
+                                      sm:w-12
+                                      sm:h-12
+
+                                      rounded-xl
+                                      sm:rounded-2xl
+
+                                      border
+                                      border-white/10
+
+                                      bg-white/10
+                                      backdrop-blur-xl
+
+                                      text-white
+
+                                      flex
+                                      items-center
+                                      justify-center
+
+                                      transition-all
+                                      duration-300
+
+                                      hover:bg-cyan-500
+                                      hover:border-cyan-400
+                                      hover:shadow-[0_0_25px_rgba(6,182,212,0.5)]
+                                    "
+                                    >
+                                      <Icon
+                                        size={
+                                          18
+                                        }
+                                        className="
+                                        h-4
+                                        w-4
+
+                                        sm:h-[18px]
+                                        sm:w-[18px]
+                                      "
+                                      />
+                                    </motion.a>
+                                  );
                                 }
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                whileHover={{
-                                  y: -4,
-                                  scale: 1.08,
-                                }}
-                                whileTap={{
-                                  scale: 0.95,
-                                }}
-                                className="
-                                w-12
-                                h-12
-
-                                rounded-2xl
-
-                                border
-                                border-white/10
-
-                                bg-white/10
-                                backdrop-blur-xl
-
-                                text-white
-
-                                flex
-                                items-center
-                                justify-center
-
-                                transition-all
-                                duration-300
-
-                                hover:bg-cyan-500
-                                hover:border-cyan-400
-                                hover:shadow-[0_0_25px_rgba(6,182,212,0.5)]
-                              "
-                              >
-                                <Icon
-                                  size={
-                                    18
-                                  }
-                                />
-                              </motion.a>
-                            );
-                          }
-                        )}
-                      </div>
-
-                      {/* NAME */}
-
-                      <div
-                        className="
-                        absolute
-                        bottom-6
-                        left-6
-                      "
-                      >
-                        <h3
-                          className="
-                          text-3xl
-                          sm:text-4xl
-
-                          font-black
-                          text-white
-
-                          drop-shadow-lg
-                        "
-                        >
-                          {leader.name}
-                        </h3>
-
-                        <p
-                          className="
-                          mt-1
-
-                          text-cyan-300
-                          font-semibold
-                          text-lg
-                        "
-                        >
-                          {leader.role}
-                        </p>
+                              )}
+                          </div>
+                        </div>
                       </div>
                     </div>
 
