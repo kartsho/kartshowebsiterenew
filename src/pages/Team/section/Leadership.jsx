@@ -51,9 +51,14 @@ const leaders = [
 
     imageStyle: `
       object-cover
-      object-top
-      pt-20
-      scale-[1.27]
+      object-center
+      scale-100
+      translate-y-0
+      pt-0
+
+      sm:object-top
+      sm:pt-20
+      sm:scale-[1.27]
     `,
 
     experience: "3+ Years",
@@ -91,11 +96,15 @@ const leaders = [
 
     imageStyle: `
       object-cover
-      object-top
-      pt-10
+      object-center
+      scale-100
+      translate-y-0
+      pt-0
 
-      scale-[1.30]
-      translate-y-[30px]
+      sm:object-top
+      sm:pt-10
+      sm:scale-[1.30]
+      sm:translate-y-[30px]
     `,
 
     experience: "2+ Years",
@@ -129,11 +138,16 @@ portfolio:
 
     imageStyle: `
       object-cover
-      object-top
-      scale-[1.30]
-      pb-500
-      pt-15
-      translate-y-[80px]
+      object-center
+      scale-100
+      translate-y-0
+      pt-0
+      pb-0
+
+      sm:object-top
+      sm:scale-[1.30]
+      sm:pt-15
+      sm:translate-y-[80px]
     `,
 
     experience: "1+ Years",
