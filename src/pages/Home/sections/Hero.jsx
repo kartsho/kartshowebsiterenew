@@ -111,7 +111,7 @@ const Hero = () => {
             border-cyan-200
           "
           >
-            Global Digital Innovation Conglomerate
+           Welcome to Kartsho Solutions Pvt. Ltd.
           </div>
 
           {/* HEADING */}
