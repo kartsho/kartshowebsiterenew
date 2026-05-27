@@ -52,7 +52,8 @@ const leaders = [
     imageStyle: `
       object-cover
       object-top
-      scale-[1.30]
+      pt-20
+      scale-[1.27]
     `,
 
     experience: "3+ Years",
@@ -91,6 +92,8 @@ const leaders = [
     imageStyle: `
       object-cover
       object-top
+      pt-10
+
       scale-[1.30]
       translate-y-[30px]
     `,
@@ -129,6 +132,7 @@ portfolio:
       object-top
       scale-[1.30]
       pb-500
+      pt-15
       translate-y-[80px]
     `,
 
@@ -165,6 +169,7 @@ portfolio:
     imageStyle: `
       object-cover
       object-top
+      pt-10
       scale-[1.30]
     `,
 
@@ -204,7 +209,7 @@ portfolio:"https://sateeshkumaryadav.netlify.app/",
     imageStyle: `
       object-cover
       object-center
-      pt-15
+      pt-10
       scale-[1.30]
     `,
 
