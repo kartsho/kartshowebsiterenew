@@ -52,7 +52,7 @@ const leaders = [
     imageStyle: `
       object-cover
       object-top
-      scale-[1.0]
+      scale-[1.30]
     `,
 
     experience: "3+ Years",
@@ -91,7 +91,7 @@ const leaders = [
     imageStyle: `
       object-cover
       object-top
-      scale-[1.17]
+      scale-[1.30]
       translate-y-[30px]
     `,
 
@@ -127,7 +127,7 @@ portfolio:
     imageStyle: `
       object-cover
       object-top
-      scale-[1.20]
+      scale-[1.30]
       pb-500
       translate-y-[80px]
     `,
@@ -165,7 +165,7 @@ portfolio:
     imageStyle: `
       object-cover
       object-top
-      scale-[1.0]
+      scale-[1.30]
     `,
 
     experience: "15+ Years",
