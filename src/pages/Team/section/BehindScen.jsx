@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { useTheme } from "../../../context/ThemeContext";
 
 const behindScenes = [
   {
@@ -45,16 +46,56 @@ const behindScenes = [
 ];
 
 const BehindScenesSection = () => {
+  const { isDark } = useTheme();
+
+  const colors = isDark
+    ? {
+        sectionBg:
+          "linear-gradient(135deg, #050816 0%, #070b14 55%, #0f172a 100%)",
+        sectionText: "#f8fafc",
+        gridLine: "rgba(148, 163, 184, 0.10)",
+        tagBg: "rgba(6, 182, 212, 0.12)",
+        tagText: "#67e8f9",
+        tagBorder: "rgba(103, 232, 249, 0.18)",
+        cardSurface: "rgba(15, 23, 42, 0.72)",
+        cardBorder: "rgba(148, 163, 184, 0.18)",
+        cardShadow: "0 24px 90px rgba(0, 0, 0, 0.38)",
+        cardOverlay:
+          "linear-gradient(to top, rgba(2, 6, 23, 0.92), rgba(2, 6, 23, 0.18), transparent)",
+        quoteSurface: "rgba(15, 23, 42, 0.72)",
+        quoteBorder: "rgba(148, 163, 184, 0.18)",
+        mutedText: "#cbd5e1",
+      }
+    : {
+        sectionBg:
+          "linear-gradient(135deg, #f8fbff 0%, #eef4ff 55%, #ffffff 100%)",
+        sectionText: "#0b0f19",
+        gridLine: "rgba(15, 23, 42, 0.06)",
+        tagBg: "rgba(6, 182, 212, 0.10)",
+        tagText: "#0e7490",
+        tagBorder: "rgba(6, 182, 212, 0.16)",
+        cardSurface: "rgba(255, 255, 255, 0.72)",
+        cardBorder: "rgba(15, 23, 42, 0.08)",
+        cardShadow: "0 20px 80px rgba(15, 23, 42, 0.08)",
+        cardOverlay:
+          "linear-gradient(to top, rgba(15, 23, 42, 0.88), rgba(15, 23, 42, 0.20), transparent)",
+        quoteSurface: "rgba(255, 255, 255, 0.72)",
+        quoteBorder: "rgba(15, 23, 42, 0.08)",
+        mutedText: "#4b5563",
+      };
+
   return (
     <section
       className="
       relative
       overflow-hidden
 
-      bg-[#F5F7FB]
-
       py-32
     "
+      style={{
+        background: colors.sectionBg,
+        color: colors.sectionText,
+      }}
     >
       {/* ================= GRID ================= */}
 
@@ -62,13 +103,12 @@ const BehindScenesSection = () => {
         className="
         absolute
         inset-0
-
-        opacity-[0.03]
-
-        [background-image:linear-gradient(to_right,#0f172a_1px,transparent_1px),linear-gradient(to_bottom,#0f172a_1px,transparent_1px)]
-
-        [background-size:60px_60px]
       "
+        style={{
+          opacity: isDark ? 0.08 : 0.03,
+          backgroundImage: `linear-gradient(to right, ${colors.gridLine} 1px, transparent 1px), linear-gradient(to bottom, ${colors.gridLine} 1px, transparent 1px)`,
+          backgroundSize: "60px 60px",
+        }}
       />
 
       {/* ================= GLOW ================= */}
@@ -155,17 +195,18 @@ const BehindScenesSection = () => {
             rounded-full
 
             border
-            border-cyan-500/20
-
-            bg-cyan-500/10
             backdrop-blur-xl
 
-            text-cyan-700
             text-sm
             font-semibold
 
             mb-8
           "
+            style={{
+              background: colors.tagBg,
+              borderColor: colors.tagBorder,
+              color: colors.tagText,
+            }}
           >
             BEHIND THE SCENES
           </motion.div>
@@ -294,15 +335,15 @@ const BehindScenesSection = () => {
                   rounded-[32px]
 
                   border
-                  border-white/40
-
-                  bg-white/60
                   backdrop-blur-3xl
-
-                  shadow-[0_20px_80px_rgba(0,0,0,0.08)]
 
                   ${item.height}
                 `}
+                  style={{
+                    background: colors.cardSurface,
+                    borderColor: colors.cardBorder,
+                    boxShadow: colors.cardShadow,
+                  }}
                 >
                   {/* IMAGE */}
 
@@ -331,12 +372,8 @@ const BehindScenesSection = () => {
                     className="
                     absolute
                     inset-0
-
-                    bg-gradient-to-t
-                    from-[#060816]/90
-                    via-[#060816]/20
-                    to-transparent
                   "
+                    style={{ background: colors.cardOverlay }}
                   />
 
                   {/* GLASS LIGHT */}
@@ -348,8 +385,6 @@ const BehindScenesSection = () => {
 
                     opacity-0
 
-                    bg-cyan-500/10
-
                     backdrop-blur-[2px]
 
                     transition-all
@@ -357,6 +392,11 @@ const BehindScenesSection = () => {
 
                     group-hover:opacity-100
                   "
+                    style={{
+                      background: isDark
+                        ? "rgba(6, 182, 212, 0.08)"
+                        : "rgba(6, 182, 212, 0.10)",
+                    }}
                   />
 
                   {/* TOP LIGHT */}
@@ -409,17 +449,22 @@ const BehindScenesSection = () => {
                       rounded-full
 
                       border
-                      border-white/10
-
-                      bg-white/10
                       backdrop-blur-xl
 
-                      text-white
                       text-xs
                       font-medium
 
                       mb-4
                     "
+                      style={{
+                        borderColor: isDark
+                          ? "rgba(255, 255, 255, 0.16)"
+                          : "rgba(255, 255, 255, 0.12)",
+                        backgroundColor: isDark
+                          ? "rgba(15, 23, 42, 0.44)"
+                          : "rgba(255, 255, 255, 0.12)",
+                        color: "#ffffff",
+                      }}
                     >
                       TEAM CULTURE
                     </div>
@@ -452,12 +497,8 @@ const BehindScenesSection = () => {
                     rounded-2xl
 
                     border
-                    border-white/10
-
-                    bg-white/10
                     backdrop-blur-2xl
 
-                    text-white
                     text-sm
                     font-medium
 
@@ -470,6 +511,15 @@ const BehindScenesSection = () => {
                     group-hover:opacity-100
                     group-hover:translate-y-0
                   "
+                    style={{
+                      borderColor: isDark
+                        ? "rgba(255, 255, 255, 0.16)"
+                        : "rgba(255, 255, 255, 0.12)",
+                      backgroundColor: isDark
+                        ? "rgba(15, 23, 42, 0.44)"
+                        : "rgba(255, 255, 255, 0.12)",
+                      color: "#ffffff",
+                    }}
                   >
                     Live Collaboration
                   </div>
@@ -502,20 +552,22 @@ const BehindScenesSection = () => {
           rounded-[40px]
 
           border
-          border-white/50
-
-          bg-white/60
           backdrop-blur-3xl
 
           overflow-hidden
-
-          shadow-[0_20px_80px_rgba(0,0,0,0.08)]
 
           p-10
           lg:p-16
 
           text-center
         "
+          style={{
+            background: colors.quoteSurface,
+            borderColor: colors.quoteBorder,
+            boxShadow: isDark
+              ? "0 20px 80px rgba(0, 0, 0, 0.32)"
+              : "0 20px 80px rgba(15, 23, 42, 0.08)",
+          }}
         >
           {/* GLOW */}
 
@@ -567,9 +619,8 @@ const BehindScenesSection = () => {
 
               text-lg
               leading-relaxed
-
-              text-[color:var(--text-primary)]
             "
+              style={{ color: colors.mutedText }}
             >
               Great software isn’t built by isolated
               freelancers. It’s built by deeply
