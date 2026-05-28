@@ -549,23 +549,82 @@ const LeadershipTeam = () => {
 
                     {/* BUTTON */}
 
-                    {profileLink && (
-                      <motion.a
-                        href={profileLink}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        whileHover={{
-                          x: 4,
-                        }}
-                        className="mt-7 inline-flex items-center gap-3 rounded-2xl bg-gradient-to-r from-cyan-500 to-blue-500 px-6 py-4 text-sm font-semibold text-white"
-                      >
-                        View Profile
+                   {/* BUTTON */}
 
-                        <ArrowUpRight
-                          size={18}
-                        />
-                      </motion.a>
-                    )}
+{profileLink ? (
+  <motion.a
+    href={profileLink}
+    target="_blank"
+    rel="noopener noreferrer"
+    whileHover={{
+      x: 4,
+    }}
+    className="
+      mt-7
+      inline-flex
+      items-center
+      gap-3
+
+      rounded-2xl
+
+      bg-gradient-to-r
+      from-cyan-500
+      to-blue-500
+
+      px-6
+      py-4
+
+      text-sm
+      font-semibold
+      text-white
+
+      shadow-[0_12px_30px_rgba(6,182,212,0.25)]
+
+      transition-all
+      duration-300
+
+      hover:shadow-[0_18px_40px_rgba(6,182,212,0.35)]
+    "
+  >
+    View Profile
+
+    <ArrowUpRight size={18} />
+  </motion.a>
+) : (
+  <div
+    className="
+      mt-7
+      inline-flex
+      items-center
+      gap-2
+
+      rounded-2xl
+
+      border
+
+      px-6
+      py-4
+
+      text-sm
+      font-semibold
+
+      backdrop-blur-xl
+    "
+    style={{
+      background: isDark
+        ? "rgba(15,23,42,0.7)"
+        : "rgba(255,255,255,0.85)",
+
+      borderColor: colors.infoBorder,
+
+      color: colors.textSecondary,
+    }}
+  >
+    <Sparkles size={16} />
+    Profile Coming Soon
+  </div>
+)}
+                    
                   </div>
                 </motion.div>
               </Tilt>
