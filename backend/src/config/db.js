@@ -1,20 +1,38 @@
-const mongoose=require("mongoose")
+const mongoose = require("mongoose");
 
-const connectionDB=async()=>{
-  try{
-    const connection=await mongoose.connect(process.env.MONGODB_URL,{
-      autoIndex:true
-    })
+const connectionDB = async () => {
+  const mongoUri =
+    process.env.MONGODB_URL ||
+    process.env.MONGO_URI;
+
+  if (!mongoUri) {
+    throw new Error(
+      "Missing MongoDB connection string. Set MONGODB_URL or MONGO_URI in backend/.env"
+    );
+  }
+
+  try {
+    const connection = await mongoose.connect(
+      mongoUri,
+      {
+        autoIndex: true,
+        serverSelectionTimeoutMS: 10000,
+      }
+    );
+
     console.log(`
-      mongoDB is sucessfully connected
+      mongoDB is successfully connected
       Database: ${connection.connection.name}
-      Host:${connection.connection.host}      
+      Host: ${connection.connection.host}
       `);
-  }catch (error){
+  } catch (error) {
     console.error(`
       mongoDB connection failed
-      Error:${error.message}
-      `)
+      Error: ${error.message}
+      `);
+
+    throw error;
   }
-}
-module.exports=connectionDB
+};
+
+module.exports = connectionDB;
