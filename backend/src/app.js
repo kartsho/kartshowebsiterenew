@@ -21,9 +21,27 @@ CORS Configuration
 =================================
 */
 
+const allowedOrigins = [
+  process.env.CLIENT_URL,
+  "https://kartsho.com",
+  "https://www.kartsho.com",
+  "http://localhost:5173",
+  "http://localhost:3000",
+].filter(Boolean);
+
 app.use(
   cors({
-    origin: true,
+    origin: (origin, callback) => {
+      if (!origin || allowedOrigins.includes(origin)) {
+        return callback(null, true);
+      }
+
+      return callback(
+        new Error(
+          `CORS blocked for origin: ${origin}`
+        )
+      );
+    },
     credentials: true,
   })
 );

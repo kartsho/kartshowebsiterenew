@@ -24,6 +24,7 @@ import {
 } from "lucide-react";
 
 import { useTheme } from "../../../context/ThemeContext";
+import API_URL from "../../../config/api";
 
 /* =========================================================
    JOB DATA
@@ -129,10 +130,6 @@ const emptyFormData = {
   course: "",
   branch: "",
 };
-
-const API_BASE_URL =
-  import.meta.env.VITE_API_BASE_URL ||
-  "http://localhost:5000";
 
 /* =========================================================
    COMPONENT
@@ -306,8 +303,13 @@ const OpenPositions = () => {
       }
 
       const response = await axios.post(
-        `${API_BASE_URL}/api/careers/apply`,
-        data
+        `${API_URL}/api/careers/apply`,
+        data,
+        {
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
+        }
       );
 
       setToast({
@@ -322,12 +324,17 @@ const OpenPositions = () => {
       setFormData(emptyFormData);
       setResume(null);
     } catch (error) {
-      console.error(error);
+      console.error("API Error:", error);
+      console.error(
+        "Response:",
+        error.response?.data
+      );
 
       setToast({
         type: "error",
         message:
           error?.response?.data?.message ||
+          error?.message ||
           "Application Failed",
       });
     } finally {
