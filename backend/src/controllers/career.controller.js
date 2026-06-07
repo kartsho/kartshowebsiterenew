@@ -49,16 +49,29 @@ const submitCareerApplication =
           resume: req.file.path,
         });
 
+      const mailWarnings = [];
+
       /*
       ============================
       Send Mail To HR
       ============================
       */
 
-      await sendCareerApplicationToHR(
-        application,
-        req.file.path
-      );
+      try {
+        await sendCareerApplicationToHR(
+          application,
+          req.file.path
+        );
+      } catch (emailError) {
+        console.error(
+          "HR Email Failed:",
+          emailError
+        );
+
+        mailWarnings.push(
+          "HR notification email failed"
+        );
+      }
 
       /*
       ============================
@@ -66,9 +79,20 @@ const submitCareerApplication =
       ============================
       */
 
-      await sendCandidateConfirmationEmail(
-        application
-      );
+      try {
+        await sendCandidateConfirmationEmail(
+          application
+        );
+      } catch (emailError) {
+        console.error(
+          "Candidate Email Failed:",
+          emailError
+        );
+
+        mailWarnings.push(
+          "Candidate confirmation email failed"
+        );
+      }
 
       /*
       ============================
@@ -83,6 +107,10 @@ const submitCareerApplication =
           "Application submitted successfully",
 
         data: application,
+        warnings:
+          mailWarnings.length > 0
+            ? mailWarnings
+            : undefined,
       });
     } catch (error) {
       console.error(

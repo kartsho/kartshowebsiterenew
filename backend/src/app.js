@@ -2,6 +2,7 @@ const express = require("express");
 const cors = require("cors");
 const helmet = require("helmet");
 const morgan = require("morgan");
+const path = require("path");
 
 const careerRoutes = require("./routes/career.routes");
 
@@ -21,12 +22,20 @@ CORS Configuration
 =================================
 */
 
+const extraOrigins = String(
+  process.env.FRONTEND_URLS || ""
+)
+  .split(",")
+  .map((origin) => origin.trim())
+  .filter(Boolean);
+
 const allowedOrigins = [
   process.env.CLIENT_URL,
   "https://kartsho.com",
   "https://www.kartsho.com",
   "http://localhost:5173",
   "http://localhost:3000",
+  ...extraOrigins,
 ].filter(Boolean);
 
 app.use(
@@ -68,7 +77,9 @@ Static Files
 
 app.use(
   "/uploads",
-  express.static("uploads")
+  express.static(
+    path.join(__dirname, "../uploads")
+  )
 );
 
 /*
