@@ -34,14 +34,33 @@ const allowedOrigins = [
   "https://kartsho.com",
   "https://www.kartsho.com",
   "http://localhost:5173",
+  "http://localhost:5174",
   "http://localhost:3000",
   ...extraOrigins,
 ].filter(Boolean);
 
+const isLocalDevOrigin = (origin) => {
+  try {
+    const { hostname } = new URL(origin);
+
+    return [
+      "localhost",
+      "127.0.0.1",
+      "::1",
+    ].includes(hostname);
+  } catch {
+    return false;
+  }
+};
+
 app.use(
   cors({
     origin: (origin, callback) => {
-      if (!origin || allowedOrigins.includes(origin)) {
+      if (
+        !origin ||
+        allowedOrigins.includes(origin) ||
+        isLocalDevOrigin(origin)
+      ) {
         return callback(null, true);
       }
 
