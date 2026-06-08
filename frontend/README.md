@@ -1,6 +1,8 @@
 # Kartsho Frontend
 
-React + Vite frontend for the Kartsho site.
+Legacy mirror of the Kartsho frontend.
+
+Use the repository root for builds and deployments.
 
 ## Development
 
@@ -11,6 +13,7 @@ React + Vite frontend for the Kartsho site.
 
 - `npm run build`
 - Deploy the generated `dist/` folder
+- Prefer the repository root `package.json` for production deployment.
 
 ## Deployment Notes
 
@@ -24,7 +27,3 @@ React + Vite frontend for the Kartsho site.
 - Fixed the gym route import casing issue for Linux deployments.
 - Fixed Hostinger production layout breaking from stale root-relative asset paths.
 - Added `.htaccess` for SPA fallback on Apache hosting.
-# kartshowebsiterenew
-# kartshowebsiterenew
-# kartshowebsiterenew
-# kartshowebsiterenew

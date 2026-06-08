@@ -1,11 +1,14 @@
 {
-  "name": "frontend",
+  "name": "kartsho-web",
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "description": "Primary Kartsho frontend. Build and deploy from the repository root.",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
+    "build:hostinger": "npm run build",
+    "deploy": "npm run build",
     "lint": "eslint .",
     "preview": "vite preview"
   },

@@ -1,8 +1,9 @@
 {
-  "name": "frontend",
+  "name": "kartsho-web-legacy",
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "description": "Legacy mirror of the Kartsho frontend. Use the repository root package.json for deployment.",
   "scripts": {
     "dev": "cmd /d /s /c scripts\\run-vite.cmd",
     "build": "cmd /d /s /c scripts\\run-vite.cmd build",
