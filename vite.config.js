@@ -11,5 +11,6 @@ try {
 }
 
 export default defineConfig({
+  envDir: "frontend",
   plugins: [reactPlugin?.(), tailwindcss()].filter(Boolean),
 })

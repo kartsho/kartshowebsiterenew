@@ -20,6 +20,7 @@ Use the repository root for builds and deployments.
 - Live layout and asset-path fixes were published in commit `6fee29d`.
 - Hostinger needs the built `dist/` output, not just the source files.
 - The app uses SPA routing, so the deployed server must rewrite all routes to `index.html`.
+- API requests must be excluded from the SPA rewrite. `/api/*` should reach the backend, not `index.html`.
 - Static assets like `noise.svg`, PDFs, and the favicon are now base-aware so they work under live hosting too.
 
 ## Recent Fixes

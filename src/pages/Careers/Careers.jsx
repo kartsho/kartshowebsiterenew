@@ -1,6 +1,6 @@
 import CareerHero from "./sections/CareerHero";
 import LifeAtCompany from "./sections/LifeAtCompany";
-import OpenPositions from "./sections/OpenPosition";
+import OpenPositions from "../../../frontend/src/pages/Careers/sections/OpenPosition";
 import WhyJoinUs from "./sections/WhyJoinUs";
 
 

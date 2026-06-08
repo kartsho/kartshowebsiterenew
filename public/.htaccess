@@ -4,6 +4,9 @@ Options -MultiViews
   RewriteEngine On
   RewriteBase /
 
+  RewriteRule ^api(?:/|$) - [L]
+  RewriteRule ^uploads(?:/|$) - [L]
+
   RewriteCond %{REQUEST_FILENAME} -f [OR]
   RewriteCond %{REQUEST_FILENAME} -d
   RewriteRule ^ - [L]
