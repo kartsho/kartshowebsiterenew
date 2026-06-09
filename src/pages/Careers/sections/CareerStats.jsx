@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 
-import CountUp from "react-countup";
+import ReactCountUp from "react-countup";
 
 import {
   Users,
@@ -11,6 +11,9 @@ import {
   Wifi,
   TrendingUp,
 } from "lucide-react";
+
+const CountUp =
+  ReactCountUp?.default ?? ReactCountUp;
 
 /* ======================================================= */
 /* STATS DATA */

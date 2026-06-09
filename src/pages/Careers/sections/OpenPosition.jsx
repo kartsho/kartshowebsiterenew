@@ -1,4 +1,6 @@
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
+
+import axios from "axios";
 
 import {
   motion,
@@ -15,7 +17,14 @@ import {
   Rocket,
   Sparkles,
   Laptop,
+  Loader2,
+  CheckCircle2,
+  AlertCircle,
+  X,
 } from "lucide-react";
+
+import { useTheme } from "../../../context/ThemeContext";
+import API_URL from "../../../constants/api";
 
 /* =========================================================
    JOB DATA
@@ -24,146 +33,166 @@ import {
 const jobs = [
   {
     id: 1,
-    role: "Senior Full Stack Engineer",
-    department: "Engineering",
+    role: "Business Development Executive (BDE)",
+    department: "Sales & Growth",
     location: "Remote",
     mode: "Remote",
-    salary: "$90k - $140k",
-    experience: "4+ Years",
-    posted: "2 days ago",
-
+    salary: "10% Commission / Project Basis",
+    experience: "Freshers / Experienced",
+    posted: "Just Now",
+    tech: [
+      "Client Acquisition",
+      "Digital Marketing Sales",
+      "Lead Generation",
+      "Negotiation",
+    ],
+    description:
+      "Drive growth and expand Kartsho's digital footprint. You will be at the forefront of client acquisition, representing our innovative portfolio of digital marketing, legal tech, and educational solutions while earning performance-based incentives.",
+  },
+  {
+    id: 2,
+    role: "Full Stack Developer Intern",
+    department: "Engineering / Tech",
+    location: "Remote",
+    mode: "Remote",
+    salary: "Unpaid / Stipend (Performance Based)",
+    experience: "0+ Years (Freshers)",
+    posted: "1 day ago",
     tech: [
       "React",
       "Node.js",
-      "MongoDB",
-      "AWS",
+      "Database Architecture",
+      "Full Stack Web",
     ],
-
     description:
-      "Build scalable SaaS platforms, AI workflows, cloud infrastructure, and high-performance frontend systems for global clients.",
+      "Join our core product team to build and scale end-to-end web applications. You will take ownership of features from database architecture to user interface, driving innovation across Kartsho's tech ecosystem.",
   },
-
-  {
-    id: 2,
-    role: "AI Product Engineer",
-    department: "AI",
-    location: "Berlin, Germany",
-    mode: "Hybrid",
-    salary: "$120k - $180k",
-    experience: "5+ Years",
-
-    posted: "1 week ago",
-
-    tech: [
-      "Python",
-      "LLMs",
-      "LangChain",
-      "RAG",
-    ],
-
-    description:
-      "Work on next-gen AI systems, automation workflows, intelligent copilots, and enterprise-grade AI infrastructure.",
-  },
-
   {
     id: 3,
-    role: "UI/UX Product Designer",
+    role: "Backend Developer Intern",
+    department: "Engineering",
+    location: "Remote",
+    mode: "Remote",
+    salary: "Unpaid / Stipend (Performance Based)",
+    experience: "0+ Years (Freshers)",
+    posted: "2 days ago",
+    tech: ["Node.js", "Python", "APIs", "Database Management"],
+    description:
+      "Join our core tech team to architect and build scalable backend systems that power Kartsho’s digital ventures. You'll work on robust APIs, database structures, and high-performance server logic.",
+  },
+  {
+    id: 4,
+    role: "App Development Intern",
+    department: "Mobile Engineering",
+    location: "Remote",
+    mode: "Remote",
+    salary: "Unpaid / Stipend (Performance Based)",
+    experience: "0+ Years (Freshers)",
+    posted: "3 days ago",
+    tech: [
+      "Flutter",
+      "React Native",
+      "iOS Development",
+      "Android Development",
+    ],
+    description:
+      "Dive into the world of mobile engineering. You will help build seamless, cross-platform mobile applications for iOS and Android using modern frameworks like Flutter and React Native.",
+  },
+  {
+    id: 5,
+    role: "Graphic Design Intern",
     department: "Design",
     location: "Remote",
     mode: "Remote",
-    salary: "$70k - $110k",
-    experience: "3+ Years",
-
-    posted: "5 days ago",
-
+    salary: "Unpaid / Stipend (Performance Based)",
+    experience: "0+ Years (Freshers)",
+    posted: "4 days ago",
     tech: [
       "Figma",
-      "Framer",
-      "Motion",
-      "Design Systems",
+      "Photoshop",
+      "Premium Branding",
+      "Social Media Creatives",
     ],
-
     description:
-      "Design premium user experiences, product systems, animations, and scalable design architectures.",
-  },
-
-  {
-    id: 4,
-    role: "Cloud & DevOps Engineer",
-    department: "Infrastructure",
-    location: "Toronto, Canada",
-    mode: "Hybrid",
-    salary: "$100k - $160k",
-    experience: "4+ Years",
-
-    posted: "3 days ago",
-
-    tech: [
-      "AWS",
-      "Docker",
-      "Kubernetes",
-      "CI/CD",
-    ],
-
-    description:
-      "Manage deployment pipelines, scalable cloud systems, automation infrastructure, and enterprise DevOps operations.",
+      "Apply for Graphic Design Internship at Kartsho Ecosystem. Work on premium branding, social media creatives, and digital assets under expert mentorship.",
   },
 ];
+
+const emptyFormData = {
+  fullName: "",
+  email: "",
+  phone: "",
+  course: "",
+  branch: "",
+};
 
 /* =========================================================
    COMPONENT
 ========================================================= */
 
 const OpenPositions = () => {
-  /* =========================================================
-     STATES
-  ========================================================= */
+  const { isDark } = useTheme();
 
-  const [activeId, setActiveId] =
-    useState(null);
+  const [activeId, setActiveId] = useState(null);
+  const [bookmarks, setBookmarks] = useState([]);
+  const [filters, setFilters] = useState({
+    department: "All",
+    mode: "All",
+    experience: "All",
+  });
+  const [openModal, setOpenModal] = useState(false);
+  const [selectedJob, setSelectedJob] = useState(null);
+  const [loading, setLoading] = useState(false);
+  const [formData, setFormData] = useState(emptyFormData);
+  const [resume, setResume] = useState(null);
+  const [toast, setToast] = useState(null);
 
-  const [bookmarks, setBookmarks] =
-    useState([]);
+  const selectClass =
+    "px-5 py-4 rounded-2xl border border-[color:var(--border)] bg-[color:var(--surface)] text-sm font-medium text-[color:var(--text-primary)] outline-none backdrop-blur-xl transition focus:border-cyan-400/60";
 
-  const [filters, setFilters] =
-    useState({
-      department: "All",
-      mode: "All",
-      experience: "All",
-    });
+  const pillClass =
+    "flex items-center gap-2 px-4 py-3 rounded-2xl bg-[color:var(--surface-strong)] text-sm text-[color:var(--text-secondary)]";
 
-  /* =========================================================
-     FILTER
-  ========================================================= */
+  const inputClass =
+    "w-full rounded-2xl border border-[color:var(--border)] bg-[color:var(--surface-strong)] px-4 py-4 text-[color:var(--text-primary)] outline-none transition placeholder:text-[color:var(--text-muted)] focus:border-cyan-400 focus:bg-[color:var(--surface)]";
+
+  const toastClass =
+    toast?.type === "success"
+      ? isDark
+        ? "border-emerald-400/30 bg-emerald-950/95 text-emerald-100"
+        : "border-emerald-200 bg-emerald-50/95 text-emerald-900"
+      : isDark
+        ? "border-rose-400/30 bg-rose-950/95 text-rose-100"
+        : "border-rose-200 bg-rose-50/95 text-rose-900";
+
+  useEffect(() => {
+    if (!toast) {
+      return undefined;
+    }
+
+    const timer = setTimeout(() => {
+      setToast(null);
+    }, 3500);
+
+    return () => clearTimeout(timer);
+  }, [toast]);
 
   const filteredJobs = useMemo(() => {
     return jobs.filter((job) => {
       const departmentMatch =
         filters.department === "All" ||
-        job.department ===
-          filters.department;
+        job.department === filters.department;
 
       const modeMatch =
-        filters.mode === "All" ||
-        job.mode === filters.mode;
+        filters.mode === "All" || job.mode === filters.mode;
 
       const experienceMatch =
         filters.experience === "All" ||
-        job.experience.includes(
-          filters.experience
-        );
+        job.experience.includes(filters.experience);
 
-      return (
-        departmentMatch &&
-        modeMatch &&
-        experienceMatch
-      );
+      return departmentMatch && modeMatch && experienceMatch;
     });
   }, [filters]);
-
-  /* =========================================================
-     BOOKMARK
-  ========================================================= */
 
   const handleBookmark = (id) => {
     setBookmarks((prev) =>
@@ -173,21 +202,118 @@ const OpenPositions = () => {
     );
   };
 
+  const handleOpenApply = (job) => {
+    setSelectedJob(job);
+    setFormData(emptyFormData);
+    setResume(null);
+    setToast(null);
+    setOpenModal(true);
+  };
+
+  const handleCloseModal = () => {
+    if (loading) {
+      return;
+    }
+
+    setOpenModal(false);
+    setSelectedJob(null);
+    setFormData(emptyFormData);
+    setResume(null);
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    if (!selectedJob) {
+      return;
+    }
+
+    try {
+      setLoading(true);
+      setToast(null);
+
+      const data = new FormData();
+
+      data.append("fullName", formData.fullName.trim());
+      data.append("email", formData.email.trim());
+      data.append("phone", formData.phone.trim());
+      data.append("course", formData.course.trim());
+      data.append("branch", formData.branch.trim());
+      data.append("role", selectedJob.role);
+
+      if (resume) {
+        data.append("resume", resume);
+      }
+
+      const response = await axios.post(
+        `${API_URL}/api/careers/apply`,
+        data,
+        {
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
+        }
+      );
+
+      setToast({
+        type: "success",
+        message:
+          response?.data?.message ||
+          "Application submitted successfully",
+      });
+
+      setOpenModal(false);
+      setSelectedJob(null);
+      setFormData(emptyFormData);
+      setResume(null);
+    } catch (error) {
+      console.error("API Error:", error);
+      console.error("Response:", error.response?.data);
+
+      setToast({
+        type: "error",
+        message:
+          error?.response?.data?.message ||
+          error?.message ||
+          "Application Failed",
+      });
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const handleResumeChange = (e) => {
+    const file = e.target.files?.[0] || null;
+
+    if (!file) {
+      setResume(null);
+      return;
+    }
+
+    if (file.type !== "application/pdf") {
+      setToast({
+        type: "error",
+        message: "Please upload a PDF resume only.",
+      });
+      e.target.value = "";
+      setResume(null);
+      return;
+    }
+
+    setResume(file);
+  };
+
   return (
     <section
       className="
       relative
       overflow-hidden
 
-      bg-[#F5F7FB]
+      bg-[color:var(--page-bg)]
 
       py-32
     "
     >
-      {/* =========================================================
-          GRID
-      ========================================================= */}
-
       <div
         className="
         absolute
@@ -195,15 +321,12 @@ const OpenPositions = () => {
 
         opacity-[0.04]
 
-        [background-image:linear-gradient(to_right,#0f172a_1px,transparent_1px),linear-gradient(to_bottom,#0f172a_1px,transparent_1px)]
+        [background-image:linear-gradient(to_right,rgba(15,23,42,0.18)_1px,transparent_1px),linear-gradient(to_bottom,rgba(15,23,42,0.18)_1px,transparent_1px)]
+        [data-theme=dark]:[background-image:linear-gradient(to_right,rgba(226,232,240,0.16)_1px,transparent_1px),linear-gradient(to_bottom,rgba(226,232,240,0.16)_1px,transparent_1px)]
 
         [background-size:80px_80px]
       "
       />
-
-      {/* =========================================================
-          BLUR
-      ========================================================= */}
 
       <div
         className="
@@ -222,10 +345,6 @@ const OpenPositions = () => {
       "
       />
 
-      {/* =========================================================
-          CONTAINER
-      ========================================================= */}
-
       <div
         className="
         relative
@@ -237,10 +356,6 @@ const OpenPositions = () => {
         px-6
       "
       >
-        {/* =========================================================
-            TOP CONTENT
-        ========================================================= */}
-
         <div
           className="
           flex
@@ -253,11 +368,7 @@ const OpenPositions = () => {
           gap-10
         "
         >
-          {/* LEFT */}
-
           <div className="max-w-3xl">
-            {/* TAG */}
-
             <div
               className="
               inline-flex
@@ -275,6 +386,7 @@ const OpenPositions = () => {
               bg-cyan-500/10
 
               text-cyan-700
+              [data-theme=dark]:text-cyan-200
               text-sm
               font-semibold
 
@@ -286,8 +398,6 @@ const OpenPositions = () => {
               Join Our Team
             </div>
 
-            {/* HEADING */}
-
             <h2
               className="
               text-5xl
@@ -297,7 +407,7 @@ const OpenPositions = () => {
 
               leading-[1.05]
 
-              text-white
+              text-[color:var(--text-primary)]
             "
             >
               Open
@@ -316,8 +426,6 @@ const OpenPositions = () => {
               </span>
             </h2>
 
-            {/* DESC */}
-
             <p
               className="
               mt-8
@@ -325,17 +433,12 @@ const OpenPositions = () => {
               text-lg
               leading-relaxed
 
-              text-white/80
+              text-[color:var(--text-secondary)]
             "
             >
-              Work with elite engineers,
-              designers, and AI specialists
-              building next-generation
-              digital systems worldwide.
+              Work with elite engineers, designers, and AI specialists building next-generation digital systems worldwide.
             </p>
           </div>
-
-          {/* RIGHT */}
 
           <div
             className="
@@ -345,44 +448,22 @@ const OpenPositions = () => {
             gap-4
           "
           >
-            {/* FILTER */}
-
             <select
               onChange={(e) =>
                 setFilters({
                   ...filters,
-                  department:
-                    e.target.value,
+                  department: e.target.value,
                 })
               }
-              className="
-              px-5
-              py-4
-
-              rounded-2xl
-
-              border
-              border-black/5
-
-              bg-white/70
-              backdrop-blur-xl
-
-              text-sm
-              font-medium
-
-              outline-none
-            "
+              className={selectClass}
             >
               <option>All</option>
+              <option>Sales & Growth</option>
+              <option>Engineering / Tech</option>
               <option>Engineering</option>
-              <option>AI</option>
+              <option>Mobile Engineering</option>
               <option>Design</option>
-              <option>
-                Infrastructure
-              </option>
             </select>
-
-            {/* MODE */}
 
             <select
               onChange={(e) =>
@@ -391,68 +472,29 @@ const OpenPositions = () => {
                   mode: e.target.value,
                 })
               }
-              className="
-              px-5
-              py-4
-
-              rounded-2xl
-
-              border
-              border-black/5
-
-              bg-white/70
-              backdrop-blur-xl
-
-              text-sm
-              font-medium
-
-              outline-none
-            "
+              className={selectClass}
             >
               <option>All</option>
               <option>Remote</option>
               <option>Hybrid</option>
             </select>
 
-            {/* EXPERIENCE */}
-
             <select
               onChange={(e) =>
                 setFilters({
                   ...filters,
-                  experience:
-                    e.target.value,
+                  experience: e.target.value,
                 })
               }
-              className="
-              px-5
-              py-4
-
-              rounded-2xl
-
-              border
-              border-black/5
-
-              bg-white/70
-              backdrop-blur-xl
-
-              text-sm
-              font-medium
-
-              outline-none
-            "
+              className={selectClass}
             >
               <option>All</option>
-              <option>3+</option>
-              <option>4+</option>
-              <option>5+</option>
+              <option>0+</option>
+              <option>Freshers</option>
+              <option>Experienced</option>
             </select>
           </div>
         </div>
-
-        {/* =========================================================
-            JOB GRID
-        ========================================================= */}
 
         <div
           className="
@@ -493,9 +535,9 @@ const OpenPositions = () => {
               rounded-[32px]
 
               border
-              border-white/60
+              border-[color:var(--border)]
 
-              bg-white/65
+              bg-[color:var(--surface)]
               backdrop-blur-3xl
 
               shadow-[0_20px_80px_rgba(15,23,42,0.08)]
@@ -504,10 +546,6 @@ const OpenPositions = () => {
               duration-500
             "
             >
-              {/* =========================================================
-                  GLOW
-              ========================================================= */}
-
               <div
                 className="
                 absolute
@@ -523,10 +561,6 @@ const OpenPositions = () => {
                 group-hover:opacity-100
               "
               />
-
-              {/* =========================================================
-                  BORDER GLOW
-              ========================================================= */}
 
               <div
                 className="
@@ -546,10 +580,6 @@ const OpenPositions = () => {
               "
               />
 
-              {/* =========================================================
-                  CONTENT
-              ========================================================= */}
-
               <div
                 className="
                 relative
@@ -558,8 +588,6 @@ const OpenPositions = () => {
                 p-8
               "
               >
-                {/* TOP */}
-
                 <div
                   className="
                   flex
@@ -569,23 +597,17 @@ const OpenPositions = () => {
                   gap-5
                 "
                 >
-                  {/* LEFT */}
-
                   <div>
-                    {/* ROLE */}
-
                     <h3
                       className="
                       text-3xl
                       font-bold
 
-                      text-white
+                      text-[color:var(--text-primary)]
                     "
                     >
                       {job.role}
                     </h3>
-
-                    {/* DEPARTMENT */}
 
                     <div
                       className="
@@ -603,6 +625,7 @@ const OpenPositions = () => {
                       bg-cyan-500/10
 
                       text-cyan-700
+                      [data-theme=dark]:text-cyan-200
                       text-sm
                       font-semibold
                     "
@@ -613,14 +636,8 @@ const OpenPositions = () => {
                     </div>
                   </div>
 
-                  {/* BOOKMARK */}
-
                   <button
-                    onClick={() =>
-                      handleBookmark(
-                        job.id
-                      )
-                    }
+                    onClick={() => handleBookmark(job.id)}
                     className={`
                       w-12
                       h-12
@@ -635,29 +652,21 @@ const OpenPositions = () => {
                       duration-300
 
                       ${
-                        bookmarks.includes(
-                          job.id
-                        )
+                        bookmarks.includes(job.id)
                           ? `
                             bg-cyan-500
                             text-white
                           `
                           : `
-                            bg-black/[0.04]
-                            text-white
+                            bg-[color:var(--surface-strong)]
+                            text-[color:var(--text-primary)]
                           `
                       }
                     `}
                   >
-                    <Bookmark
-                      size={20}
-                    />
+                    <Bookmark size={20} />
                   </button>
                 </div>
-
-                {/* =========================================================
-                    INFO
-                ========================================================= */}
 
                 <div
                   className="
@@ -669,110 +678,26 @@ const OpenPositions = () => {
                   gap-4
                 "
                 >
-                  {/* LOCATION */}
-
-                  <div
-                    className="
-                    flex
-                    items-center
-                    gap-2
-
-                    px-4
-                    py-3
-
-                    rounded-2xl
-
-                    bg-black/[0.03]
-
-                    text-sm
-                    text-white/85
-                  "
-                  >
+                  <div className={pillClass}>
                     <MapPin size={16} />
-
                     {job.location}
                   </div>
 
-                  {/* MODE */}
-
-                  <div
-                    className="
-                    flex
-                    items-center
-                    gap-2
-
-                    px-4
-                    py-3
-
-                    rounded-2xl
-
-                    bg-black/[0.03]
-
-                    text-sm
-                    text-white/85
-                  "
-                  >
+                  <div className={pillClass}>
                     <Laptop size={16} />
-
                     {job.mode}
                   </div>
 
-                  {/* SALARY */}
-
-                  <div
-                    className="
-                    flex
-                    items-center
-                    gap-2
-
-                    px-4
-                    py-3
-
-                    rounded-2xl
-
-                    bg-black/[0.03]
-
-                    text-sm
-                    text-white/85
-                  "
-                  >
-                    <DollarSign
-                      size={16}
-                    />
-
+                  <div className={pillClass}>
+                    <DollarSign size={16} />
                     {job.salary}
                   </div>
 
-                  {/* EXPERIENCE */}
-
-                  <div
-                    className="
-                    flex
-                    items-center
-                    gap-2
-
-                    px-4
-                    py-3
-
-                    rounded-2xl
-
-                    bg-black/[0.03]
-
-                    text-sm
-                    text-white/85
-                  "
-                  >
-                    <BriefcaseBusiness
-                      size={16}
-                    />
-
+                  <div className={pillClass}>
+                    <BriefcaseBusiness size={16} />
                     {job.experience}
                   </div>
                 </div>
-
-                {/* =========================================================
-                    TECH STACK
-                ========================================================= */}
 
                 <div
                   className="
@@ -784,39 +709,31 @@ const OpenPositions = () => {
                   gap-3
                 "
                 >
-                  {job.tech.map(
-                    (
-                      tech,
-                      techIndex
-                    ) => (
-                      <div
-                        key={techIndex}
-                        className="
-                        px-4
-                        py-2
+                  {job.tech.map((tech, techIndex) => (
+                    <div
+                      key={techIndex}
+                      className="
+                      px-4
+                      py-2
 
-                        rounded-full
+                      rounded-full
 
-                        border
-                        border-cyan-500/10
+                      border
+                      border-cyan-500/10
 
-                        bg-cyan-500/5
+                      bg-cyan-500/5
 
-                        text-sm
-                        font-medium
+                      text-sm
+                      font-medium
 
-                        text-cyan-700
-                      "
-                      >
-                        {tech}
-                      </div>
-                    )
-                  )}
+                      text-cyan-700
+                      [data-theme=dark]:text-cyan-200
+                    "
+                    >
+                      {tech}
+                    </div>
+                  ))}
                 </div>
-
-                {/* =========================================================
-                    FOOTER
-                ========================================================= */}
 
                 <div
                   className="
@@ -832,8 +749,6 @@ const OpenPositions = () => {
                   gap-6
                 "
                 >
-                  {/* POSTED */}
-
                   <div
                     className="
                     flex
@@ -841,17 +756,12 @@ const OpenPositions = () => {
                     gap-2
 
                     text-sm
-                    text-white/70
+                    text-[color:var(--text-muted)]
                   "
                   >
-                    <Clock3
-                      size={16}
-                    />
-
+                    <Clock3 size={16} />
                     Posted {job.posted}
                   </div>
-
-                  {/* BUTTONS */}
 
                   <div
                     className="
@@ -861,15 +771,10 @@ const OpenPositions = () => {
                     gap-4
                   "
                   >
-                    {/* DETAILS */}
-
                     <button
                       onClick={() =>
                         setActiveId(
-                          activeId ===
-                            job.id
-                            ? null
-                            : job.id
+                          activeId === job.id ? null : job.id
                         )
                       }
                       className="
@@ -882,11 +787,11 @@ const OpenPositions = () => {
 
                       rounded-2xl
 
-                      bg-black/[0.04]
+                      bg-[color:var(--surface-strong)]
 
                       font-semibold
 
-                      text-white
+                      text-[color:var(--text-primary)]
 
                       hover:bg-cyan-500/10
 
@@ -898,22 +803,15 @@ const OpenPositions = () => {
 
                       <motion.div
                         animate={{
-                          rotate:
-                            activeId ===
-                            job.id
-                              ? 180
-                              : 0,
+                          rotate: activeId === job.id ? 180 : 0,
                         }}
                       >
-                        <ChevronDown
-                          size={18}
-                        />
+                        <ChevronDown size={18} />
                       </motion.div>
                     </button>
 
-                    {/* APPLY */}
-
                     <button
+                      onClick={() => handleOpenApply(job)}
                       className="
                       group
 
@@ -937,18 +835,13 @@ const OpenPositions = () => {
                       duration-300
                     "
                     >
-                      Quick Apply
+                      Apply
                     </button>
                   </div>
                 </div>
 
-                {/* =========================================================
-                    EXPANDABLE DETAILS
-                ========================================================= */}
-
                 <AnimatePresence>
-                  {activeId ===
-                    job.id && (
+                  {activeId === job.id && (
                     <motion.div
                       initial={{
                         opacity: 0,
@@ -975,21 +868,17 @@ const OpenPositions = () => {
                         pt-8
 
                         border-t
-                        border-black/5
+                        border-[color:var(--border)]
                       "
                       >
                         <p
                           className="
-                          text-white/80
+                          text-[color:var(--text-secondary)]
                           leading-relaxed
                         "
                         >
-                          {
-                            job.description
-                          }
+                          {job.description}
                         </p>
-
-                        {/* EXTRA */}
 
                         <div
                           className="
@@ -1008,9 +897,10 @@ const OpenPositions = () => {
 
                             rounded-full
 
-                            bg-green-500/10
+                            bg-emerald-500/10
 
-                            text-green-700
+                            text-emerald-700
+                            [data-theme=dark]:text-emerald-200
                             text-sm
                             font-medium
                           "
@@ -1028,6 +918,7 @@ const OpenPositions = () => {
                             bg-blue-500/10
 
                             text-blue-700
+                            [data-theme=dark]:text-blue-200
                             text-sm
                             font-medium
                           "
@@ -1045,6 +936,7 @@ const OpenPositions = () => {
                             bg-cyan-500/10
 
                             text-cyan-700
+                            [data-theme=dark]:text-cyan-200
                             text-sm
                             font-medium
                           "
@@ -1061,6 +953,280 @@ const OpenPositions = () => {
           ))}
         </div>
       </div>
+
+      <AnimatePresence>
+        {toast && (
+          <motion.div
+            initial={{
+              opacity: 0,
+              y: 18,
+              scale: 0.96,
+            }}
+            animate={{
+              opacity: 1,
+              y: 0,
+              scale: 1,
+            }}
+            exit={{
+              opacity: 0,
+              y: 12,
+              scale: 0.96,
+            }}
+            className={`
+              fixed
+              top-6
+              right-6
+              z-[10000]
+
+              w-[calc(100vw-2rem)]
+              max-w-md
+
+              rounded-2xl
+              border
+              shadow-[0_20px_60px_rgba(15,23,42,0.18)]
+              backdrop-blur-xl
+              px-5
+              py-4
+
+              ${toastClass}
+            `}
+          >
+            <div className="flex items-start gap-3">
+              {toast.type === "success" ? (
+                <CheckCircle2 className="mt-0.5" size={20} />
+              ) : (
+                <AlertCircle className="mt-0.5" size={20} />
+              )}
+
+              <div className="flex-1">
+                <p className="font-semibold">
+                  {toast.type === "success"
+                    ? "Success"
+                    : "Something went wrong"}
+                </p>
+
+                <p className="mt-1 text-sm leading-relaxed opacity-90">
+                  {toast.message}
+                </p>
+              </div>
+
+              <button
+                type="button"
+                onClick={() => setToast(null)}
+                className="rounded-full p-1 transition hover:bg-black/5 dark:hover:bg-white/10"
+                aria-label="Close notification"
+              >
+                <X size={16} />
+              </button>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      <AnimatePresence>
+        {openModal && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={handleCloseModal}
+            className="
+              fixed
+              inset-0
+              z-[9999]
+              flex
+              items-center
+              justify-center
+              bg-slate-950/75
+              p-4
+              backdrop-blur-sm
+            "
+          >
+            <motion.div
+              initial={{
+                scale: 0.96,
+                opacity: 0,
+                y: 18,
+              }}
+              animate={{
+                scale: 1,
+                opacity: 1,
+                y: 0,
+              }}
+              exit={{
+                scale: 0.96,
+                opacity: 0,
+                y: 18,
+              }}
+              transition={{ duration: 0.25 }}
+              onClick={(e) => e.stopPropagation()}
+              className="
+                w-full
+                max-w-2xl
+                overflow-hidden
+                rounded-[32px]
+                border
+                border-[color:var(--border)]
+                bg-[color:var(--surface)]
+                shadow-[0_30px_120px_rgba(15,23,42,0.25)]
+              "
+            >
+              <div className="bg-gradient-to-r from-cyan-500 to-blue-500 px-8 py-6 text-white">
+                <div className="flex items-start justify-between gap-6">
+                  <div>
+                    <p className="text-sm font-semibold uppercase tracking-[0.2em] text-white/80">
+                      Quick Apply
+                    </p>
+
+                    <h2 className="mt-2 text-3xl font-black leading-tight">
+                      Apply for{" "}
+                      <span className="text-white/90">
+                        {selectedJob?.role}
+                      </span>
+                    </h2>
+                  </div>
+
+                  <button
+                    type="button"
+                    onClick={handleCloseModal}
+                    disabled={loading}
+                    className="rounded-full bg-white/15 p-2 transition hover:bg-white/25 disabled:cursor-not-allowed disabled:opacity-60"
+                    aria-label="Close modal"
+                  >
+                    <X size={18} />
+                  </button>
+                </div>
+              </div>
+
+              <form
+                onSubmit={handleSubmit}
+                className="space-y-4 px-8 py-8"
+              >
+                <div className="grid gap-4 md:grid-cols-2">
+                  <input
+                    type="text"
+                    required
+                    placeholder="Full Name"
+                    className={inputClass}
+                    value={formData.fullName}
+                    onChange={(e) =>
+                      setFormData({
+                        ...formData,
+                        fullName: e.target.value,
+                      })
+                    }
+                  />
+
+                  <input
+                    type="email"
+                    required
+                    placeholder="Email"
+                    className={inputClass}
+                    value={formData.email}
+                    onChange={(e) =>
+                      setFormData({
+                        ...formData,
+                        email: e.target.value,
+                      })
+                    }
+                  />
+
+                  <input
+                    type="text"
+                    required
+                    placeholder="Phone Number"
+                    className={inputClass}
+                    value={formData.phone}
+                    onChange={(e) =>
+                      setFormData({
+                        ...formData,
+                        phone: e.target.value,
+                      })
+                    }
+                  />
+
+                  <input
+                    type="text"
+                    required
+                    placeholder="Course"
+                    className={inputClass}
+                    value={formData.course}
+                    onChange={(e) =>
+                      setFormData({
+                        ...formData,
+                        course: e.target.value,
+                      })
+                    }
+                  />
+                </div>
+
+                <input
+                  type="text"
+                  required
+                  placeholder="Branch"
+                  className={inputClass}
+                  value={formData.branch}
+                  onChange={(e) =>
+                    setFormData({
+                      ...formData,
+                      branch: e.target.value,
+                    })
+                  }
+                />
+
+                <div className="rounded-2xl border border-dashed border-[color:var(--border)] bg-[color:var(--surface-strong)] px-4 py-4">
+                  <label className="mb-2 block text-sm font-semibold text-[color:var(--text-primary)]">
+                    Resume PDF
+                  </label>
+
+                  <input
+                    type="file"
+                    accept=".pdf,application/pdf"
+                    required
+                    className="block w-full cursor-pointer rounded-xl border border-[color:var(--border)] bg-[color:var(--surface)] px-4 py-3 text-sm text-[color:var(--text-secondary)] file:mr-4 file:rounded-full file:border-0 file:bg-cyan-500 file:px-4 file:py-2 file:text-sm file:font-semibold file:text-white hover:file:bg-cyan-600"
+                    onChange={handleResumeChange}
+                  />
+
+                  <p className="mt-2 text-xs text-[color:var(--text-muted)]">
+                    PDF only, max 5 MB.
+                    {resume ? (
+                      <span className="ml-2 font-semibold text-[color:var(--text-primary)]">
+                        Selected: {resume.name}
+                      </span>
+                    ) : null}
+                  </p>
+                </div>
+
+                <div className="flex flex-col-reverse gap-3 pt-2 sm:flex-row sm:items-center sm:justify-end">
+                  <button
+                    type="button"
+                    onClick={handleCloseModal}
+                    disabled={loading}
+                    className="rounded-2xl border border-[color:var(--border)] bg-[color:var(--surface-strong)] px-6 py-3 font-semibold text-[color:var(--text-primary)] transition hover:bg-black/[0.03] dark:hover:bg-white/[0.06] disabled:cursor-not-allowed disabled:opacity-60"
+                  >
+                    Cancel
+                  </button>
+
+                  <button
+                    type="submit"
+                    disabled={loading}
+                    className="inline-flex items-center justify-center gap-2 rounded-2xl bg-gradient-to-r from-cyan-500 to-blue-500 px-6 py-3 font-semibold text-white shadow-[0_12px_40px_rgba(6,182,212,0.3)] transition hover:scale-[1.02] disabled:cursor-not-allowed disabled:opacity-70 disabled:hover:scale-100"
+                  >
+                    {loading ? (
+                      <>
+                        <Loader2 size={18} className="animate-spin" />
+                        Submitting...
+                      </>
+                    ) : (
+                      "Submit Application"
+                    )}
+                  </button>
+                </div>
+              </form>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </section>
   );
 };
