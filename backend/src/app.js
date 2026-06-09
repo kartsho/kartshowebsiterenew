@@ -33,6 +33,7 @@ const allowedOrigins = [
   process.env.CLIENT_URL,
   "https://kartsho.com",
   "https://www.kartsho.com",
+  "https://api.kartsho.com",
   "http://localhost:5173",
   "http://localhost:5174",
   "http://localhost:3000",

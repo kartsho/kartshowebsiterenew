@@ -2,6 +2,7 @@ const mongoose = require("mongoose");
 
 const connectionDB = async () => {
   const mongoUri =
+    process.env.MONGODB_URI ||
     process.env.MONGODB_URL ||
     process.env.MONGO_URI;
 
