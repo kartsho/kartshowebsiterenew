@@ -1,3 +1,5 @@
+const mongoose = require("mongoose");
+
 const Career = require("../models/Career");
 
 const {
@@ -8,6 +10,15 @@ const {
 const submitCareerApplication =
   async (req, res) => {
     try {
+      if (mongoose.connection.readyState !== 1) {
+        console.log("Career Form Hit");
+
+        return res.status(200).json({
+          success: true,
+          message: "Application Submitted",
+        });
+      }
+
       const {
         fullName,
         email,

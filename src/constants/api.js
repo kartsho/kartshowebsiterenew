@@ -1,11 +1,8 @@
-const API_URL =
-  import.meta.env.VITE_API_URL?.replace(/\/$/, "") ||
-  "";
-
-if (!API_URL && import.meta.env.PROD) {
-  console.warn(
-    "VITE_API_URL is not set. Production API requests will fail until it is configured."
-  );
-}
+const API_URL = (
+  import.meta.env.VITE_API_URL ||
+  (import.meta.env.PROD
+    ? "https://kartsho.com"
+    : "http://localhost:5000")
+).replace(/\/$/, "");
 
 export default API_URL;

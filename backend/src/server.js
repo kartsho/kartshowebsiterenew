@@ -21,7 +21,17 @@ const startServer = async () => {
     Connect Database
     ============================
     */
-    await connectDB();
+    try {
+      await connectDB();
+    } catch (dbError) {
+      console.warn(`
+=================================
+⚠️ Database connection failed
+${dbError.message}
+Starting API server anyway so /api/test and demo routes stay available.
+=================================
+      `);
+    }
 
     /*
     ============================

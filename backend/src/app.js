@@ -4,7 +4,7 @@ const helmet = require("helmet");
 const morgan = require("morgan");
 const path = require("path");
 
-const careerRoutes = require("./routes/career.routes");
+const careerRoutes = require("./routes/careerRoutes");
 
 const app = express();
 
@@ -125,6 +125,13 @@ app.get("/", (req, res) => {
     success: true,
     message:
       "Kartsho Career Backend Running 🚀",
+  });
+});
+
+app.get("/api/test", (req, res) => {
+  return res.status(200).json({
+    success: true,
+    message: "Backend Working",
   });
 });
 
