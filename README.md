@@ -17,14 +17,14 @@ React + Vite frontend for the Kartsho site.
 ## Production
 
 - `npm run build`
-- Deploy the generated `dist/` folder
-- On Hostinger, either publish the root `dist/` output, or keep the app rooted at `./` and let the root [`.htaccess`](./.htaccess) rewrite requests into `dist/`.
+- Build output is copied into the repository root automatically after every build.
+- On Hostinger, keep the app rooted at `./` and publish the repository root.
 
 ## Deployment Notes
 
 - Live layout and asset-path fixes were published in commit `6fee29d`.
-- Hostinger needs the built `dist/` output, not just the source files.
-- If the platform forces the root directory to `./`, the repository root `.htaccess` now routes the app and assets from `dist/`.
+- Hostinger needs the built output, not just the source files.
+- The build now publishes `dist/` contents into the repository root so `./` deployments always show the latest site.
 - The app uses SPA routing, so the deployed server must rewrite all routes to `index.html`.
 - Static assets like `noise.svg`, PDFs, and the favicon are now base-aware so they work under live hosting too.
 - If you see a `frontend/` build path in logs, switch it back to the repository root. The root build is the deploy step, and it syncs `frontend/` automatically first.

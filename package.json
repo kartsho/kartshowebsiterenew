@@ -9,6 +9,7 @@
     "dev": "vite",
     "prebuild": "node scripts/sync-frontend.mjs",
     "build": "vite build",
+    "postbuild": "node scripts/publish-dist-to-root.mjs",
     "build:hostinger": "npm run build",
     "deploy": "npm run build",
     "lint": "eslint .",
