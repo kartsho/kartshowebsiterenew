@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { useTheme } from "../../../context/ThemeContext";
 
 import {
   Camera,
@@ -76,32 +77,36 @@ const galleryItems = [
 ];
 
 const LifeAtCompany = () => {
+  const { isDark } = useTheme();
+
+  const sectionBgClass = isDark
+    ? "bg-[#070b14]"
+    : "bg-[#f5f7fb]";
+
+  const gridClass = isDark
+    ? "[background-image:linear-gradient(to_right,rgba(226,232,240,0.16)_1px,transparent_1px),linear-gradient(to_bottom,rgba(226,232,240,0.16)_1px,transparent_1px)]"
+    : "[background-image:linear-gradient(to_right,rgba(15,23,42,0.08)_1px,transparent_1px),linear-gradient(to_bottom,rgba(15,23,42,0.08)_1px,transparent_1px)]";
+
+  const tagClass = isDark
+    ? "border-white/10 bg-white/5 text-cyan-300 shadow-[0_10px_40px_rgba(6,182,212,0.08)]"
+    : "border-[color:var(--border)] bg-[color:var(--surface)] text-cyan-700 shadow-[0_10px_40px_rgba(15,23,42,0.06)]";
+
+  const headingClass = isDark
+    ? "text-white"
+    : "text-[color:var(--text-primary)]";
+
+  const descriptionClass = isDark
+    ? "text-white/80"
+    : "text-[color:var(--text-secondary)]";
+
   return (
-    <section
-      className="
-      relative
-      overflow-hidden
-
-      bg-[#F5F7FB]
-
-      py-32
-    "
-    >
+    <section className={`relative overflow-hidden py-32 ${sectionBgClass}`}>
       {/* ======================================================= */}
       {/* GRID */}
       {/* ======================================================= */}
 
       <div
-        className="
-        absolute
-        inset-0
-
-        opacity-[0.04]
-
-        [background-image:linear-gradient(to_right,#0f172a_1px,transparent_1px),linear-gradient(to_bottom,#0f172a_1px,transparent_1px)]
-
-        [background-size:70px_70px]
-      "
+        className={`absolute inset-0 opacity-[0.04] ${gridClass} [background-size:70px_70px]`}
       />
 
       {/* ======================================================= */}
@@ -186,30 +191,7 @@ const LifeAtCompany = () => {
           {/* TAG */}
 
           <div
-            className="
-            inline-flex
-            items-center
-            gap-2
-
-            px-5
-            py-3
-
-            rounded-full
-
-            border
-            border-cyan-500/20
-
-            bg-white/70
-            backdrop-blur-xl
-
-            text-cyan-600
-            text-sm
-            font-semibold
-
-            shadow-[0_10px_40px_rgba(6,182,212,0.08)]
-
-            mb-8
-          "
+            className={`inline-flex items-center gap-2 rounded-full border px-5 py-3 text-sm font-semibold backdrop-blur-xl mb-8 ${tagClass}`}
           >
             <Sparkles size={16} />
 
@@ -219,17 +201,7 @@ const LifeAtCompany = () => {
           {/* HEADING */}
 
           <h2
-            className="
-            text-4xl
-            sm:text-5xl
-            lg:text-6xl
-
-            font-black
-
-            leading-tight
-
-            text-white
-          "
+            className={`text-4xl sm:text-5xl lg:text-6xl font-black leading-tight ${headingClass}`}
           >
             Inside The
             <span
@@ -250,16 +222,7 @@ const LifeAtCompany = () => {
 
           {/* DESCRIPTION */}
 
-          <p
-            className="
-            mt-8
-
-            text-lg
-            leading-relaxed
-
-            text-white/80
-          "
-          >
+          <p className={`mt-8 text-lg leading-relaxed ${descriptionClass}`}>
             We move fast, build bold,
             experiment constantly, and
             collaborate globally —

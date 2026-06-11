@@ -1223,7 +1223,7 @@ const OpenPositions = () => {
               <button
                 type="button"
                 onClick={() => setToast(null)}
-                className="rounded-full p-1 transition hover:bg-black/5 dark:hover:bg-white/10"
+                className="rounded-full p-1 transition hover:bg-black/5 [data-theme=dark]:hover:bg-white/10"
                 aria-label="Close notification"
               >
                 <X size={16} />
@@ -1412,7 +1412,7 @@ const OpenPositions = () => {
                     type="button"
                     onClick={handleCloseModal}
                     disabled={loading}
-                    className="rounded-2xl border border-[color:var(--border)] bg-[color:var(--surface-strong)] px-6 py-3 font-semibold text-[color:var(--text-primary)] transition hover:bg-black/[0.03] dark:hover:bg-white/[0.06] disabled:cursor-not-allowed disabled:opacity-60"
+                    className="rounded-2xl border border-[color:var(--border)] bg-[color:var(--surface-strong)] px-6 py-3 font-semibold text-[color:var(--text-primary)] transition hover:bg-black/[0.03] [data-theme=dark]:hover:bg-white/[0.06] disabled:cursor-not-allowed disabled:opacity-60"
                   >
                     Cancel
                   </button>

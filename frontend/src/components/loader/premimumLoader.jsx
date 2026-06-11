@@ -1,8 +1,35 @@
 import { motion } from "framer-motion";
 
+import { useTheme } from "../../context/ThemeContext";
 import logo from "../../assets/logos/Kartsho K.png";
 
 const PremiumLoader = () => {
+  const { isDark } = useTheme();
+
+  const titleClass = isDark
+    ? "text-white"
+    : "text-[color:var(--text-primary)]";
+
+  const subtitleClass = isDark
+    ? "text-gray-400"
+    : "text-[color:var(--text-secondary)]";
+
+  const messageClass = isDark
+    ? "text-cyan-300"
+    : "text-cyan-700";
+
+  const cardClass = isDark
+    ? "border-cyan-400/30 bg-white/5 shadow-[0_0_80px_rgba(6,182,212,0.18)]"
+    : "border-cyan-500/15 bg-white/70 shadow-[0_0_80px_rgba(15,23,42,0.08)]";
+
+  const ringClass = isDark
+    ? "border-cyan-400/30"
+    : "border-cyan-500/20";
+
+  const progressClass = isDark
+    ? "bg-white/10"
+    : "bg-black/[0.04]";
+
   return (
     <div
       className="
@@ -98,25 +125,12 @@ const PremiumLoader = () => {
             animate={{
               rotate: 360,
             }}
-            transition={{
-              repeat: Infinity,
-              duration: 7,
-              ease: "linear",
-            }}
-            className="
-            absolute
-            inset-0
-
-            rounded-[42px]
-
-            border
-            border-cyan-400/30
-
-            bg-white/5
-            backdrop-blur-3xl
-
-            shadow-[0_0_80px_rgba(6,182,212,0.18)]
-          "
+          transition={{
+            repeat: Infinity,
+            duration: 7,
+            ease: "linear",
+          }}
+            className={`absolute inset-0 rounded-[42px] border backdrop-blur-3xl ${cardClass}`}
           />
 
           {/* INNER ROTATING RING */}
@@ -130,17 +144,7 @@ const PremiumLoader = () => {
               duration: 4,
               ease: "linear",
             }}
-            className="
-            absolute
-
-            inset-4
-
-            rounded-[34px]
-
-            border-2
-            border-dashed
-            border-cyan-400/30
-          "
+            className={`absolute inset-4 rounded-[34px] border-2 border-dashed ${ringClass}`}
           />
 
           {/* STATIC LOGO */}
@@ -188,14 +192,7 @@ const PremiumLoader = () => {
           transition={{
             duration: 0.7,
           }}
-          className="
-          mt-10
-          text-5xl
-          md:text-6xl
-          font-black
-          tracking-[0.25em]
-          text-white
-        "
+          className={`mt-10 text-5xl md:text-6xl font-black tracking-[0.25em] ${titleClass}`}
         >
           KARTSHO
         </motion.h1>
@@ -213,14 +210,7 @@ const PremiumLoader = () => {
             delay: 0.5,
             duration: 0.7,
           }}
-          className="
-          mt-4
-          text-gray-400
-          text-sm
-          md:text-base
-          tracking-[0.35em]
-          uppercase
-        "
+          className={`mt-4 text-sm md:text-base tracking-[0.35em] uppercase ${subtitleClass}`}
         >
           Engineering Digital Systems
         </motion.p>
@@ -228,15 +218,7 @@ const PremiumLoader = () => {
         {/* ================= AI BAR ================= */}
 
         <div
-          className="
-          relative
-          mt-12
-          w-[320px]
-          h-[7px]
-          rounded-full
-          overflow-hidden
-          bg-white/10
-        "
+          className={`relative mt-12 h-[7px] w-[320px] overflow-hidden rounded-full ${progressClass}`}
         >
           {/* MOVING LIGHT */}
 
@@ -305,13 +287,7 @@ const PremiumLoader = () => {
             repeat: Infinity,
             duration: 1.1,
           }}
-          className="
-          mt-6
-          text-cyan-300
-          text-sm
-          tracking-[0.3em]
-          uppercase
-        "
+          className={`mt-6 text-sm tracking-[0.3em] uppercase ${messageClass}`}
         >
           Initializing Premium Experience...
         </motion.p>

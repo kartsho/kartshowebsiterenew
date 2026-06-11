@@ -1,97 +1,97 @@
 {
-  "hash": "ca2c06ed",
+  "hash": "a0624ad7",
   "configHash": "2e527e60",
-  "lockfileHash": "f29e58fc",
-  "browserHash": "07d3997e",
+  "lockfileHash": "fcce994b",
+  "browserHash": "e3c964cf",
   "optimized": {
     "axios": {
       "src": "../../node_modules/axios/index.js",
       "file": "axios.js",
-      "fileHash": "f87e9d57",
+      "fileHash": "2a0b8a3c",
       "needsInterop": false
     },
     "framer-motion": {
       "src": "../../node_modules/framer-motion/dist/es/index.mjs",
       "file": "framer-motion.js",
-      "fileHash": "7b091375",
+      "fileHash": "5f75a273",
       "needsInterop": false
     },
     "gsap": {
       "src": "../../node_modules/gsap/index.js",
       "file": "gsap.js",
-      "fileHash": "08a323d2",
+      "fileHash": "fd3c3795",
       "needsInterop": false
     },
     "jspdf": {
       "src": "../../node_modules/jspdf/dist/jspdf.es.min.js",
       "file": "jspdf.js",
-      "fileHash": "705e7fd7",
+      "fileHash": "0f1d168c",
       "needsInterop": false
     },
     "lucide-react": {
       "src": "../../node_modules/lucide-react/dist/esm/lucide-react.mjs",
       "file": "lucide-react.js",
-      "fileHash": "db15aa22",
+      "fileHash": "8f4a7ce3",
       "needsInterop": false
     },
     "react-countup": {
       "src": "../../node_modules/react-countup/build/index.js",
       "file": "react-countup.js",
-      "fileHash": "00111b44",
+      "fileHash": "71ecaeff",
       "needsInterop": true
     },
     "react-dom": {
       "src": "../../node_modules/react-dom/index.js",
       "file": "react-dom.js",
-      "fileHash": "e281da78",
+      "fileHash": "34cd94bd",
       "needsInterop": true
     },
     "react-dom/client": {
       "src": "../../node_modules/react-dom/client.js",
       "file": "react-dom_client.js",
-      "fileHash": "24819d13",
+      "fileHash": "8f0fdb50",
       "needsInterop": true
     },
     "react-hot-toast": {
       "src": "../../node_modules/react-hot-toast/dist/index.mjs",
       "file": "react-hot-toast.js",
-      "fileHash": "97c34751",
+      "fileHash": "3b7dc093",
       "needsInterop": false
     },
     "react-icons/fa6": {
       "src": "../../node_modules/react-icons/fa6/index.mjs",
       "file": "react-icons_fa6.js",
-      "fileHash": "80f6cd99",
+      "fileHash": "c3d7cd3c",
       "needsInterop": false
     },
     "react-parallax-tilt": {
       "src": "../../node_modules/react-parallax-tilt/dist/modern/index.js",
       "file": "react-parallax-tilt.js",
-      "fileHash": "bf5c6a47",
+      "fileHash": "f628cb05",
       "needsInterop": false
     },
     "react-router-dom": {
       "src": "../../node_modules/react-router-dom/dist/index.mjs",
       "file": "react-router-dom.js",
-      "fileHash": "e0588739",
+      "fileHash": "b8c41af1",
       "needsInterop": false
     },
     "react": {
       "src": "../../node_modules/react/index.js",
       "file": "react.js",
-      "fileHash": "1d8bf9cc",
+      "fileHash": "04e10259",
       "needsInterop": true
     },
     "react/jsx-dev-runtime": {
       "src": "../../node_modules/react/jsx-dev-runtime.js",
       "file": "react_jsx-dev-runtime.js",
-      "fileHash": "50c54dfb",
+      "fileHash": "7cb0943a",
       "needsInterop": true
     },
     "react/jsx-runtime": {
       "src": "../../node_modules/react/jsx-runtime.js",
       "file": "react_jsx-runtime.js",
-      "fileHash": "62a0d810",
+      "fileHash": "40161bfd",
       "needsInterop": true
     }
   },
