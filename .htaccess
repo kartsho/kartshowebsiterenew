@@ -1,0 +1,15 @@
+Options -MultiViews
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
+
+  RewriteRule ^api(?:/|$) - [L]
+  RewriteRule ^uploads(?:/|$) - [L]
+  RewriteRule ^dist(?:/|$) - [L]
+
+  RewriteRule ^(.+\.(?:css|js|mjs|png|jpe?g|gif|svg|ico|webp|json|pdf|txt|woff2?|ttf|map))$ dist/$1 [L]
+
+  RewriteRule ^$ dist/index.html [L]
+  RewriteRule ^ dist/index.html [L]
+</IfModule>
