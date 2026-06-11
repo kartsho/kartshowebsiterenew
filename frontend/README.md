@@ -1,8 +1,8 @@
 # Kartsho Frontend
 
-Legacy mirror of the Kartsho frontend.
+Edit this `frontend/` tree for application changes.
 
-Use the repository root for builds and deployments.
+The repository root build syncs this folder into the deployable app before generating `dist/`.
 
 ## Development
 
@@ -11,8 +11,8 @@ Use the repository root for builds and deployments.
 
 ## Production
 
-- `npm run build`
-- Deploy the generated `dist/` folder
+- `npm run build` from the repository root
+- Deploy the generated root `dist/` folder
 - Prefer the repository root `package.json` for production deployment.
 
 ## Deployment Notes
@@ -22,6 +22,7 @@ Use the repository root for builds and deployments.
 - The app uses SPA routing, so the deployed server must rewrite all routes to `index.html`.
 - API requests must be excluded from the SPA rewrite. `/api/*` should reach the backend, not `index.html`.
 - Static assets like `noise.svg`, PDFs, and the favicon are now base-aware so they work under live hosting too.
+- If you see a `frontend/` build path in logs, switch it back to the repository root. The root build is the deploy step, and it syncs this folder automatically first.
 
 ## Recent Fixes
 

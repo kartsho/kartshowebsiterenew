@@ -5,7 +5,9 @@
   "type": "module",
   "description": "Primary Kartsho frontend. Build and deploy from the repository root.",
   "scripts": {
+    "predev": "node scripts/sync-frontend.mjs",
     "dev": "vite",
+    "prebuild": "node scripts/sync-frontend.mjs",
     "build": "vite build",
     "build:hostinger": "npm run build",
     "deploy": "npm run build",

@@ -24,7 +24,7 @@ import {
 } from "lucide-react";
 
 import { useTheme } from "../../../context/ThemeContext";
-import API_URL from "../../../constants/api";
+import API_URL from "../../../config/api";
 
 /* =========================================================
    JOB DATA
@@ -44,10 +44,10 @@ const jobs = [
       "Client Acquisition",
       "Digital Marketing Sales",
       "Lead Generation",
-      "Negotiation",
+      "Negotiation"
     ],
     description:
-      "Drive growth and expand Kartsho's digital footprint. You will be at the forefront of client acquisition, representing our innovative portfolio of digital marketing, legal tech, and educational solutions while earning performance-based incentives.",
+      "Drive growth and expand Kartsho's digital footprint. You will be at the forefront of client acquisition, representing our innovative portfolio of digital marketing, legal tech, and educational solutions while earning performance-based incentives."
   },
   {
     id: 2,
@@ -62,10 +62,10 @@ const jobs = [
       "React",
       "Node.js",
       "Database Architecture",
-      "Full Stack Web",
+      "Full Stack Web"
     ],
     description:
-      "Join our core product team to build and scale end-to-end web applications. You will take ownership of features from database architecture to user interface, driving innovation across Kartsho's tech ecosystem.",
+      "Join our core product team to build and scale end-to-end web applications. You will take ownership of features from database architecture to user interface, driving innovation across Kartsho's tech ecosystem."
   },
   {
     id: 3,
@@ -76,9 +76,14 @@ const jobs = [
     salary: "Unpaid / Stipend (Performance Based)",
     experience: "0+ Years (Freshers)",
     posted: "2 days ago",
-    tech: ["Node.js", "Python", "APIs", "Database Management"],
+    tech: [
+      "Node.js",
+      "Python",
+      "APIs",
+      "Database Management"
+    ],
     description:
-      "Join our core tech team to architect and build scalable backend systems that power Kartsho’s digital ventures. You'll work on robust APIs, database structures, and high-performance server logic.",
+      "Join our core tech team to architect and build scalable backend systems that power Kartsho’s digital ventures. You'll work on robust APIs, database structures, and high-performance server logic."
   },
   {
     id: 4,
@@ -93,10 +98,10 @@ const jobs = [
       "Flutter",
       "React Native",
       "iOS Development",
-      "Android Development",
+      "Android Development"
     ],
     description:
-      "Dive into the world of mobile engineering. You will help build seamless, cross-platform mobile applications for iOS and Android using modern frameworks like Flutter and React Native.",
+      "Dive into the world of mobile engineering. You will help build seamless, cross-platform mobile applications for iOS and Android using modern frameworks like Flutter and React Native."
   },
   {
     id: 5,
@@ -111,11 +116,11 @@ const jobs = [
       "Figma",
       "Photoshop",
       "Premium Branding",
-      "Social Media Creatives",
+      "Social Media Creatives"
     ],
     description:
-      "Apply for Graphic Design Internship at Kartsho Ecosystem. Work on premium branding, social media creatives, and digital assets under expert mentorship.",
-  },
+      "Apply for Graphic Design Internship at Kartsho Ecosystem. Work on premium branding, social media creatives, and digital assets under expert mentorship."
+  }
 ];
 
 const emptyFormData = {
@@ -133,19 +138,40 @@ const emptyFormData = {
 const OpenPositions = () => {
   const { isDark } = useTheme();
 
-  const [activeId, setActiveId] = useState(null);
-  const [bookmarks, setBookmarks] = useState([]);
-  const [filters, setFilters] = useState({
-    department: "All",
-    mode: "All",
-    experience: "All",
-  });
-  const [openModal, setOpenModal] = useState(false);
-  const [selectedJob, setSelectedJob] = useState(null);
-  const [loading, setLoading] = useState(false);
-  const [formData, setFormData] = useState(emptyFormData);
-  const [resume, setResume] = useState(null);
-  const [toast, setToast] = useState(null);
+  /* =========================================================
+     STATES
+  ========================================================= */
+
+  const [activeId, setActiveId] =
+    useState(null);
+
+  const [bookmarks, setBookmarks] =
+    useState([]);
+
+  const [filters, setFilters] =
+    useState({
+      department: "All",
+      mode: "All",
+      experience: "All",
+    });
+
+  const [openModal, setOpenModal] =
+    useState(false);
+
+  const [selectedJob, setSelectedJob] =
+    useState(null);
+
+  const [loading, setLoading] =
+    useState(false);
+
+  const [formData, setFormData] =
+    useState(emptyFormData);
+
+  const [resume, setResume] =
+    useState(null);
+
+  const [toast, setToast] =
+    useState(null);
 
   const selectClass =
     "px-5 py-4 rounded-2xl border border-[color:var(--border)] bg-[color:var(--surface)] text-sm font-medium text-[color:var(--text-primary)] outline-none backdrop-blur-xl transition focus:border-cyan-400/60";
@@ -177,22 +203,38 @@ const OpenPositions = () => {
     return () => clearTimeout(timer);
   }, [toast]);
 
+  /* =========================================================
+     FILTER
+  ========================================================= */
+
   const filteredJobs = useMemo(() => {
     return jobs.filter((job) => {
       const departmentMatch =
         filters.department === "All" ||
-        job.department === filters.department;
+        job.department ===
+          filters.department;
 
       const modeMatch =
-        filters.mode === "All" || job.mode === filters.mode;
+        filters.mode === "All" ||
+        job.mode === filters.mode;
 
       const experienceMatch =
         filters.experience === "All" ||
-        job.experience.includes(filters.experience);
+        job.experience.includes(
+          filters.experience
+        );
 
-      return departmentMatch && modeMatch && experienceMatch;
+      return (
+        departmentMatch &&
+        modeMatch &&
+        experienceMatch
+      );
     });
   }, [filters]);
+
+  /* =========================================================
+     BOOKMARK
+  ========================================================= */
 
   const handleBookmark = (id) => {
     setBookmarks((prev) =>
@@ -234,11 +276,26 @@ const OpenPositions = () => {
 
       const data = new FormData();
 
-      data.append("fullName", formData.fullName.trim());
-      data.append("email", formData.email.trim());
-      data.append("phone", formData.phone.trim());
-      data.append("course", formData.course.trim());
-      data.append("branch", formData.branch.trim());
+      data.append(
+        "fullName",
+        formData.fullName.trim()
+      );
+      data.append(
+        "email",
+        formData.email.trim()
+      );
+      data.append(
+        "phone",
+        formData.phone.trim()
+      );
+      data.append(
+        "course",
+        formData.course.trim()
+      );
+      data.append(
+        "branch",
+        formData.branch.trim()
+      );
       data.append("role", selectedJob.role);
 
       if (resume) {
@@ -268,7 +325,10 @@ const OpenPositions = () => {
       setResume(null);
     } catch (error) {
       console.error("API Error:", error);
-      console.error("Response:", error.response?.data);
+      console.error(
+        "Response:",
+        error.response?.data
+      );
 
       setToast({
         type: "error",
@@ -314,6 +374,10 @@ const OpenPositions = () => {
       py-32
     "
     >
+      {/* =========================================================
+          GRID
+      ========================================================= */}
+
       <div
         className="
         absolute
@@ -327,6 +391,10 @@ const OpenPositions = () => {
         [background-size:80px_80px]
       "
       />
+
+      {/* =========================================================
+          BLUR
+      ========================================================= */}
 
       <div
         className="
@@ -345,6 +413,10 @@ const OpenPositions = () => {
       "
       />
 
+      {/* =========================================================
+          CONTAINER
+      ========================================================= */}
+
       <div
         className="
         relative
@@ -356,6 +428,10 @@ const OpenPositions = () => {
         px-6
       "
       >
+        {/* =========================================================
+            TOP CONTENT
+        ========================================================= */}
+
         <div
           className="
           flex
@@ -368,7 +444,11 @@ const OpenPositions = () => {
           gap-10
         "
         >
+          {/* LEFT */}
+
           <div className="max-w-3xl">
+            {/* TAG */}
+
             <div
               className="
               inline-flex
@@ -398,6 +478,8 @@ const OpenPositions = () => {
               Join Our Team
             </div>
 
+            {/* HEADING */}
+
             <h2
               className="
               text-5xl
@@ -426,6 +508,8 @@ const OpenPositions = () => {
               </span>
             </h2>
 
+            {/* DESC */}
+
             <p
               className="
               mt-8
@@ -436,9 +520,14 @@ const OpenPositions = () => {
               text-[color:var(--text-secondary)]
             "
             >
-              Work with elite engineers, designers, and AI specialists building next-generation digital systems worldwide.
+              Work with elite engineers,
+              designers, and AI specialists
+              building next-generation
+              digital systems worldwide.
             </p>
           </div>
+
+          {/* RIGHT */}
 
           <div
             className="
@@ -448,22 +537,28 @@ const OpenPositions = () => {
             gap-4
           "
           >
+            {/* FILTER */}
+
             <select
               onChange={(e) =>
                 setFilters({
                   ...filters,
-                  department: e.target.value,
+                  department:
+                    e.target.value,
                 })
               }
               className={selectClass}
             >
               <option>All</option>
-              <option>Sales & Growth</option>
-              <option>Engineering / Tech</option>
               <option>Engineering</option>
-              <option>Mobile Engineering</option>
+              <option>AI</option>
               <option>Design</option>
+              <option>
+                Infrastructure
+              </option>
             </select>
+
+            {/* MODE */}
 
             <select
               onChange={(e) =>
@@ -479,22 +574,30 @@ const OpenPositions = () => {
               <option>Hybrid</option>
             </select>
 
+            {/* EXPERIENCE */}
+
             <select
               onChange={(e) =>
                 setFilters({
                   ...filters,
-                  experience: e.target.value,
+                  experience:
+                    e.target.value,
                 })
               }
               className={selectClass}
             >
               <option>All</option>
-              <option>0+</option>
-              <option>Freshers</option>
-              <option>Experienced</option>
+              <option>3+</option>
+              <option>4+</option>
+              <option>5+</option>
             </select>
+
           </div>
         </div>
+
+        {/* =========================================================
+            JOB GRID
+        ========================================================= */}
 
         <div
           className="
@@ -546,6 +649,10 @@ const OpenPositions = () => {
               duration-500
             "
             >
+              {/* =========================================================
+                  GLOW
+              ========================================================= */}
+
               <div
                 className="
                 absolute
@@ -561,6 +668,10 @@ const OpenPositions = () => {
                 group-hover:opacity-100
               "
               />
+
+              {/* =========================================================
+                  BORDER GLOW
+              ========================================================= */}
 
               <div
                 className="
@@ -580,6 +691,10 @@ const OpenPositions = () => {
               "
               />
 
+              {/* =========================================================
+                  CONTENT
+              ========================================================= */}
+
               <div
                 className="
                 relative
@@ -588,6 +703,8 @@ const OpenPositions = () => {
                 p-8
               "
               >
+                {/* TOP */}
+
                 <div
                   className="
                   flex
@@ -597,20 +714,26 @@ const OpenPositions = () => {
                   gap-5
                 "
                 >
+                  {/* LEFT */}
+
                   <div>
-                    <h3
-                      className="
+                    {/* ROLE */}
+
+                  <h3
+                    className="
                       text-3xl
                       font-bold
 
                       text-[color:var(--text-primary)]
                     "
-                    >
+                  >
                       {job.role}
                     </h3>
 
+                    {/* DEPARTMENT */}
+
                     <div
-                      className="
+                    className="
                       mt-4
 
                       inline-flex
@@ -625,7 +748,6 @@ const OpenPositions = () => {
                       bg-cyan-500/10
 
                       text-cyan-700
-                      [data-theme=dark]:text-cyan-200
                       text-sm
                       font-semibold
                     "
@@ -636,8 +758,14 @@ const OpenPositions = () => {
                     </div>
                   </div>
 
+                  {/* BOOKMARK */}
+
                   <button
-                    onClick={() => handleBookmark(job.id)}
+                    onClick={() =>
+                      handleBookmark(
+                        job.id
+                      )
+                    }
                     className={`
                       w-12
                       h-12
@@ -652,8 +780,10 @@ const OpenPositions = () => {
                       duration-300
 
                       ${
-                        bookmarks.includes(job.id)
-                          ? `
+                        bookmarks.includes(
+                          job.id
+                        )
+                      ? `
                             bg-cyan-500
                             text-white
                           `
@@ -664,9 +794,15 @@ const OpenPositions = () => {
                       }
                     `}
                   >
-                    <Bookmark size={20} />
+                    <Bookmark
+                      size={20}
+                    />
                   </button>
                 </div>
+
+                {/* =========================================================
+                    INFO
+                ========================================================= */}
 
                 <div
                   className="
@@ -678,26 +814,54 @@ const OpenPositions = () => {
                   gap-4
                 "
                 >
-                  <div className={pillClass}>
+                  {/* LOCATION */}
+
+                  <div
+                    className={pillClass}
+                  >
                     <MapPin size={16} />
+
                     {job.location}
                   </div>
 
-                  <div className={pillClass}>
+                  {/* MODE */}
+
+                  <div
+                    className={pillClass}
+                  >
                     <Laptop size={16} />
+
                     {job.mode}
                   </div>
 
-                  <div className={pillClass}>
-                    <DollarSign size={16} />
+                  {/* SALARY */}
+
+                  <div
+                    className={pillClass}
+                  >
+                    <DollarSign
+                      size={16}
+                    />
+
                     {job.salary}
                   </div>
 
-                  <div className={pillClass}>
-                    <BriefcaseBusiness size={16} />
+                  {/* EXPERIENCE */}
+
+                  <div
+                    className={pillClass}
+                  >
+                    <BriefcaseBusiness
+                      size={16}
+                    />
+
                     {job.experience}
                   </div>
                 </div>
+
+                {/* =========================================================
+                    TECH STACK
+                ========================================================= */}
 
                 <div
                   className="
@@ -709,31 +873,40 @@ const OpenPositions = () => {
                   gap-3
                 "
                 >
-                  {job.tech.map((tech, techIndex) => (
-                    <div
-                      key={techIndex}
-                      className="
-                      px-4
-                      py-2
+                  {job.tech.map(
+                    (
+                      tech,
+                      techIndex
+                    ) => (
+                      <div
+                        key={techIndex}
+                        className="
+                        px-4
+                        py-2
 
-                      rounded-full
+                        rounded-full
 
-                      border
-                      border-cyan-500/10
+                        border
+                        border-cyan-500/10
 
-                      bg-cyan-500/5
+                        bg-cyan-500/5
 
-                      text-sm
-                      font-medium
+                        text-sm
+                        font-medium
 
-                      text-cyan-700
-                      [data-theme=dark]:text-cyan-200
-                    "
-                    >
-                      {tech}
-                    </div>
-                  ))}
+                        text-cyan-700
+                        [data-theme=dark]:text-cyan-200
+                      "
+                      >
+                        {tech}
+                      </div>
+                    )
+                  )}
                 </div>
+
+                {/* =========================================================
+                    FOOTER
+                ========================================================= */}
 
                 <div
                   className="
@@ -749,6 +922,8 @@ const OpenPositions = () => {
                   gap-6
                 "
                 >
+                  {/* POSTED */}
+
                   <div
                     className="
                     flex
@@ -759,9 +934,14 @@ const OpenPositions = () => {
                     text-[color:var(--text-muted)]
                   "
                   >
-                    <Clock3 size={16} />
+                    <Clock3
+                      size={16}
+                    />
+
                     Posted {job.posted}
                   </div>
+
+                  {/* BUTTONS */}
 
                   <div
                     className="
@@ -771,10 +951,15 @@ const OpenPositions = () => {
                     gap-4
                   "
                   >
+                    {/* DETAILS */}
+
                     <button
                       onClick={() =>
                         setActiveId(
-                          activeId === job.id ? null : job.id
+                          activeId ===
+                            job.id
+                            ? null
+                            : job.id
                         )
                       }
                       className="
@@ -803,15 +988,25 @@ const OpenPositions = () => {
 
                       <motion.div
                         animate={{
-                          rotate: activeId === job.id ? 180 : 0,
+                          rotate:
+                            activeId ===
+                            job.id
+                              ? 180
+                              : 0,
                         }}
                       >
-                        <ChevronDown size={18} />
+                        <ChevronDown
+                          size={18}
+                        />
                       </motion.div>
                     </button>
 
+                    {/* APPLY */}
+
                     <button
-                      onClick={() => handleOpenApply(job)}
+                      onClick={() =>
+                        handleOpenApply(job)
+                      }
                       className="
                       group
 
@@ -833,15 +1028,20 @@ const OpenPositions = () => {
 
                       transition-all
                       duration-300
-                    "
+                      "
                     >
                       Apply
                     </button>
                   </div>
                 </div>
 
+                {/* =========================================================
+                    EXPANDABLE DETAILS
+                ========================================================= */}
+
                 <AnimatePresence>
-                  {activeId === job.id && (
+                  {activeId ===
+                    job.id && (
                     <motion.div
                       initial={{
                         opacity: 0,
@@ -877,8 +1077,12 @@ const OpenPositions = () => {
                           leading-relaxed
                         "
                         >
-                          {job.description}
+                          {
+                            job.description
+                          }
                         </p>
+
+                        {/* EXTRA */}
 
                         <div
                           className="
@@ -891,7 +1095,7 @@ const OpenPositions = () => {
                         "
                         >
                           <div
-                            className="
+                          className="
                             px-4
                             py-2
 
@@ -909,7 +1113,7 @@ const OpenPositions = () => {
                           </div>
 
                           <div
-                            className="
+                          className="
                             px-4
                             py-2
 
@@ -927,7 +1131,7 @@ const OpenPositions = () => {
                           </div>
 
                           <div
-                            className="
+                          className="
                             px-4
                             py-2
 
@@ -993,9 +1197,15 @@ const OpenPositions = () => {
           >
             <div className="flex items-start gap-3">
               {toast.type === "success" ? (
-                <CheckCircle2 className="mt-0.5" size={20} />
+                <CheckCircle2
+                  className="mt-0.5"
+                  size={20}
+                />
               ) : (
-                <AlertCircle className="mt-0.5" size={20} />
+                <AlertCircle
+                  className="mt-0.5"
+                  size={20}
+                />
               )}
 
               <div className="flex-1">
@@ -1013,7 +1223,7 @@ const OpenPositions = () => {
               <button
                 type="button"
                 onClick={() => setToast(null)}
-                className="rounded-full p-1 transition hover:bg-black/5 dark:hover:bg-white/10"
+                className="rounded-full p-1 transition hover:bg-black/5 [data-theme=dark]:hover:bg-white/10"
                 aria-label="Close notification"
               >
                 <X size={16} />
@@ -1030,7 +1240,7 @@ const OpenPositions = () => {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={handleCloseModal}
-            className="
+              className="
               fixed
               inset-0
               z-[9999]
@@ -1202,7 +1412,7 @@ const OpenPositions = () => {
                     type="button"
                     onClick={handleCloseModal}
                     disabled={loading}
-                    className="rounded-2xl border border-[color:var(--border)] bg-[color:var(--surface-strong)] px-6 py-3 font-semibold text-[color:var(--text-primary)] transition hover:bg-black/[0.03] dark:hover:bg-white/[0.06] disabled:cursor-not-allowed disabled:opacity-60"
+                    className="rounded-2xl border border-[color:var(--border)] bg-[color:var(--surface-strong)] px-6 py-3 font-semibold text-[color:var(--text-primary)] transition hover:bg-black/[0.03] [data-theme=dark]:hover:bg-white/[0.06] disabled:cursor-not-allowed disabled:opacity-60"
                   >
                     Cancel
                   </button>
@@ -1214,7 +1424,10 @@ const OpenPositions = () => {
                   >
                     {loading ? (
                       <>
-                        <Loader2 size={18} className="animate-spin" />
+                        <Loader2
+                          size={18}
+                          className="animate-spin"
+                        />
                         Submitting...
                       </>
                     ) : (

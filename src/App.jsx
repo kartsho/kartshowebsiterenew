@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState, useEffect } from "react";
 
 import CursorGlow from "./components/common/CursorGlow";
 import NoiseBackground from "./components/common/NoiseBackground";
@@ -10,6 +10,8 @@ import AppRoutes from "./routes/AppRoutes";
 
 import { ThemeProvider } from "./context/ThemeContext";
 import { Toaster } from "react-hot-toast";
+
+/* ================= LOADER ================= */
 
 import PremiumLoader from "./components/loader/premimumLoader";
 
@@ -26,15 +28,24 @@ const App = () => {
 
   return (
     <ThemeProvider>
+      {/* ================= PREMIUM LOADER ================= */}
+
       {loading && <PremiumLoader />}
+
+      {/* ================= WEBSITE ================= */}
 
       {!loading && (
         <>
           <CursorGlow />
+
           <NoiseBackground />
+
           <Navbar />
+
           <AppRoutes />
+
           <Footer />
+
           <Toaster position="top-right" />
         </>
       )}

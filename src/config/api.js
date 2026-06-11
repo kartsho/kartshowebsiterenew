@@ -4,5 +4,4 @@ const API_URL = (
     ? "https://backend.kartsho.com"
     : "http://localhost:5000")
 ).replace(/\/$/, "");
-
 export default API_URL;
