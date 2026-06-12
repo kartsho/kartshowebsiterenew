@@ -4,10 +4,10 @@ React + Vite frontend for the Kartsho site.
 
 ## Source Of Truth
 
-- Deploy from the repository root.
-- Use the root [`package.json`](./package.json), not `frontend/package.json`, for production builds.
-- `npm run build` now syncs `frontend/` into the root app before building, so edits in `frontend/src` and `frontend/public` are what Hostinger deploys.
-- The root `dist/` folder is the deployment artifact.
+- Edit the app inside `src/` and `public/`.
+- Run `npm run dev` or `npm run build` from the repository root.
+- The root Vite config now reads the root app directly, so HMR and production builds read the same files.
+- After build, `dist/` is copied into the repository root for Hostinger-style root deployments.
 
 ## Development
 
@@ -17,17 +17,16 @@ React + Vite frontend for the Kartsho site.
 ## Production
 
 - `npm run build`
-- Build output is copied into the repository root automatically after every build.
+- Build output is written to the repository root `dist/` folder and then published to the repository root.
 - On Hostinger, keep the app rooted at `./` and publish the repository root.
 
 ## Deployment Notes
 
 - Live layout and asset-path fixes were published in commit `6fee29d`.
 - Hostinger needs the built output, not just the source files.
-- The build now publishes `dist/` contents into the repository root so `./` deployments always show the latest site.
 - The app uses SPA routing, so the deployed server must rewrite all routes to `index.html`.
 - Static assets like `noise.svg`, PDFs, and the favicon are now base-aware so they work under live hosting too.
-- If you see a `frontend/` build path in logs, switch it back to the repository root. The root build is the deploy step, and it syncs `frontend/` automatically first.
+- If you see a `frontend/` build path in logs, switch it back to the repository root. The root app is the live source tree now.
 
 ## Recent Fixes
 

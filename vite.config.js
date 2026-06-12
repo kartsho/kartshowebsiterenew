@@ -12,7 +12,6 @@ try {
 }
 
 export default defineConfig({
-  envDir: "frontend",
   cacheDir: ".vite-cache",
   resolve: {
     alias: {
