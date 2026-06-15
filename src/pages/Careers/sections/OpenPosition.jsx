@@ -131,6 +131,14 @@ const emptyFormData = {
   branch: "",
 };
 
+const MAX_RESUME_SIZE = 5 * 1024 * 1024;
+const CAREERS_APPLY_URL = `${API_URL}/api/careers/apply`;
+
+const isValidEmail = (value) =>
+  /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
+
+const normalizePhone = (value) => value.replace(/\D/g, "");
+
 /* =========================================================
    COMPONENT
 ========================================================= */
@@ -180,7 +188,7 @@ const OpenPositions = () => {
     "flex items-center gap-2 px-4 py-3 rounded-2xl bg-[color:var(--surface-strong)] text-sm text-[color:var(--text-secondary)]";
 
   const inputClass =
-    "w-full rounded-2xl border border-[color:var(--border)] bg-[color:var(--surface-strong)] px-4 py-4 text-[color:var(--text-primary)] outline-none transition placeholder:text-[color:var(--text-muted)] focus:border-cyan-400 focus:bg-[color:var(--surface)]";
+    "w-full rounded-2xl border border-[color:var(--border)] bg-[color:var(--surface-strong)] px-4 py-4 text-[color:var(--text-primary)] outline-none transition placeholder:text-[color:var(--text-muted)] focus:border-cyan-400 focus:bg-[color:var(--surface)] disabled:cursor-not-allowed disabled:opacity-60";
 
   const toastClass =
     toast?.type === "success"
@@ -263,10 +271,54 @@ const OpenPositions = () => {
     setResume(null);
   };
 
+  const validateForm = () => {
+    const fullName = formData.fullName.trim();
+    const email = formData.email.trim();
+    const phone = normalizePhone(formData.phone.trim());
+    const course = formData.course.trim();
+    const branch = formData.branch.trim();
+
+    if (!fullName) {
+      return "Full Name is required.";
+    }
+
+    if (!isValidEmail(email)) {
+      return "Please enter a valid email address.";
+    }
+
+    if (phone.length < 10) {
+      return "Phone number must have at least 10 digits.";
+    }
+
+    if (!course) {
+      return "Course is required.";
+    }
+
+    if (!branch) {
+      return "Branch is required.";
+    }
+
+    if (!resume) {
+      return "Resume is required.";
+    }
+
+    return null;
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     if (!selectedJob) {
+      return;
+    }
+
+    const validationError = validateForm();
+
+    if (validationError) {
+      setToast({
+        type: "error",
+        message: validationError,
+      });
       return;
     }
 
@@ -302,15 +354,19 @@ const OpenPositions = () => {
         data.append("resume", resume);
       }
 
-      const response = await axios.post(
-        `${API_URL}/api/careers/apply`,
-        data,
-        {
-          headers: {
-            "Content-Type": "multipart/form-data",
-          },
-        }
-      );
+      console.log("Submitting Form...");
+      console.log(formData);
+      console.log(resume);
+      console.log("Request URL:", CAREERS_APPLY_URL);
+
+      const response = await axios.post(CAREERS_APPLY_URL, data, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+      });
+
+      console.log("Application Submitted");
+      console.log(response.data);
 
       setToast({
         type: "success",
@@ -325,10 +381,11 @@ const OpenPositions = () => {
       setResume(null);
     } catch (error) {
       console.error("API Error:", error);
-      console.error(
-        "Response:",
-        error.response?.data
-      );
+      console.log("Request URL:", CAREERS_APPLY_URL);
+      console.log("Response:", error.response);
+      console.log("Data:", error.response?.data);
+      console.log("Status:", error.response?.status);
+      console.log("Message:", error.message);
 
       setToast({
         type: "error",
@@ -354,6 +411,16 @@ const OpenPositions = () => {
       setToast({
         type: "error",
         message: "Please upload a PDF resume only.",
+      });
+      e.target.value = "";
+      setResume(null);
+      return;
+    }
+
+    if (file.size > MAX_RESUME_SIZE) {
+      setToast({
+        type: "error",
+        message: "Resume must be 5 MB or smaller.",
       });
       e.target.value = "";
       setResume(null);
@@ -1296,10 +1363,10 @@ const OpenPositions = () => {
                     </h2>
                   </div>
 
-                  <button
-                    type="button"
-                    onClick={handleCloseModal}
-                    disabled={loading}
+            <button
+                  type="button"
+                  onClick={handleCloseModal}
+                  disabled={loading}
                     className="rounded-full bg-white/15 p-2 transition hover:bg-white/25 disabled:cursor-not-allowed disabled:opacity-60"
                     aria-label="Close modal"
                   >
@@ -1318,6 +1385,7 @@ const OpenPositions = () => {
                     required
                     placeholder="Full Name"
                     className={inputClass}
+                    disabled={loading}
                     value={formData.fullName}
                     onChange={(e) =>
                       setFormData({
@@ -1332,6 +1400,7 @@ const OpenPositions = () => {
                     required
                     placeholder="Email"
                     className={inputClass}
+                    disabled={loading}
                     value={formData.email}
                     onChange={(e) =>
                       setFormData({
@@ -1346,6 +1415,7 @@ const OpenPositions = () => {
                     required
                     placeholder="Phone Number"
                     className={inputClass}
+                    disabled={loading}
                     value={formData.phone}
                     onChange={(e) =>
                       setFormData({
@@ -1360,6 +1430,7 @@ const OpenPositions = () => {
                     required
                     placeholder="Course"
                     className={inputClass}
+                    disabled={loading}
                     value={formData.course}
                     onChange={(e) =>
                       setFormData({
@@ -1375,6 +1446,7 @@ const OpenPositions = () => {
                   required
                   placeholder="Branch"
                   className={inputClass}
+                  disabled={loading}
                   value={formData.branch}
                   onChange={(e) =>
                     setFormData({
@@ -1393,7 +1465,8 @@ const OpenPositions = () => {
                     type="file"
                     accept=".pdf,application/pdf"
                     required
-                    className="block w-full cursor-pointer rounded-xl border border-[color:var(--border)] bg-[color:var(--surface)] px-4 py-3 text-sm text-[color:var(--text-secondary)] file:mr-4 file:rounded-full file:border-0 file:bg-cyan-500 file:px-4 file:py-2 file:text-sm file:font-semibold file:text-white hover:file:bg-cyan-600"
+                    disabled={loading}
+                    className="block w-full cursor-pointer rounded-xl border border-[color:var(--border)] bg-[color:var(--surface)] px-4 py-3 text-sm text-[color:var(--text-secondary)] file:mr-4 file:rounded-full file:border-0 file:bg-cyan-500 file:px-4 file:py-2 file:text-sm file:font-semibold file:text-white hover:file:bg-cyan-600 disabled:cursor-not-allowed disabled:opacity-60"
                     onChange={handleResumeChange}
                   />
 
